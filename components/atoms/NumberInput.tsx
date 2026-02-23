@@ -25,9 +25,9 @@ export default function NumberInput({
             onChange={(e) => onChange(Number(e.target.value))}
             style={{
                 width: 48,
-                background: "#fff",
-                color: "#111",
-                border: "1px solid #999",
+                background: "#374151",
+                color: "#fff",
+                border: "1px solid #374151",
                 borderRadius: 2,
                 textAlign: "right",
                 fontWeight: 600,

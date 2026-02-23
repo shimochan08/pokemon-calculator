@@ -1,0 +1,67 @@
+:root {
+  --header-height: 54px;
+  --layout-transition: 0.3s ease-in-out;
+}
+
+.app-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.app-header {
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 1000;
+  background: #111827;
+  border-bottom: 1px solid #1f2937;
+}
+
+.app-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 200px;
+  height: calc(100% - var(--header-height));
+  background: #111827;
+  border-right: 1px solid #1f2937;
+  transition: var(--layout-transition);
+  flex-shrink: 0;
+}
+
+.app-main {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  transition: var(--layout-transition);
+  background: #182230;
+}
+/* ===== Nav Item ===== */
+
+.app-nav-item {
+  color: #d1d5db;
+  cursor: pointer;
+  transition: var(--layout-transition);
+}
+
+.app-nav-item:hover {
+  background: #1f2937;
+}
+
+.app-nav-link {
+  display: block;
+  padding: 12px;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+}

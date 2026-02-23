@@ -1,21 +1,20 @@
+import { fetchPokemon } from "@/api/pokemonApi";
+import { PokemonDTO } from "@/types/dto/PokemonDTO";
 import { useState, useEffect } from "react";
 
 export function usePokemon(name: string) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const [pokemon, setPokemon] = useState<any>(null);
+    const [pokemon, setPokemon] = useState<PokemonDTO | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         if (!name) return;
 
-        const fetchPokemon = async () => {
+        const load = async () => {
             setLoading(true);
             setError(null);
             try {
-                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
-                if (!res.ok) throw new Error("ポケモンが見つかりません");
-                const data = await res.json();
+                const data = await fetchPokemon(name);
                 setPokemon(data);
             } catch (err: unknown) {
                 setError((err as Error).message);
@@ -25,7 +24,7 @@ export function usePokemon(name: string) {
             }
         };
 
-        fetchPokemon();
+        load();
     }, [name]);
 
     return { pokemon, loading, error };

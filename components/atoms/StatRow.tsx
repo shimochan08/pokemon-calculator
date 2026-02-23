@@ -1,18 +1,19 @@
 "use client";
 
 import { STAT_LABEL } from "@/lib/data/statLabel";
-import NumberInput from "../atoms/NumberInput";
-import RangeSlider from "../atoms/RangeSlider";
+import NumberInput from "./NumberInput";
+import RangeSlider from "./RangeSlider";
 import { calculateStat } from "@/lib/data/calculateStat";
-
 
 type Props = {
     name: string;
     base: number;
     iv: number;
     ev: number;
+    totalEv: number;
+    remainingEv: number;
     onIvChange: (v: number) => void;
-    onEvChange: (v: number) => void;
+    onEvChange: (name: string, oldEv: number, newEv: number) => void;
 };
 
 export default function StatRow({
@@ -20,9 +21,12 @@ export default function StatRow({
     base,
     iv,
     ev,
+    totalEv,
+    remainingEv,
     onIvChange,
     onEvChange,
 }: Props) {
+
     return (
         <div
             style={{
@@ -33,13 +37,33 @@ export default function StatRow({
                 marginBottom: 10,
             }}
         >
+            {/* ステータス名 */}
             <strong>{STAT_LABEL[name] ?? name}</strong>
 
-            <NumberInput value={ev} min={0} max={252} step={4} onChange={onEvChange} />
-            <RangeSlider value={ev} min={0} max={252} step={4} onChange={onEvChange} />
+            {/* EV 数値入力 */}
+            <NumberInput
+                value={ev}
+                min={0}
+                max={ev + remainingEv}
+                step={4}
+                onChange={(v) => onEvChange(name, ev, v)}
+            />
 
-            <NumberInput value={iv} min={0} max={31} onChange={onIvChange} />
+            {/* EV スライダー */}
+            <RangeSlider
+                value={ev}
+                onChange={(v) => onEvChange(name, ev, v)}
+            />
 
+            {/* IV 入力 */}
+            <NumberInput
+                value={iv}
+                min={0}
+                max={31}
+                onChange={onIvChange}
+            />
+
+            {/* 計算結果 */}
             <div style={{ textAlign: "right" }}>
                 {calculateStat({
                     base,

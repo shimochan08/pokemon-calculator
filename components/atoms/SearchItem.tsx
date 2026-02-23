@@ -10,14 +10,14 @@ export type SearchItem = {
     japanese: string;
 };
 
-type Props = {
+type SearchBarProps = {
     items: readonly SearchItem[];
     onSelect?: (item: SearchItem) => void;
 };
 
-export default function SearchBar({ items, onSelect }: Props) {
+export default function SearchBar({ items, onSelect }: SearchBarProps) {
     const [query, setQuery] = useState("");
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(-1);
 
 
@@ -28,18 +28,18 @@ export default function SearchBar({ items, onSelect }: Props) {
 
     return (
         <div className="relative w-full max-w-md">
-            <div className="flex items-center gap-2 rounded-xl border px-3 py-2 shadow-sm">
-                <HiMenu className="text-gray-500" />
+            <div className="flex items-center gap-2 rounded-xl  px-3 py-2 ">
+                {isOpen && <HiMenu className={`text-gray-500 ${isOpen ? 'hidden' : 'block'}`} />}
                 <input
                     type="text"
                     value={query}
                     onChange={(e) => {
                         setQuery(e.target.value);
-                        setOpen(true);
+                        setIsOpen(true);
                         setActiveIndex(-1);
                     }}
                     onKeyDown={(e) => {
-                        if (!open || results.length === 0) return;
+                        if (!isOpen || results.length === 0) return;
 
                         if (e.key === "ArrowDown") {
                             e.preventDefault();
@@ -59,8 +59,8 @@ export default function SearchBar({ items, onSelect }: Props) {
                             e.preventDefault();
                             const item = results[activeIndex];
                             onSelect?.(item);
-                            setQuery(item.japanese);
-                            setOpen(false);
+                            setQuery("");
+                            setIsOpen(false);
                             setActiveIndex(-1);
                         }
                     }}
@@ -69,15 +69,15 @@ export default function SearchBar({ items, onSelect }: Props) {
                     style={{
                         width: "100%",
                         padding: "8px 10px",
-                        background: "#fff",
-                        color: "#111",
+                        background: "#182230",
+                        color: "#ffffffff",
                         fontSize: 14,
                     }}
                 />
             </div>
 
-            {open && results.length > 0 && (
-                <ul className="absolute z-10 mt-1 w-full rounded-xl border bg-white shadow">
+            {isOpen && results.length > 0 && (
+                <ul className="absolute z-10 mt-1 w-full rounded-xl border shadow-none overflow-hidden">
                     {results.map((item, index) => (
                         <li
                             key={item.id}
@@ -90,16 +90,18 @@ export default function SearchBar({ items, onSelect }: Props) {
                             onClick={() => {
                                 onSelect?.(item);
                                 setQuery(item.japanese);
-                                setOpen(false);
+                                setIsOpen(false);
                                 setActiveIndex(-1);
                             }}
                         >
-                            <div className="text-sm font-medium">{item.japanese}</div>
+                            <div className={`text-sm font-medium ${index === activeIndex ? "text-blue-800" : "text-gray-800"
+                                }`}>{item.japanese}</div>
                         </li>
                     ))}
 
                 </ul>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 }

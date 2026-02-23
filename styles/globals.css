@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ===== Grafana寄りダーク ===== */
+  --background: #182230;   /* 全体背景 */
+  --foreground: #e5e7eb;   /* 文字色 */
+
+  --panel: #1f2937;        /* パネル */
+  --sidebar: #111827;      /* サイドバー */
+  --border: #1f2937;       /* ボーダー */
 }
 
 @theme inline {
@@ -12,12 +17,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* prefers-color-scheme は削除 */
 
 body {
   background: var(--background);
