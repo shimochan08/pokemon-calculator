@@ -1,5 +1,6 @@
 :root {
-  --height: 280px;
+  --height: 240px;
+  --panel-background: #1f2937;
 }
 
 /* ===== Dashboard Base ===== */
@@ -13,7 +14,8 @@
 /* ===== Panel Base ===== */
 
 .panel {
-  background: #1f2937;
+  position: relative;
+  background: var(--panel-background);
   color: #e5e7eb;
   display: flex;
   flex-direction: column;
@@ -37,30 +39,30 @@
 }
 
 .col-image {
-  background: #1f2937;
+  background: var(--panel-background);
   display: flex;
   justify-content: center;
 }
 
 .pokemon-name {
-  background: #1f2937;
+  background: var(--panel-background);
   font-size: 16px;
   text-align: center;
 }
 
 .pokemon-type {
-  background: #1f2937;
+  background: var(--panel-background);
   font-size: 12px;
   text-align: center;
 }
 
 .col-middle{
-  background: #1f2937;
+  background: var(--panel-background);
   padding: 16px;
 }
 
 .col-right {
-  background: #1f2937;
+  background: var(--panel-background);
   padding: 16px;
 }
 
@@ -69,4 +71,32 @@
   display: flex;
   gap: 12px;
   align-items: center;
+}
+
+/* RootPanel Specific */
+.rootPanelTitle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 14px;
+  color: #888;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.deleteButton:hover {
+  color: #9ca3af;
+  transform: scale(1.1);
 }

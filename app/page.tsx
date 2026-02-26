@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { HiMenu, HiX } from "react-icons/hi";
 import "@/styles/AppLayout.css";
+import { TbLayoutSidebarLeftCollapseFilled, TbMenu2 } from "react-icons/tb";
+import { usePathname } from "next/navigation";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
+  const pathname = usePathname();
 
   return (
     <div className="app-container">
@@ -16,10 +18,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
         <button
           onClick={() => setOpen(!open)}>
-          {open ? <HiX size={20} /> : <HiMenu size={20} />}
+          {open ? <TbLayoutSidebarLeftCollapseFilled size={20} /> : <TbMenu2 size={20} />}
         </button>
 
-        <h1>Pokemon Super Dashboard</h1>
+        <h1 className="ml-4">Pokemon Super Board</h1>
       </header>
 
       {/* ===== Sidebar ===== */}
@@ -32,17 +34,28 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <nav className="mt-6">
           <ul>
             <li className="app-nav-item">
-              <Link href="/" className="app-nav-link">
+              <Link
+                href="/"
+                className={`app-nav-link ${pathname === "/" ? "active" : ""
+                  }`}
+              >
                 Home
               </Link>
             </li>
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <li key={n} className="app-nav-item">
-                <Link href={`/dashboard/${n}`} className="app-nav-link">
-                  Dashboard {n}
-                </Link>
-              </li>
-            ))}
+            {[1, 2, 3, 4, 5, 6].map((n) => {
+              const href = `/dashboard/${n}`;
+              return (
+                <li key={n} className="app-nav-item">
+                  <Link
+                    href={href}
+                    className={`app-nav-link ${pathname === href ? "active" : ""
+                      }`}
+                  >
+                    Dashboard {n}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         </nav>
       </aside>

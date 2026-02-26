@@ -1,18 +1,43 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { columns, rebuildLayout } from "@/utils/layout";
+import { columns, LayoutPanel, rebuildLayout } from "@/utils/layout";
 import PokemonCalculate from "../organisms/PokemonCalculate";
 import { getColSpan, Panel, PanelSize } from "@/types/domain/Panel";
 import RootPanel from "../organisms/RootPanel";
+import DeletePanelDialog from "../atoms/DeletePanelDialog";
+import AddPanelDialog from "../atoms/AddPanelDialog";
+
+export type AddPanelTarget = {
+    index: number;
+    addPanelSize: PanelSize;
+};
+
+export type DeletePanelTarget = {
+    index: number;
+    deletePanelSize: PanelSize;
+};
 
 export default function Dashboard() {
     // アイテムをただ管理するstate
-    const [items, setItems] = useState<Panel[]>([]);
+    const [items, setItems] = useState<(Panel | null)[]>([]);
     // レイアウトされた行を管理するstate(rebuildLayoutにより生成)
-    const [rows, setRows] = useState<Panel[][]>([]);
+    const [rows, setRows] = useState<LayoutPanel[][]>([]);
+    const [deletePanelTarget, setDeletePanelTarget] = useState<DeletePanelTarget | null>(null);
+    const [addPanelTarget, setAddPanelTarget] = useState<AddPanelTarget | null>(null);
 
     useEffect(() => {
+        let lastValidIndex = items.length - 1;
+        while (lastValidIndex >= 0 && items[lastValidIndex] === null) {
+            lastValidIndex--;
+        }
+        const trimmed =
+            lastValidIndex < 0 ? [] : items.slice(0, lastValidIndex + 1);
+        if (trimmed.length !== items.length) {
+            setItems(trimmed);
+            return;
+        }
+        console.log("items changed, rebuilding layout...", { items });
         setRows(rebuildLayout(items));
     }, [items]);
 
@@ -24,30 +49,61 @@ export default function Dashboard() {
     ) {
         setItems(prev => {
             const newItems = [...prev];
+            const span = getColSpan(size);
+
+            const newPanel = {
+                id: crypto.randomUUID(),
+                title: componentKey,
+                size,
+                componentKey,
+            };
 
             if (panelSize === "none") {
-                newItems.push({
-                    id: crypto.randomUUID(),
-                    title: "",
-                    size,
-                    componentKey,
-                });
+                newItems.push(newPanel);
+                return newItems;
+            }
+
+            if (newItems[panelIndex] === null) {
+                newItems[panelIndex] = newPanel;
+                let consumed = 1;
+                let cursor = panelIndex + 1;
+                while (consumed < span && cursor < newItems.length) {
+                    if (newItems[cursor] === null) {
+                        newItems.splice(cursor, 1);
+                        consumed++;
+                    } else {
+                        cursor++;
+                    }
+                }
 
                 return newItems;
             }
 
-            const exists = newItems[panelIndex];
-
-            if (exists) {
-                newItems[panelIndex] = {
-                    ...exists,
-                    size,
-                    componentKey,
-                };
-            }
-
+            newItems.splice(panelIndex, 0, newPanel);
             return newItems;
         });
+    }
+
+    function handleOpenAddPanel(index: number, size: PanelSize) {
+        setAddPanelTarget({ index, addPanelSize: size });
+    }
+
+    function handleDeleteClick(index: number, size: PanelSize) {
+        setDeletePanelTarget({ index, deletePanelSize: size });
+    }
+
+    function confirmDelete() {
+        if (deletePanelTarget === null) return;
+        setItems(prev => {
+            const next = [...prev];
+            const { index, deletePanelSize } = deletePanelTarget;
+            next.splice(index, 1);
+            const span = getColSpan(deletePanelSize);
+            const nulls = Array(span).fill(null);
+            next.splice(index, 0, ...nulls);
+            return next;
+        });
+        setDeletePanelTarget(null);
     }
     return (
         <div style={{ padding: 20 }}>
@@ -59,12 +115,12 @@ export default function Dashboard() {
                     style={{
                         display: "grid",
                         gridTemplateColumns: `repeat(${columns}, 1fr)`,
-                        gap: 16,
-                        marginBottom: 16
+                        columnGap: 16,
+                        rowGap: 0
                     }}
                 >
 
-                    {row.map((panel, panelIndex) => {
+                    {row.map((panel) => {
 
                         return (
                             <div
@@ -73,13 +129,27 @@ export default function Dashboard() {
                                     gridColumn: `span ${getColSpan(panel.size)}`,
                                 }}
                             >
-                                <RootPanel panel={panel} panelIndex={panelIndex} onSubmit={handleSubmit} />
+                                <RootPanel panel={panel} panelIndex={panel.originalIndex} onOpenAddPanel={handleOpenAddPanel} onDelete={handleDeleteClick} />
                             </div>
                         );
                     })}
 
                 </div>
             ))}
+            <DeletePanelDialog
+                open={deletePanelTarget !== null}
+                deleteTargetTitle={deletePanelTarget !== null ? items[deletePanelTarget.index]?.title ?? "" : ""}
+                deleteTargetSize={deletePanelTarget !== null ? items[deletePanelTarget.index]?.size ?? "none" : "none"}
+                onCancel={() => setDeletePanelTarget(null)}
+                onConfirm={confirmDelete}
+            />
+            <AddPanelDialog
+                open={addPanelTarget !== null}
+                panelIndex={addPanelTarget?.index ?? 0}
+                baseSize={addPanelTarget?.addPanelSize ?? "none"}
+                onClose={() => setAddPanelTarget(null)}
+                onSubmit={handleSubmit}
+            />
         </div>
     );
 }

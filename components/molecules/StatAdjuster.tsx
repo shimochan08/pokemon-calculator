@@ -44,7 +44,7 @@ export default function StatAdjuster({ stats }: { stats: PokemonStat[] }) {
                 />
             ))}
             <div style={{ margin: 16 }} />
-            <div style={{ marginBottom: 4, fontWeight: "bold", textAlign: "center" }}>
+            <div style={{ marginBottom: 4, textAlign: "center" }}>
                 残り努力値: {remainingEv}
             </div>
         </div>

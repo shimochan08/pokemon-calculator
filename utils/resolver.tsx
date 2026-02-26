@@ -15,7 +15,7 @@ export function resolveComponent(key: string) {
         s: () => (
             <div
                 style={{
-                    background: "#1e40af",
+                    background: "var(--panel-background)",
                     color: "white",
                     height: "var(--height)",
                     display: "flex",
@@ -32,7 +32,7 @@ export function resolveComponent(key: string) {
         m: () => (
             <div
                 style={{
-                    background: "#15803d",
+                    background: "var(--panel-background)",
                     color: "white",
                     height: "var(--height)",
                     display: "flex",
@@ -48,7 +48,7 @@ export function resolveComponent(key: string) {
         l: () => (
             <div
                 style={{
-                    background: "#b91c1c",
+                    background: "var(--panel-background)",
                     color: "white",
                     height: "var(--height)",
                     display: "flex",

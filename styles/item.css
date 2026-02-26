@@ -17,3 +17,99 @@
 .circle:hover {
   transform: scale(1.1);
 }
+
+.appDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.appDialog::backdrop {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* 本体 */
+.appDialogContent {
+  width: 380px;
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* タイトル */
+.appDialogTitle {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+/* 情報ボックス */
+.appDialogInfo {
+  background: #1e293b;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+  border: 1px solid #334155;
+}
+
+.appDialogRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.appDialogRow + .appDialogRow {
+  margin-top: 8px;
+}
+
+.appDialogLabel {
+  color: #94a3b8;
+}
+
+.appDialogValue {
+  color: #f8fafc;
+}
+
+/* ボタン */
+.appDialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.appDialogButton {
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.appDialogButton--secondary {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.appDialogButton--secondary:hover {
+  background: #475569;
+}
+
+.appDialogButton--primary {
+  background: #facc15;
+  color: #111827;
+  font-weight: 700;
+}
+
+.appDialogButton--primary:hover {
+  background: #eab308;
+  transform: translateY(-1px);
+}
