@@ -36,7 +36,7 @@ export default function RootPanel({ panel, panelIndex, onOpenAddPanel, onDelete 
 
             <div className="panelContent">
                 <Component
-                    {...panel}
+                    panel={panel}
                     panelIndex={panelIndex}
                     onOpen={onOpenAddPanel}
                 />

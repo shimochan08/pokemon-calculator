@@ -1,18 +1,17 @@
 "use client";
 
-import { useState } from "react";
-import StatRow from "../atoms/StatRow";
 import { PokemonStat } from "@/types/dto/PokemonDTO";
+import StatRow from "../atoms/StatRow";
 
-export default function StatAdjuster({ stats }: { stats: PokemonStat[] }) {
-    const [ivs, setIvs] = useState<Record<string, number>>({});
-    const [evs, setEvs] = useState<Record<string, number>>({});
+type StatAdjusterProps = {
+    stats: PokemonStat[];
+    ivs: Record<string, number>;
+    evs: Record<string, number>;
+    onChange: (newIvs: Record<string, number>, newEvs: Record<string, number>) => void;
+};
 
-    const totalEv = Object.values(evs).reduce(
-        (sum, v) => sum + (v ?? 0),
-        0
-    );
-
+export default function StatAdjuster({ stats, ivs, evs, onChange }: StatAdjusterProps) {
+    const totalEv = Object.values(evs).reduce((sum, v) => sum + (v ?? 0), 0);
     const remainingEv = 510 - totalEv;
 
     return (
@@ -26,20 +25,17 @@ export default function StatAdjuster({ stats }: { stats: PokemonStat[] }) {
                     ev={evs[s.name] ?? 0}
                     totalEv={totalEv}
                     remainingEv={remainingEv}
-                    onIvChange={(v) =>
-                        setIvs((prev) => ({ ...prev, [s.name]: v }))
-                    }
+                    onIvChange={(v) => {
+                        const nextIvs = { ...ivs, [s.name]: v };
+                        onChange(nextIvs, evs);
+                    }}
                     onEvChange={(name, oldEv, newEv) => {
                         const roundedNewEv = Math.floor(newEv / 4) * 4;
-
-                        const newTotal = totalEv - oldEv + roundedNewEv;
-
+                        const newTotal = totalEv - (evs[name] ?? 0) + roundedNewEv;
                         if (newTotal > 510) return;
 
-                        setEvs((prev) => ({
-                            ...prev,
-                            [name]: roundedNewEv,
-                        }));
+                        const nextEvs = { ...evs, [name]: roundedNewEv };
+                        onChange(ivs, nextEvs);
                     }}
                 />
             ))}

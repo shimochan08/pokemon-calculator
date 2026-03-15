@@ -6,11 +6,17 @@ import { typeMap } from "@/lib/data/typeMaps";
 import { damageMap } from "@/lib/data/damageMap";
 
 type MoveSelectorProps = {
-    moves: PokemonMove[];
+    availableMoves: PokemonMove[];
+    selectedMoves: string[];
+    onChange: (newSelected: string[]) => void;
 };
 
-export default function MoveSelector({ moves }: MoveSelectorProps) {
+export default function MoveSelector({ availableMoves, selectedMoves, onChange }: MoveSelectorProps) {
     const [selected, setSelected] = useState<string[]>(["", "", "", ""]);
+
+    useEffect(() => {
+        setSelected([...selectedMoves, "", "", "", ""].slice(0, 4));
+    }, [selectedMoves]);
 
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = useState(0);
@@ -18,13 +24,9 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
     useEffect(() => {
         const el = containerRef.current;
         if (!el) return;
-
         const observer = new ResizeObserver((entries) => {
-            for (const entry of entries) {
-                setContainerWidth(entry.contentRect.width);
-            }
+            for (const entry of entries) setContainerWidth(entry.contentRect.width);
         });
-
         observer.observe(el);
         return () => observer.disconnect();
     }, []);
@@ -35,11 +37,12 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
         const updated = [...selected];
         updated[index] = value;
         setSelected(updated);
+        onChange(updated);
     };
 
     const moveMap = useMemo(
-        () => new Map(moves.map((m) => [m.english, m])),
-        [moves]
+        () => new Map(availableMoves.map((m) => [m.english, m])),
+        [availableMoves]
     );
 
     const infoHeight = 20;
@@ -50,7 +53,6 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
             style={{
                 display: "flex",
                 flexDirection: "column",
-
                 flexShrink: 0,
             }}
         >
@@ -68,7 +70,6 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
                             alignItems: "center",
                         }}
                     >
-                        {/* 左：固定200px */}
                         <div
                             style={{
                                 width: "200px",
@@ -79,9 +80,7 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
                         >
                             <select
                                 value={value}
-                                onChange={(e) =>
-                                    handleChange(index, e.target.value)
-                                }
+                                onChange={(e) => handleChange(index, e.target.value)}
                                 style={{
                                     fontSize: 14,
                                     padding: "4px 8px",
@@ -89,23 +88,16 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
                                 }}
                             >
                                 <option value="">技を選択</option>
-                                {moves.map((move) => (
+                                {availableMoves.map((m) => (
                                     <option
-                                        key={move.english}
-                                        value={move.english}
-                                        disabled={selected.includes(
-                                            move.english
-                                        )}
+                                        key={m.english}
+                                        value={m.english}
+                                        disabled={selected.includes(m.english) && m.english !== value}
                                         style={{
-                                            color: selected.includes(
-                                                move.english
-                                            )
-                                                ? "#aaa"
-                                                : "#000",
-                                            opacity: 1,
+                                            color: selected.includes(m.english) && m.english !== value ? "#aaa" : "#000",
                                         }}
                                     >
-                                        {move.japanese}
+                                        {m.japanese}
                                     </option>
                                 ))}
                             </select>
@@ -118,29 +110,23 @@ export default function MoveSelector({ moves }: MoveSelectorProps) {
                                 }}
                             >
                                 {move ? (
-                                    <>
+                                    <div style={{ fontSize: 12, textAlign: "center" }}>
                                         {(() => {
                                             const typeName =
                                                 typeMap.find((t) => t.english === move.type)?.japanese ?? "-";
+                                            const damageLabel = damageMap[move.damageClass] ?? "-";
+                                            const power = move.power ?? "-";
+                                            const accuracy = move.accuracy ? `命中${move.accuracy}%` : "-";
 
-                                            const damageLabel = damageMap[move.damageClass] ?? null;
-
-                                            if (!damageLabel) return <>-</>;
-
-                                            return (
-                                                <div style={{ fontSize: 12, textAlign: "center" }}>
-                                                    {typeName}, {damageLabel} {move.damageClass !== "status" && ` ${move.power ?? "-"}`}, {move.accuracy ? `命中${move.accuracy}%` : "-"}
-                                                </div>
-                                            );
+                                            return `${typeName}, ${damageLabel}${move.damageClass !== "status" ? ` ${power}` : ""}, ${accuracy}`;
                                         })()}
-                                    </>
+                                    </div>
                                 ) : (
                                     <>&nbsp;</>
                                 )}
                             </div>
                         </div>
 
-                        {/* 右：フレーバー（幅で判定） */}
                         {move?.flavorText && containerWidth > 300 && (
                             <div
                                 style={{

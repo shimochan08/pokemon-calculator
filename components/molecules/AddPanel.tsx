@@ -1,17 +1,17 @@
 "use client";
 
 import { FaPlus } from "react-icons/fa";
-import { PanelSize } from "@/types/domain/Panel";
+import { Panel, PanelSize } from "@/types/domain/Panel";
 import "@/styles/item.css";
 
 type AddPanelProps = {
-    size: PanelSize;
+    panel: Panel;
     panelIndex: number;
     onOpen: (panelIndex: number, size: PanelSize) => void;
 };
 
 export default function AddPanel({
-    size,
+    panel,
     panelIndex,
     onOpen,
 }: AddPanelProps) {
@@ -29,7 +29,7 @@ export default function AddPanel({
             }}
         >
             <button
-                onClick={() => onOpen(panelIndex, size)}
+                onClick={() => onOpen(panelIndex, panel.size)}
                 className="circle"
             >
                 <FaPlus color="#374151" />

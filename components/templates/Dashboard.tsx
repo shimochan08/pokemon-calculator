@@ -1,12 +1,18 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { useDashboardSlotRead } from "@/hooks/useDashboardSlotRead";
+import { useDashboardSlotUpdate } from "@/hooks/useDashboardSlotUpdate";
 import { columns, LayoutPanel, rebuildLayout } from "@/utils/layout";
 import PokemonCalculate from "../organisms/PokemonCalculate";
 import { getColSpan, Panel, PanelSize } from "@/types/domain/Panel";
 import RootPanel from "../organisms/RootPanel";
-import DeletePanelDialog from "../atoms/DeletePanelDialog";
-import AddPanelDialog from "../atoms/AddPanelDialog";
+import DeletePanelDialog from "../organisms/DeletePanelDialog";
+import AddPanelDialog from "../organisms/AddPanelDialog";
+import { mapPanelInstanceToPanel, mapPanelToInstance } from "@/lib/typeMapper/mapPanelInstanceToPanel";
+import { usePokemonBuildRead } from "@/hooks/usePokemonBuildRead";
+
 
 export type AddPanelTarget = {
     index: number;
@@ -19,6 +25,20 @@ export type DeletePanelTarget = {
 };
 
 export default function Dashboard() {
+    const { id } = useParams();
+    const slotId = Number(id) - 1;
+
+    const { slots, setSlots } = useDashboardSlotRead();
+    const slot = slots[slotId];
+    const buildId = slot?.buildId ?? null;
+
+    const { build } = usePokemonBuildRead(buildId);
+
+    const { updateSlotPanels } = useDashboardSlotUpdate(
+        slots,
+        setSlots
+    );
+    const [initialized, setInitialized] = useState(false);
     // アイテムをただ管理するstate
     const [items, setItems] = useState<(Panel | null)[]>([]);
     // レイアウトされた行を管理するstate(rebuildLayoutにより生成)
@@ -40,6 +60,55 @@ export default function Dashboard() {
         console.log("items changed, rebuilding layout...", { items });
         setRows(rebuildLayout(items));
     }, [items]);
+
+    useEffect(() => {
+
+        if (!slots.length) return;
+        if (initialized) return;
+
+        const slot = slots[slotId];
+        if (!slot) return;
+
+        const uiPanels = slot.panels.map(mapPanelInstanceToPanel);
+
+        setItems(uiPanels);
+        setInitialized(true);
+
+    }, [slots, slotId, initialized]);
+
+    useEffect(() => {
+
+        if (!slots.length) return;
+
+        const slot = slots[slotId];
+        if (!slot) return;
+
+        if (!slot.buildId) {
+
+            const buildId = crypto.randomUUID();
+
+            const next = [...slots];
+            next[slotId] = {
+                ...slot,
+                buildId
+            };
+
+            setSlots(next);
+        }
+
+    }, [slots, slotId]);
+
+    useEffect(() => {
+
+        if (!slots.length) return;
+
+        const panels = items
+            .filter((p): p is Panel => p !== null)
+            .map(mapPanelToInstance);
+
+        updateSlotPanels(slotId, panels);
+
+    }, [items, slotId]);
 
     function handleSubmit(
         panelIndex: number,
@@ -107,7 +176,7 @@ export default function Dashboard() {
     }
     return (
         <div style={{ padding: 20 }}>
-            <PokemonCalculate />
+            <PokemonCalculate build={build} buildId={buildId} />
             {rows.map((row, rowIndex) => (
 
                 <div

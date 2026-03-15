@@ -4,7 +4,6 @@ export type Panel = {
     title: string;
     size: PanelSize;
     componentKey: string;
-    rowId?: string;
 };
 
 export const getColSpan = (size: PanelSize) => {
@@ -28,3 +27,12 @@ export const spanToSize = (span: number): PanelSize => {
             return "none";
     }
 }
+
+export type PanelInstance = {
+    instanceId: string;
+    panelId: string;
+
+    size: PanelSize;
+
+    settings?: Record<string, unknown>;
+};

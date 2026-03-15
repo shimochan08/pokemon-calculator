@@ -39,6 +39,14 @@ export type DamageClassType =
     | "unknown";
 
 export function mapToPokemonDTO(data: any): PokemonDTO {
+    const STAT_SHORT: Record<string, string> = {
+        hp: "hp",
+        attack: "atk",
+        defense: "def",
+        "special-attack": "spa",
+        "special-defense": "spd",
+        speed: "spe",
+    };
     return {
         id: data.id,
         name: data.name,
@@ -68,7 +76,7 @@ export function mapToPokemonDTO(data: any): PokemonDTO {
             };
         }),
         stats: data.stats?.map((s: any): PokemonStat => ({
-            name: s.stat?.name ?? "",
+            name: STAT_SHORT[s.stat?.name ?? ""] ?? s.stat?.name ?? "",
             baseStat: s.base_stat ?? 0,
         })) ?? [],
     };
