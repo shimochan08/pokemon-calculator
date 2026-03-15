@@ -1,0 +1,1896 @@
+export const itemMap = [
+  {
+    "id": 0,
+    "english": "exclusive-item",
+    "japanese": "専用アイテム",
+    "effect": "ポケモンに　持たせると 特別な効果が発揮する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 126,
+    "english": "cheri-berry",
+    "japanese": "クラボのみ",
+    "effect": "ポケモンに　持たせると まひを　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 127,
+    "english": "chesto-berry",
+    "japanese": "カゴのみ",
+    "effect": "ポケモンに　持たせると 眠りを　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 128,
+    "english": "pecha-berry",
+    "japanese": "モモンのみ",
+    "effect": "ポケモンに　持たせると 毒を　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 129,
+    "english": "rawst-berry",
+    "japanese": "チーゴのみ",
+    "effect": "ポケモンに　持たせると やけどを　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 130,
+    "english": "aspear-berry",
+    "japanese": "ナナシのみ",
+    "effect": "ポケモンに　持たせると こおりを　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 131,
+    "english": "leppa-berry",
+    "japanese": "ヒメリのみ",
+    "effect": "ポケモンに　持たせると ＰＰを　１０だけ　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 132,
+    "english": "oran-berry",
+    "japanese": "オレンのみ",
+    "effect": "ポケモンに　持たせると ＨＰを　１０だけ　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 133,
+    "english": "persim-berry",
+    "japanese": "キーのみ",
+    "effect": "ポケモンに　持たせると 混乱を　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 134,
+    "english": "lum-berry",
+    "japanese": "ラムのみ",
+    "effect": "ポケモンに　持たせると すべての　状態異常を 回復する。",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 135,
+    "english": "sitrus-berry",
+    "japanese": "オボンのみ",
+    "effect": "ポケモンに　持たせると ＨＰを　少しだけ　回復する。 ",
+    "category": "medicine",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 136,
+    "english": "figy-berry",
+    "japanese": "フィラのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　ＨＰを　回復する。 きらいな味だと　混乱する。",
+    "category": "picky-healing",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 137,
+    "english": "wiki-berry",
+    "japanese": "ウイのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　ＨＰを　回復する。 きらいな味だと　混乱する。",
+    "category": "picky-healing",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 138,
+    "english": "mago-berry",
+    "japanese": "マゴのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　ＨＰを　回復する。 きらいな味だと　混乱する。",
+    "category": "picky-healing",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 139,
+    "english": "aguav-berry",
+    "japanese": "バンジのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　ＨＰを　回復する。 きらいな味だと　混乱する。",
+    "category": "picky-healing",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 140,
+    "english": "iapapa-berry",
+    "japanese": "イアのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　ＨＰを　回復する。 きらいな味だと　混乱する。",
+    "category": "picky-healing",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 161,
+    "english": "occa-berry",
+    "japanese": "オッカのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　ほのお技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 162,
+    "english": "passho-berry",
+    "japanese": "イトケのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　みず技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 163,
+    "english": "wacan-berry",
+    "japanese": "ソクノのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　でんき技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 164,
+    "english": "rindo-berry",
+    "japanese": "リンドのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　くさ技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 165,
+    "english": "yache-berry",
+    "japanese": "ヤチェのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　こおり技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 166,
+    "english": "chople-berry",
+    "japanese": "ヨプのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　かくとう技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 167,
+    "english": "kebia-berry",
+    "japanese": "ビアーのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　どく技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 168,
+    "english": "shuca-berry",
+    "japanese": "シュカのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　じめん技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 169,
+    "english": "coba-berry",
+    "japanese": "バコウのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　ひこう技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 170,
+    "english": "payapa-berry",
+    "japanese": "ウタンのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　エスパー技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 171,
+    "english": "tanga-berry",
+    "japanese": "タンガのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　むし技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 172,
+    "english": "charti-berry",
+    "japanese": "ヨロギのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　いわ技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 173,
+    "english": "kasib-berry",
+    "japanese": "カシブのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　ゴースト技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 174,
+    "english": "haban-berry",
+    "japanese": "ハバンのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　ドラゴン技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 175,
+    "english": "colbur-berry",
+    "japanese": "ナモのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　あく技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 176,
+    "english": "babiri-berry",
+    "japanese": "リリバのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　はがね技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 177,
+    "english": "chilan-berry",
+    "japanese": "ホズのみ",
+    "effect": "ポケモンに　持たせると ノーマル技を　受けたとき 威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 178,
+    "english": "liechi-berry",
+    "japanese": "チイラのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　自分の 攻撃が　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 179,
+    "english": "ganlon-berry",
+    "japanese": "リュガのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　自分の 防御が　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 180,
+    "english": "salac-berry",
+    "japanese": "カムラのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　自分の 素早さが　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 181,
+    "english": "petaya-berry",
+    "japanese": "ヤタピのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　自分の 特攻が　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 182,
+    "english": "apicot-berry",
+    "japanese": "ズアのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　自分の 特防が　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 183,
+    "english": "lansat-berry",
+    "japanese": "サンのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　攻撃が 急所に　当たりやすくなる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 184,
+    "english": "starf-berry",
+    "japanese": "スターのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　どれか　１つの 能力が　ぐーんと　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 185,
+    "english": "enigma-berry",
+    "japanese": "ナゾのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　技を 受けたとき　ＨＰを　回復する。",
+    "category": "other",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 186,
+    "english": "micle-berry",
+    "japanese": "ミクルのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　１度だけ 技の　命中率が　あがる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 187,
+    "english": "custap-berry",
+    "japanese": "イバンのみ",
+    "effect": "ポケモンに　持たせると ピンチのとき　１度だけ 行動が　早くなる。",
+    "category": "in-a-pinch",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 188,
+    "english": "jaboca-berry",
+    "japanese": "ジャポのみ",
+    "effect": "ポケモンに　持たせると 物理技を　受けたとき 相手にも　ダメージを　あたえる。",
+    "category": "other",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 189,
+    "english": "rowap-berry",
+    "japanese": "レンブのみ",
+    "effect": "ポケモンに　持たせると 特殊技を　受けたとき 相手にも　ダメージを　あたえる。",
+    "category": "other",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 190,
+    "english": "bright-powder",
+    "japanese": "ひかりのこな",
+    "effect": "キラキラ　光る粉。　持たせると 光が　相手を　惑わして 技が　命中しにくくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 191,
+    "english": "white-herb",
+    "japanese": "しろいハーブ",
+    "effect": "持たせた　ポケモンの　能力が さがったとき　１度だけ　もとの 状態に　戻す。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 194,
+    "english": "quick-claw",
+    "japanese": "せんせいのツメ",
+    "effect": "軽くて　鋭い　ツメ。 持たせると　相手より　先に 行動できることが　ある。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 195,
+    "english": "soothe-bell",
+    "japanese": "やすらぎのすず",
+    "effect": "心地よい　音色の　鈴。 持たせた　ポケモンは　こころが やすらぎ　なつきやすくなる。",
+    "category": "training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 196,
+    "english": "mental-herb",
+    "japanese": "メンタルハーブ",
+    "effect": "持たせた　ポケモンが　自由に 技を　だせなくなったときに １度だけ　回復する。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 197,
+    "english": "choice-band",
+    "japanese": "こだわりハチマキ",
+    "effect": "ちょっと　こだわった　ハチマキ。 持たせると　攻撃は　あがるが 同じ　技しか　だせなくなる。",
+    "category": "choice",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 198,
+    "english": "kings-rock",
+    "japanese": "おうじゃのしるし",
+    "effect": "持たせると　攻撃して ダメージを　与えたときに 相手を　ひるませることが　ある。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 199,
+    "english": "silver-powder",
+    "japanese": "ぎんのこな",
+    "effect": "銀色に　輝く　粉。 持たせると　むしタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 207,
+    "english": "focus-band",
+    "japanese": "きあいのハチマキ",
+    "effect": "持たせると　ひんしに　なりそうな 技を　受けても　ＨＰを　１だけ 残して　耐えることが　ある。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 209,
+    "english": "scope-lens",
+    "japanese": "ピントレンズ",
+    "effect": "弱点が　みえる　レンズ。 持たせた　ポケモンの　技が 急所に　当たりやすくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 210,
+    "english": "metal-coat",
+    "japanese": "メタルコート",
+    "effect": "特殊な　金属の　膜。 持たせると　はがねタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 211,
+    "english": "leftovers",
+    "japanese": "たべのこし",
+    "effect": "持たせると　ポケモンの　ＨＰが 戦闘の　あいだ　少しずつ 回復する。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 213,
+    "english": "light-ball",
+    "japanese": "でんきだま",
+    "effect": "ピカチュウに　持たせると 攻撃と　特攻の　威力が あがる　不思議な　玉。",
+    "category": "species-specific",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 214,
+    "english": "soft-sand",
+    "japanese": "やわらかいすな",
+    "effect": "さわると　サラサラする　砂。 持たせると　じめんタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 215,
+    "english": "hard-stone",
+    "japanese": "かたいいし",
+    "effect": "絶対に　割れない　石。 持たせると　いわタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 216,
+    "english": "miracle-seed",
+    "japanese": "きせきのタネ",
+    "effect": "生命が　宿る　タネ。 持たせると　くさタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 217,
+    "english": "black-glasses",
+    "japanese": "くろいメガネ",
+    "effect": "怪しく　みえる　メガネ。 持たせると　あくタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 218,
+    "english": "black-belt",
+    "japanese": "くろおび",
+    "effect": "気が　ひきしまる　帯。 持たせると　かくとうタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 219,
+    "english": "magnet",
+    "japanese": "じしゃく",
+    "effect": "強力な　磁石。 持たせると　でんきタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 220,
+    "english": "mystic-water",
+    "japanese": "しんぴのしずく",
+    "effect": "しずくの　形の　宝石。 持たせると　みずタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 221,
+    "english": "sharp-beak",
+    "japanese": "するどいくちばし",
+    "effect": "長く　とがった　くちばし。 持たせると　ひこうタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 222,
+    "english": "poison-barb",
+    "japanese": "どくバリ",
+    "effect": "どくのある　ちいさな　ハリ。 持たせると　どくタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 223,
+    "english": "never-melt-ice",
+    "japanese": "とけないこおり",
+    "effect": "熱を　よせつけない　氷。 持たせると　こおりタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 224,
+    "english": "spell-tag",
+    "japanese": "のろいのおふだ",
+    "effect": "怪しくて　不気味な　お札。 持たせると　ゴーストタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 225,
+    "english": "twisted-spoon",
+    "japanese": "まがったスプーン",
+    "effect": "念力を　こめた　スプーン。 持たせると　エスパータイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 226,
+    "english": "charcoal",
+    "japanese": "もくたん",
+    "effect": "ものを　燃やす　燃料。 持たせると　ほのおタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 227,
+    "english": "dragon-fang",
+    "japanese": "りゅうのキバ",
+    "effect": "硬くて　鋭い　キバ。 持たせると　ドラゴンタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 228,
+    "english": "silk-scarf",
+    "japanese": "シルクのスカーフ",
+    "effect": "はだざわりの　よい　スカーフ。 持たせると　ノーマルタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 230,
+    "english": "shell-bell",
+    "japanese": "かいがらのすず",
+    "effect": "持たせた　ポケモンが　攻撃して 相手に　ダメージを　あたえたとき ＨＰを　少し　回復できる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 231,
+    "english": "sea-incense",
+    "japanese": "うしおのおこう",
+    "effect": "不思議な　香りの　御香。 持たせると　みずタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/90/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 232,
+    "english": "lax-incense",
+    "japanese": "のんきのおこう",
+    "effect": "持たせると　御香の　不思議な 香りが　相手を　まどわせて 技が　命中　しにくくなる。",
+    "category": "held-items",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/100/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 242,
+    "english": "wide-lens",
+    "japanese": "こうかくレンズ",
+    "effect": "ものが　大きく　みえる　レンズ。 持たせると　技の　命中率が 少し　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 243,
+    "english": "muscle-band",
+    "japanese": "ちからのハチマキ",
+    "effect": "ちからが　わいてくる　ハチマキ。 持たせると　物理技の 威力が　少し　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 244,
+    "english": "wise-glasses",
+    "japanese": "ものしりメガネ",
+    "effect": "ぶあつい　レンズの　ついた　メガネ。 持たせると　特殊技の 威力が　少し　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 245,
+    "english": "expert-belt",
+    "japanese": "たつじんのおび",
+    "effect": "使いこまれた　黒い　帯。 持たせると　効果バツグンの　とき 技の　威力が　少し　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 246,
+    "english": "light-clay",
+    "japanese": "ひかりのねんど",
+    "effect": "持たせた　ポケモンが　ひかりのかべや リフレクターを　使ったとき いつもよりも　長く　残る。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 247,
+    "english": "life-orb",
+    "japanese": "いのちのたま",
+    "effect": "持たせると　攻撃する　たびに ＨＰが　少し　減ってしまうが 技の　威力が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 248,
+    "english": "power-herb",
+    "japanese": "パワフルハーブ",
+    "effect": "持たせた　ポケモンは　１度だけ １ターン目に　ちからを　ためる技を すぐに　使うことが　できる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 249,
+    "english": "toxic-orb",
+    "japanese": "どくどくだま",
+    "effect": "触ると　毒をだす　不思議な玉。 持たせると　戦闘中に 猛毒の　状態に　なる。",
+    "category": "bad-held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 250,
+    "english": "flame-orb",
+    "japanese": "かえんだま",
+    "effect": "触ると　熱をだす　不思議な玉。 持たせると　戦闘中に やけどの　状態に　なる。",
+    "category": "bad-held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 251,
+    "english": "quick-powder",
+    "japanese": "スピードパウダー",
+    "effect": "メタモンに　持たせると　素早さが あがる　不思議な粉。 とても　こまかくて　硬い。",
+    "category": "species-specific",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 252,
+    "english": "focus-sash",
+    "japanese": "きあいのタスキ",
+    "effect": "持たせると　ＨＰが　満タンのとき ひんしになりそうな　技を　受けても ＨＰ１で　１度だけ　耐える。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 253,
+    "english": "zoom-lens",
+    "japanese": "フォーカスレンズ",
+    "effect": "持たせた　ポケモンが　相手よりも 行動するのが　遅いとき 技が　命中しやすくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 254,
+    "english": "metronome",
+    "japanese": "メトロノーム",
+    "effect": "持たせると　同じ技を　連続で 使ったとき　威力が　あがる。 やめると　威力は　もどる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 255,
+    "english": "iron-ball",
+    "japanese": "くろいてっきゅう",
+    "effect": "持たせると　素早さが　さがる。 ひこうタイプや　ふゆう　ポケモンは じめん技が　当たってしまう。",
+    "category": "bad-held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 256,
+    "english": "lagging-tail",
+    "japanese": "こうこうのしっぽ",
+    "effect": "とても　重たい　なにかの　しっぽ。 持たせると　いつもより　行動が 遅くなる。",
+    "category": "bad-held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 257,
+    "english": "destiny-knot",
+    "japanese": "あかいいと",
+    "effect": "細くて　長い　真っ赤な　糸。 持たせると　メロメロに　なったとき 相手も　メロメロに　できる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 258,
+    "english": "black-sludge",
+    "japanese": "くろいヘドロ",
+    "effect": "持たせると　どくタイプの　ポケモンは 少しずつ　ＨＰを　回復する。 それ以外は　ＨＰが　減ってしまう。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 259,
+    "english": "icy-rock",
+    "japanese": "つめたいいわ",
+    "effect": "持たせた　ポケモンが　あられを 使うと　いつもより　あられの 時間が　長くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 260,
+    "english": "smooth-rock",
+    "japanese": "さらさらいわ",
+    "effect": "持たせた　ポケモンが　すなあらしを 使うと　いつもより　すなあらしの 時間が　長くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 261,
+    "english": "heat-rock",
+    "japanese": "あついいわ",
+    "effect": "持たせた　ポケモンが　にほんばれを 使うと　いつもより　はれの 時間が　長くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 262,
+    "english": "damp-rock",
+    "japanese": "しめったいわ",
+    "effect": "持たせた　ポケモンが　あまごいを 使うと　いつもより　あめの 時間が　長くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 263,
+    "english": "grip-claw",
+    "japanese": "ねばりのかぎづめ",
+    "effect": "持たせると　しめつける　まきつくなど ダメージを　あたえつづける　技の ターン数が　増える。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 264,
+    "english": "choice-scarf",
+    "japanese": "こだわりスカーフ",
+    "effect": "ちょっと　こだわった　スカーフ。 持たせると　素早さは　あがるが 同じ　技しか　だせなくなる。",
+    "category": "choice",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 265,
+    "english": "sticky-barb",
+    "japanese": "くっつきバリ",
+    "effect": "持たせると　毎ターン　ダメージを 受ける。　自分に　ふれてきた 相手に　くっつくことも　ある。",
+    "category": "bad-held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 266,
+    "english": "power-bracer",
+    "japanese": "パワーリスト",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　攻撃が 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 267,
+    "english": "power-belt",
+    "japanese": "パワーベルト",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　防御が 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 268,
+    "english": "power-lens",
+    "japanese": "パワーレンズ",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　特攻が 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 269,
+    "english": "power-band",
+    "japanese": "パワーバンド",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　特防が 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 270,
+    "english": "power-anklet",
+    "japanese": "パワーアンクル",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　素早さが 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 271,
+    "english": "power-weight",
+    "japanese": "パワーウエイト",
+    "effect": "持たせると　素早さが　さがるが ふつうよりも　ポケモンの　ＨＰが 高く　育ちやすい。",
+    "category": "effort-training",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 272,
+    "english": "shed-shell",
+    "japanese": "きれいなぬけがら",
+    "effect": "丈夫で　硬い　ぬけがら。 持たせた　ポケモンは　控えの ポケモンと　必ず　いれかわれる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 273,
+    "english": "big-root",
+    "japanese": "おおきなねっこ",
+    "effect": "持たせると　ＨＰを　吸いとる　技で いつもより　おおく　自分の　ＨＰを 回復できる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 274,
+    "english": "choice-specs",
+    "japanese": "こだわりメガネ",
+    "effect": "ちょっと　こだわった　メガネ。 持たせると　特攻は　あがるが 同じ　技しか　だせなくなる。",
+    "category": "choice",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 275,
+    "english": "flame-plate",
+    "japanese": "ひのたまプレート",
+    "effect": "ほのおの　タイプの　石盤。 持たせると　ほのおタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 276,
+    "english": "splash-plate",
+    "japanese": "しずくプレート",
+    "effect": "みずの　タイプの　石盤。 持たせると　みずタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 277,
+    "english": "zap-plate",
+    "japanese": "いかずちプレート",
+    "effect": "でんきの　タイプの　石盤。 持たせると　でんきタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 278,
+    "english": "meadow-plate",
+    "japanese": "みどりのプレート",
+    "effect": "くさの　タイプの　石盤。 持たせると　くさタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 279,
+    "english": "icicle-plate",
+    "japanese": "つららのプレート",
+    "effect": "こおりの　タイプの　石盤。 持たせると　こおりタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 280,
+    "english": "fist-plate",
+    "japanese": "こぶしのプレート",
+    "effect": "かくとうの　タイプの　石盤。 持たせると　かくとうタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 281,
+    "english": "toxic-plate",
+    "japanese": "もうどくプレート",
+    "effect": "どくの　タイプの　石盤。 持たせると　どくタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 282,
+    "english": "earth-plate",
+    "japanese": "だいちのプレート",
+    "effect": "じめんの　タイプの　石盤。 持たせると　じめんタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 283,
+    "english": "sky-plate",
+    "japanese": "あおぞらプレート",
+    "effect": "ひこうの　タイプの　石盤。 持たせると　ひこうタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 284,
+    "english": "mind-plate",
+    "japanese": "ふしぎのプレート",
+    "effect": "エスパーの　タイプの　石盤。 持たせると　エスパータイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 285,
+    "english": "insect-plate",
+    "japanese": "たまむしプレート",
+    "effect": "むしの　タイプの　石盤。 持たせると　むしタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 286,
+    "english": "stone-plate",
+    "japanese": "がんせきプレート",
+    "effect": "いわの　タイプの　石盤。 持たせると　いわタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 287,
+    "english": "spooky-plate",
+    "japanese": "もののけプレート",
+    "effect": "ゴーストの　タイプの　石盤。 持たせると　ゴーストタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 288,
+    "english": "draco-plate",
+    "japanese": "りゅうのプレート",
+    "effect": "ドラゴンの　タイプの　石盤。 持たせると　ドラゴンタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 289,
+    "english": "dread-plate",
+    "japanese": "こわもてプレート",
+    "effect": "あくの　タイプの　石盤。 持たせると　あくタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 290,
+    "english": "iron-plate",
+    "japanese": "こうてつプレート",
+    "effect": "はがねの　タイプの　石盤。 持たせると　はがねタイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 291,
+    "english": "odd-incense",
+    "japanese": "あやしいおこう",
+    "effect": "不思議な　香りの　御香。 持たせると　エスパータイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/57/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 292,
+    "english": "rock-incense",
+    "japanese": "がんせきおこう",
+    "effect": "不思議な　香りの　御香。 持たせると　いわタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/91/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 293,
+    "english": "full-incense",
+    "japanese": "まんぷくおこう",
+    "effect": "不思議な　香りの　御香。 持たせた　ポケモンは　いつもより 行動が　遅くなる。",
+    "category": "bad-held-items",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/72/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 294,
+    "english": "wave-incense",
+    "japanese": "さざなみのおこう",
+    "effect": "不思議な　香りの　御香。 持たせると　みずタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/116/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 295,
+    "english": "rose-incense",
+    "japanese": "おはなのおこう",
+    "effect": "不思議な　香りの　御香。 持たせると　くさタイプの 技の　威力が　あがる。",
+    "category": "type-enhancement",
+    "isBabyFood": {
+      "url": "https://pokeapi.co/api/v2/evolution-chain/158/"
+    },
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 303,
+    "english": "razor-claw",
+    "japanese": "するどいツメ",
+    "effect": "鋭く　とがった　ツメ。 持たせると　技が　急所に 当たりやすくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 304,
+    "english": "razor-fang",
+    "japanese": "するどいキバ",
+    "effect": "鋭く　とがった　キバ。 持たせると　ダメージを　与えたとき ひるませることが　ある。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 581,
+    "english": "eviolite",
+    "japanese": "しんかのきせき",
+    "effect": "進化の　不思議な　かたまり。 持たせると　進化前　ポケモンの 防御と　特防が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 582,
+    "english": "float-stone",
+    "japanese": "かるいし",
+    "effect": "とても　軽い　石。 持たせると　ポケモンの 体重が　軽くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 583,
+    "english": "rocky-helmet",
+    "japanese": "ゴツゴツメット",
+    "effect": "ポケモンに　持たせると 打撃技を　受けたとき 相手にも　ダメージを　与える。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 584,
+    "english": "air-balloon",
+    "japanese": "ふうせん",
+    "effect": "ポケモンに　持たせると ポケモンが　宙に　浮く。 攻撃を　受けると　割れてしまう。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 585,
+    "english": "red-card",
+    "japanese": "レッドカード",
+    "effect": "不思議な　ちからのある　カード。 持たせると　技を受けた　相手を 退場させることが　できる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 586,
+    "english": "ring-target",
+    "japanese": "ねらいのまと",
+    "effect": "ポケモンの　タイプの　相性で 無効だった　技が 当たるように　なってしまう。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 587,
+    "english": "binding-band",
+    "japanese": "しめつけバンド",
+    "effect": "締めつける技を　補助する　バンド。 持たせると　締めつける技の 威力が　強くなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 588,
+    "english": "absorb-bulb",
+    "japanese": "きゅうこん",
+    "effect": "使い捨ての　きゅうこん。 持たせて　みずの　技を　受けると 特攻が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 589,
+    "english": "cell-battery",
+    "japanese": "じゅうでんち",
+    "effect": "使い捨ての　じゅうでんち。 持たせて　でんきの　技を　受けると 攻撃が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 590,
+    "english": "eject-button",
+    "japanese": "だっしゅつボタン",
+    "effect": "持たせて　技を　受けると 戦闘から　脱出して 手持ちと　入れ替わる　ことができる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 591,
+    "english": "fire-gem",
+    "japanese": "ほのおのジュエル",
+    "effect": "ほのおの　タイプの　ジュエル。 持たせると　１度だけ　ほのおの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 592,
+    "english": "water-gem",
+    "japanese": "みずのジュエル",
+    "effect": "みずの　タイプの　ジュエル。 持たせると　１度だけ　みずの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 593,
+    "english": "electric-gem",
+    "japanese": "でんきのジュエル",
+    "effect": "でんきの　タイプの　ジュエル。 持たせると　１度だけ　でんきの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 594,
+    "english": "grass-gem",
+    "japanese": "くさのジュエル",
+    "effect": "くさの　タイプの　ジュエル。 持たせると　１度だけ　くさの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 595,
+    "english": "ice-gem",
+    "japanese": "こおりのジュエル",
+    "effect": "こおりの　タイプの　ジュエル。 持たせると　１度だけ　こおりの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 596,
+    "english": "fighting-gem",
+    "japanese": "かくとうジュエル",
+    "effect": "かくとうの　タイプの　ジュエル。 持たせると　１度だけ　かくとうの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 597,
+    "english": "poison-gem",
+    "japanese": "どくのジュエル",
+    "effect": "どくの　タイプの　ジュエル。 持たせると　１度だけ　どくの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 598,
+    "english": "ground-gem",
+    "japanese": "じめんのジュエル",
+    "effect": "じめんの　タイプの　ジュエル。 持たせると　１度だけ　じめんの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 599,
+    "english": "flying-gem",
+    "japanese": "ひこうのジュエル",
+    "effect": "ひこうの　タイプの　ジュエル。 持たせると　１度だけ　ひこうの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 600,
+    "english": "psychic-gem",
+    "japanese": "エスパージュエル",
+    "effect": "エスパーの　タイプの　ジュエル。 持たせると　１度だけ　エスパーの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 601,
+    "english": "bug-gem",
+    "japanese": "むしのジュエル",
+    "effect": "むしの　タイプの　ジュエル。 持たせると　１度だけ　むしの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 602,
+    "english": "rock-gem",
+    "japanese": "いわのジュエル",
+    "effect": "いわの　タイプの　ジュエル。 持たせると　１度だけ　いわの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 603,
+    "english": "ghost-gem",
+    "japanese": "ゴーストジュエル",
+    "effect": "ゴーストの　タイプの　ジュエル。 持たせると　１度だけ　ゴーストの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 604,
+    "english": "dark-gem",
+    "japanese": "あくのジュエル",
+    "effect": "あくの　タイプの　ジュエル。 持たせると　１度だけ　あくの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 605,
+    "english": "steel-gem",
+    "japanese": "はがねのジュエル",
+    "effect": "はがねの　タイプの　ジュエル。 持たせると　１度だけ　はがねの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 668,
+    "english": "dragon-gem",
+    "japanese": "ドラゴンジュエル",
+    "effect": "ドラゴンの　タイプの　ジュエル。 持たせると　１度だけ　ドラゴンの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 669,
+    "english": "normal-gem",
+    "japanese": "ノーマルジュエル",
+    "effect": "ノーマルの　タイプの　ジュエル。 持たせると　１度だけ　ノーマルの 技の　威力が　強まる。",
+    "category": "jewels",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 682,
+    "english": "weakness-policy",
+    "japanese": "じゃくてんほけん",
+    "effect": "弱点を　つかれたとき 攻撃と　特攻が それぞれ　ぐーんと　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 683,
+    "english": "assault-vest",
+    "japanese": "とつげきチョッキ",
+    "effect": "攻撃的に　なる　チョッキ。 持たせると　特防が　あがるが 変化技を　だせなくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 684,
+    "english": "pixie-plate",
+    "japanese": "せいれいプレート",
+    "effect": "フェアリーの　タイプの　石盤。 持たせると　フェアリータイプの 技の　威力が　強まる。",
+    "category": "plates",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 688,
+    "english": "luminous-moss",
+    "japanese": "ひかりごけ",
+    "effect": "使い捨ての　ひかりごけ。 持たせて　みずの　技を　受けると 特防が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 689,
+    "english": "snowball",
+    "japanese": "ゆきだま",
+    "effect": "使い捨ての　ゆきだま。 持たせて　こおりの　技を　受けると 攻撃が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 690,
+    "english": "safety-goggles",
+    "japanese": "ぼうじんゴーグル",
+    "effect": "天候の　ダメージだけでなく 粉を　だす　技の 効果も　防げる　ゴーグル。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 723,
+    "english": "roseli-berry",
+    "japanese": "ロゼルのみ",
+    "effect": "ポケモンに　持たせると 効果バツグンの　フェアリー技を 受けたとき　威力が　弱まる。",
+    "category": "type-protection",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 724,
+    "english": "kee-berry",
+    "japanese": "アッキのみ",
+    "effect": "ポケモンに　持たせると 物理技を　受けたとき 自分の　防御が　あがる。",
+    "category": "other",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 725,
+    "english": "maranga-berry",
+    "japanese": "タラプのみ",
+    "effect": "ポケモンに　持たせると 特殊技を　受けたとき 自分の　特防が　あがる。",
+    "category": "other",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 883,
+    "english": "adrenaline-orb",
+    "japanese": "ビビリだま",
+    "effect": "使うと　仲間を　呼びやすくなる。 持たせると　いかくを　受けた時 すばやさが　上がる。　使うとなくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 896,
+    "english": "terrain-extender",
+    "japanese": "グランドコート",
+    "effect": "持たせた　ポケモンが　技や 特性で　フィールドを　張ったとき いつもよりも　長く　残る。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 897,
+    "english": "protective-pads",
+    "japanese": "ぼうごパット",
+    "effect": "攻撃　する　相手に さわって　受ける　効果を 受けないように　する。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 898,
+    "english": "electric-seed",
+    "japanese": "エレキシード",
+    "effect": "ポケモンに　持たせると エレキフィールドのときに　使って 防御が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 899,
+    "english": "psychic-seed",
+    "japanese": "サイコシード",
+    "effect": "ポケモンに　持たせると サイコフィールドのときに　使って 特防が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 900,
+    "english": "misty-seed",
+    "japanese": "ミストシード",
+    "effect": "ポケモンに　持たせると ミストフィールドのときに　使って 特防が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 901,
+    "english": "grassy-seed",
+    "japanese": "グラスシード",
+    "effect": "ポケモンに　持たせると グラスフィールドのときに　使って 防御が　あがる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1176,
+    "english": "throat-spray",
+    "japanese": "のどスプレー",
+    "effect": "音に　関する　技を　使うと 特攻が　上がる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1177,
+    "english": "eject-pack",
+    "japanese": "だっしゅつパック",
+    "effect": "持たせた　ポケモンの 能力が　下がると 手持ちと　入れ替わる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1178,
+    "english": "heavy-duty-boots",
+    "japanese": "あつぞこブーツ",
+    "effect": "足場に　しかけられた 罠などの　影響を　受けなくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1179,
+    "english": "blunder-policy",
+    "japanese": "からぶりほけん",
+    "effect": "命中率に　よって 技が　はずれたとき 素早さが　ぐーんと　上がる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1180,
+    "english": "room-service",
+    "japanese": "ルームサービス",
+    "effect": "ポケモンに　持たせると トリックルームのときに　使って 素早さが　下がる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1181,
+    "english": "utility-umbrella",
+    "japanese": "ばんのうがさ",
+    "effect": "持たせた　ポケモンは 雨と　日差しが強いときの 影響を　受けなくなる。",
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1696,
+    "english": "booster-energy",
+    "japanese": "ブーストエナジー",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1697,
+    "english": "ability-shield",
+    "japanese": "とくせいガード",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1698,
+    "english": "clear-amulet",
+    "japanese": "クリアチャーム",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1699,
+    "english": "mirror-herb",
+    "japanese": "ものまねハーブ",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1700,
+    "english": "punching-glove",
+    "japanese": "パンチグローブ",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1701,
+    "english": "covert-cloak",
+    "japanese": "おんみつマント",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+  {
+    "id": 1702,
+    "english": "loaded-dice",
+    "japanese": "いかさまダイス",
+    "effect": null,
+    "category": "held-items",
+    "isBabyFood": null,
+    "flingPower": null,
+    "flingEffect": null
+  },
+];

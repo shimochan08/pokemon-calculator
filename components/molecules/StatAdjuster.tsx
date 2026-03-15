@@ -2,15 +2,18 @@
 
 import { PokemonStat } from "@/types/dto/PokemonDTO";
 import StatRow from "../atoms/StatRow";
+import { NatureSelector } from "./NatureSelector";
+import { NATURE_MULTIPLIERS, StatKey } from "@/types/domain/PokemonBuild";
 
 type StatAdjusterProps = {
     stats: PokemonStat[];
     ivs: Record<string, number>;
     evs: Record<string, number>;
-    onChange: (newIvs: Record<string, number>, newEvs: Record<string, number>) => void;
+    nature: string;
+    onChange: (newIvs: Record<string, number>, newEvs: Record<string, number>, newNature: string) => void;
 };
 
-export default function StatAdjuster({ stats, ivs, evs, onChange }: StatAdjusterProps) {
+export default function StatAdjuster({ stats, ivs, evs, nature, onChange }: StatAdjusterProps) {
     const totalEv = Object.values(evs).reduce((sum, v) => sum + (v ?? 0), 0);
     const remainingEv = 510 - totalEv;
 
@@ -25,9 +28,10 @@ export default function StatAdjuster({ stats, ivs, evs, onChange }: StatAdjuster
                     ev={evs[s.name] ?? 0}
                     totalEv={totalEv}
                     remainingEv={remainingEv}
+                    natureMultiplier={NATURE_MULTIPLIERS[nature]?.[s.name as StatKey] ?? 1}
                     onIvChange={(v) => {
                         const nextIvs = { ...ivs, [s.name]: v };
-                        onChange(nextIvs, evs);
+                        onChange(nextIvs, evs, nature);
                     }}
                     onEvChange={(name, oldEv, newEv) => {
                         const roundedNewEv = Math.floor(newEv / 4) * 4;
@@ -35,13 +39,18 @@ export default function StatAdjuster({ stats, ivs, evs, onChange }: StatAdjuster
                         if (newTotal > 510) return;
 
                         const nextEvs = { ...evs, [name]: roundedNewEv };
-                        onChange(ivs, nextEvs);
+                        onChange(ivs, nextEvs, nature);
                     }}
                 />
             ))}
             <div style={{ margin: 16 }} />
-            <div style={{ marginBottom: 4, textAlign: "center" }}>
-                残り努力値: {remainingEv}
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
+                <div>性格: </div>
+                <NatureSelector
+                    nature={nature}
+                    onChange={(newNature) => onChange(ivs, evs, newNature)}
+                />
+                <div>残り努力値: {remainingEv}</div>
             </div>
         </div>
     );

@@ -1,0 +1,2442 @@
+export const abilityMap = [
+  {
+    "id": 1,
+    "english": "stench",
+    "japanese": "あくしゅう",
+    "effect": "臭くて　相手が ひるむ　ことがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 2,
+    "english": "drizzle",
+    "japanese": "あめふらし",
+    "effect": "戦闘に　でると 雨を　降らす。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 3,
+    "english": "speed-boost",
+    "japanese": "かそく",
+    "effect": "ちょっとずつ 素早く　なっていく。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 4,
+    "english": "battle-armor",
+    "japanese": "カブトアーマー",
+    "effect": "相手の　攻撃が 急所に　当たらない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 5,
+    "english": "sturdy",
+    "japanese": "がんじょう",
+    "effect": "一撃で　倒されない。 ",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 6,
+    "english": "damp",
+    "japanese": "しめりけ",
+    "effect": "だれも　爆発が できなくなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 7,
+    "english": "limber",
+    "japanese": "じゅうなん",
+    "effect": "まひ状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 8,
+    "english": "sand-veil",
+    "japanese": "すながくれ",
+    "effect": "砂あらしで 回避率が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 9,
+    "english": "static",
+    "japanese": "せいでんき",
+    "effect": "触った　相手を まひさせる　ことがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 10,
+    "english": "volt-absorb",
+    "japanese": "ちくでん",
+    "effect": "でんきを　受けると 回復する。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 11,
+    "english": "water-absorb",
+    "japanese": "ちょすい",
+    "effect": "みずを　受けると 回復する。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 12,
+    "english": "oblivious",
+    "japanese": "どんかん",
+    "effect": "メロメロや　ちょうはつ 状態に　ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 13,
+    "english": "cloud-nine",
+    "japanese": "ノーてんき",
+    "effect": "天気の　影響が なくなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 14,
+    "english": "compound-eyes",
+    "japanese": "ふくがん",
+    "effect": "技の　命中率が あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 15,
+    "english": "insomnia",
+    "japanese": "ふみん",
+    "effect": "ねむり状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 16,
+    "english": "color-change",
+    "japanese": "へんしょく",
+    "effect": "受けた　技の　タイプに 変化する。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 17,
+    "english": "immunity",
+    "japanese": "めんえき",
+    "effect": "どく状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 18,
+    "english": "flash-fire",
+    "japanese": "もらいび",
+    "effect": "ほのおを　受けると ほのお技が　強くなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 19,
+    "english": "shield-dust",
+    "japanese": "りんぷん",
+    "effect": "技の　追加効果を 受けない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 20,
+    "english": "own-tempo",
+    "japanese": "マイペース",
+    "effect": "混乱状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 21,
+    "english": "suction-cups",
+    "japanese": "きゅうばん",
+    "effect": "入れ替えさせる　技や 道具が　効かない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 22,
+    "english": "intimidate",
+    "japanese": "いかく",
+    "effect": "相手の　攻撃を さげる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 23,
+    "english": "shadow-tag",
+    "japanese": "かげふみ",
+    "effect": "相手の　影をふみ 逃げられなくする。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 24,
+    "english": "rough-skin",
+    "japanese": "さめはだ",
+    "effect": "触れた　相手を キズつける。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 25,
+    "english": "wonder-guard",
+    "japanese": "ふしぎなまもり",
+    "effect": "効果バツグン　しか 当たらない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 26,
+    "english": "levitate",
+    "japanese": "ふゆう",
+    "effect": "じめんタイプの　技を 受けない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 27,
+    "english": "effect-spore",
+    "japanese": "ほうし",
+    "effect": "触れると　どく　まひ ねむりに　することがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 28,
+    "english": "synchronize",
+    "japanese": "シンクロ",
+    "effect": "どく　まひ　やけどを 相手に　うつす。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 29,
+    "english": "clear-body",
+    "japanese": "クリアボディ",
+    "effect": "相手に　能力を さげられない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 30,
+    "english": "natural-cure",
+    "japanese": "しぜんかいふく",
+    "effect": "状態異常が ひっこむと　治る。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 31,
+    "english": "lightning-rod",
+    "japanese": "ひらいしん",
+    "effect": "でんきを　呼び込んで 特攻を　あげる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 32,
+    "english": "serene-grace",
+    "japanese": "てんのめぐみ",
+    "effect": "技の　追加効果が でやすい。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 33,
+    "english": "swift-swim",
+    "japanese": "すいすい",
+    "effect": "雨のとき　素早さが あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 34,
+    "english": "chlorophyll",
+    "japanese": "ようりょくそ",
+    "effect": "晴れのとき　素早さが あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 35,
+    "english": "illuminate",
+    "japanese": "はっこう",
+    "effect": "野生の　ポケモンに 遭遇しやすくなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 36,
+    "english": "trace",
+    "japanese": "トレース",
+    "effect": "相手と　同じ 特性に　なる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 37,
+    "english": "huge-power",
+    "japanese": "ちからもち",
+    "effect": "物理攻撃の 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 38,
+    "english": "poison-point",
+    "japanese": "どくのトゲ",
+    "effect": "触れた　相手に　どくを おわせる　ことがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 39,
+    "english": "inner-focus",
+    "japanese": "せいしんりょく",
+    "effect": "ひるまない。 ",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 40,
+    "english": "magma-armor",
+    "japanese": "マグマのよろい",
+    "effect": "こおり状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 41,
+    "english": "water-veil",
+    "japanese": "みずのベール",
+    "effect": "やけど状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 42,
+    "english": "magnet-pull",
+    "japanese": "じりょく",
+    "effect": "はがねの　ポケモンを 逃げられなくする。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 43,
+    "english": "soundproof",
+    "japanese": "ぼうおん",
+    "effect": "音の　技を 受けない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 44,
+    "english": "rain-dish",
+    "japanese": "あめうけざら",
+    "effect": "雨のとき　少しずつ ＨＰを　回復する。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 45,
+    "english": "sand-stream",
+    "japanese": "すなおこし",
+    "effect": "戦闘で　砂あらしを おこす。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 46,
+    "english": "pressure",
+    "japanese": "プレッシャー",
+    "effect": "相手の　使う　技の ＰＰを　多く　減らす。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 47,
+    "english": "thick-fat",
+    "japanese": "あついしぼう",
+    "effect": "ほのおと　こおりタイプの 技に　強い。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 48,
+    "english": "early-bird",
+    "japanese": "はやおき",
+    "effect": "起きるのが　早くなる。 ",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 49,
+    "english": "flame-body",
+    "japanese": "ほのおのからだ",
+    "effect": "触れた　相手を　やけど させることがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 50,
+    "english": "run-away",
+    "japanese": "にげあし",
+    "effect": "野生の　ポケモンから 必ず　逃げられる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 51,
+    "english": "keen-eye",
+    "japanese": "するどいめ",
+    "effect": "命中率を さげられない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 52,
+    "english": "hyper-cutter",
+    "japanese": "かいりきバサミ",
+    "effect": "相手に　攻撃を さげられない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 53,
+    "english": "pickup",
+    "japanese": "ものひろい",
+    "effect": "道具を　拾ってくる ことが　ある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 54,
+    "english": "truant",
+    "japanese": "なまけ",
+    "effect": "攻撃が　連続で だせない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 55,
+    "english": "hustle",
+    "japanese": "はりきり",
+    "effect": "攻撃は　たかいが はずれやすい。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 56,
+    "english": "cute-charm",
+    "japanese": "メロメロボディ",
+    "effect": "触れると　メロメロに することがある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 57,
+    "english": "plus",
+    "japanese": "プラス",
+    "effect": "プラスかマイナスがいると 特攻が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 58,
+    "english": "minus",
+    "japanese": "マイナス",
+    "effect": "プラスかマイナスがいると 特攻が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 59,
+    "english": "forecast",
+    "japanese": "てんきや",
+    "effect": "天気で　ポワルンが 変化する。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 60,
+    "english": "sticky-hold",
+    "japanese": "ねんちゃく",
+    "effect": "ねんちゃくして 道具を　守る。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 61,
+    "english": "shed-skin",
+    "japanese": "だっぴ",
+    "effect": "状態異常を 治すことが　ある。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 62,
+    "english": "guts",
+    "japanese": "こんじょう",
+    "effect": "状態異常で 攻撃が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 63,
+    "english": "marvel-scale",
+    "japanese": "ふしぎなうろこ",
+    "effect": "状態異常で 防御が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 64,
+    "english": "liquid-ooze",
+    "japanese": "ヘドロえき",
+    "effect": "吸いとった　相手の ＨＰを　減らす。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 65,
+    "english": "overgrow",
+    "japanese": "しんりょく",
+    "effect": "ピンチのとき　くさの 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 66,
+    "english": "blaze",
+    "japanese": "もうか",
+    "effect": "ピンチのとき　ほのおの 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 67,
+    "english": "torrent",
+    "japanese": "げきりゅう",
+    "effect": "ピンチのとき　みずの 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 68,
+    "english": "swarm",
+    "japanese": "むしのしらせ",
+    "effect": "ピンチのとき　むしの 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 69,
+    "english": "rock-head",
+    "japanese": "いしあたま",
+    "effect": "ぶつかっても 反動を　受けない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 70,
+    "english": "drought",
+    "japanese": "ひでり",
+    "effect": "戦闘に　でると 日差しが　強くなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 71,
+    "english": "arena-trap",
+    "japanese": "ありじごく",
+    "effect": "戦闘で　相手を 逃げられなくする。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 72,
+    "english": "vital-spirit",
+    "japanese": "やるき",
+    "effect": "ねむり状態に ならない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 73,
+    "english": "white-smoke",
+    "japanese": "しろいけむり",
+    "effect": "相手に　能力を さげられない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 74,
+    "english": "pure-power",
+    "japanese": "ヨガパワー",
+    "effect": "物理攻撃の 威力が　あがる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 75,
+    "english": "shell-armor",
+    "japanese": "シェルアーマー",
+    "effect": "相手の　攻撃が 急所に　当たらない。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 76,
+    "english": "air-lock",
+    "japanese": "エアロック",
+    "effect": "天気の　影響が なくなる。",
+    "generation": "generation-iii",
+    "isMainSeries": true
+  },
+  {
+    "id": 77,
+    "english": "tangled-feet",
+    "japanese": "ちどりあし",
+    "effect": "混乱していると 回避しやすくなる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 78,
+    "english": "motor-drive",
+    "japanese": "でんきエンジン",
+    "effect": "でんきを　受けると 素早さが　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 79,
+    "english": "rivalry",
+    "japanese": "とうそうしん",
+    "effect": "相手と　性別が 同じだと　強くなる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 80,
+    "english": "steadfast",
+    "japanese": "ふくつのこころ",
+    "effect": "ひるむ　たびに 素早さが　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 81,
+    "english": "snow-cloak",
+    "japanese": "ゆきがくれ",
+    "effect": "天気が　あられのとき 回避率が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 82,
+    "english": "gluttony",
+    "japanese": "くいしんぼう",
+    "effect": "きのみを　いつもより 早く　使う。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 83,
+    "english": "anger-point",
+    "japanese": "いかりのつぼ",
+    "effect": "急所に　受けると 攻撃が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 84,
+    "english": "unburden",
+    "japanese": "かるわざ",
+    "effect": "道具が　なくなると 素早さが　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 85,
+    "english": "heatproof",
+    "japanese": "たいねつ",
+    "effect": "ほのお技の 威力を　弱める。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 86,
+    "english": "simple",
+    "japanese": "たんじゅん",
+    "effect": "能力　変化が いつもより　はげしい。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 87,
+    "english": "dry-skin",
+    "japanese": "かんそうはだ",
+    "effect": "あついと　ＨＰが　減る。 みずで　ＨＰを　回復。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 88,
+    "english": "download",
+    "japanese": "ダウンロード",
+    "effect": "相手の　能力を　みて 強さを　変える。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 89,
+    "english": "iron-fist",
+    "japanese": "てつのこぶし",
+    "effect": "パンチを　使う　技の 威力が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 90,
+    "english": "poison-heal",
+    "japanese": "ポイズンヒール",
+    "effect": "どく状態に　なると ＨＰを　回復する。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 91,
+    "english": "adaptability",
+    "japanese": "てきおうりょく",
+    "effect": "タイプが　同じ　技の 威力が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 92,
+    "english": "skill-link",
+    "japanese": "スキルリンク",
+    "effect": "連続技を たくさん　だせる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 93,
+    "english": "hydration",
+    "japanese": "うるおいボディ",
+    "effect": "状態異常が 雨の　とき　治る。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 94,
+    "english": "solar-power",
+    "japanese": "サンパワー",
+    "effect": "晴れると　ＨＰが　減るが 特攻が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 95,
+    "english": "quick-feet",
+    "japanese": "はやあし",
+    "effect": "状態異常で 素早さが　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 96,
+    "english": "normalize",
+    "japanese": "ノーマルスキン",
+    "effect": "だした技が　すべて ノーマルタイプに　なる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 97,
+    "english": "sniper",
+    "japanese": "スナイパー",
+    "effect": "急所に　当てたとき 威力が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 98,
+    "english": "magic-guard",
+    "japanese": "マジックガード",
+    "effect": "攻撃　以外では ダメージを　受けない。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 99,
+    "english": "no-guard",
+    "japanese": "ノーガード",
+    "effect": "お互いの　技が 必ず　当たる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 100,
+    "english": "stall",
+    "japanese": "あとだし",
+    "effect": "相手より　素早くても 行動が　遅くなる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 101,
+    "english": "technician",
+    "japanese": "テクニシャン",
+    "effect": "弱い　技の 威力が　あがる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 102,
+    "english": "leaf-guard",
+    "japanese": "リーフガード",
+    "effect": "晴れのとき 状態異常に　ならない。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 103,
+    "english": "klutz",
+    "japanese": "ぶきよう",
+    "effect": "持っている　道具を 使うことが　できない。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 104,
+    "english": "mold-breaker",
+    "japanese": "かたやぶり",
+    "effect": "特性に　関係なく 相手に　技を　だせる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 105,
+    "english": "super-luck",
+    "japanese": "きょううん",
+    "effect": "相手の　急所に 攻撃が　当たりやすい。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 106,
+    "english": "aftermath",
+    "japanese": "ゆうばく",
+    "effect": "ひんしの　ときに　触れた 相手に　ダメージ。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 107,
+    "english": "anticipation",
+    "japanese": "きけんよち",
+    "effect": "相手の　持つ　危険な 技を　察知する。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 108,
+    "english": "forewarn",
+    "japanese": "よちむ",
+    "effect": "相手の　持つ　技を 読み取ることが　できる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 109,
+    "english": "unaware",
+    "japanese": "てんねん",
+    "effect": "相手の　能力の 変化を　無視する。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 110,
+    "english": "tinted-lens",
+    "japanese": "いろめがね",
+    "effect": "効果いまひとつ　のとき 技を　強める。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 111,
+    "english": "filter",
+    "japanese": "フィルター",
+    "effect": "効果バツグン　のとき 威力を　弱める。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 112,
+    "english": "slow-start",
+    "japanese": "スロースタート",
+    "effect": "攻撃と　素早さが しばらく　半分になる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 113,
+    "english": "scrappy",
+    "japanese": "きもったま",
+    "effect": "ゴーストタイプに ノーマル技が　当たる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 114,
+    "english": "storm-drain",
+    "japanese": "よびみず",
+    "effect": "みずを　呼び込んで 特攻を　あげる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 115,
+    "english": "ice-body",
+    "japanese": "アイスボディ",
+    "effect": "あられのとき　ＨＰを 少しずつ　回復。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 116,
+    "english": "solid-rock",
+    "japanese": "ハードロック",
+    "effect": "効果バツグン　のとき 威力を　弱める。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 117,
+    "english": "snow-warning",
+    "japanese": "ゆきふらし",
+    "effect": "戦闘に　でると あられを　降らす。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 118,
+    "english": "honey-gather",
+    "japanese": "みつあつめ",
+    "effect": "あまいミツを　集めて くることが　ある。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 119,
+    "english": "frisk",
+    "japanese": "おみとおし",
+    "effect": "相手の　持ち物を 知ることが　できる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 120,
+    "english": "reckless",
+    "japanese": "すてみ",
+    "effect": "反動で　ダメージを 受ける技が　強くなる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 121,
+    "english": "multitype",
+    "japanese": "マルチタイプ",
+    "effect": "持っている　プレートで タイプが　変わる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 122,
+    "english": "flower-gift",
+    "japanese": "フラワーギフト",
+    "effect": "晴れのとき　自分と 味方が　強くなる。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 123,
+    "english": "bad-dreams",
+    "japanese": "ナイトメア",
+    "effect": "ねむっている　相手の ＨＰを　減らす。",
+    "generation": "generation-iv",
+    "isMainSeries": true
+  },
+  {
+    "id": 124,
+    "english": "pickpocket",
+    "japanese": "わるいてぐせ",
+    "effect": "触られた　相手から 道具を　盗む。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 125,
+    "english": "sheer-force",
+    "japanese": "ちからずく",
+    "effect": "力が　強くなるが 追加効果が　なくなる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 126,
+    "english": "contrary",
+    "japanese": "あまのじゃく",
+    "effect": "能力の　変化が 逆転する。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 127,
+    "english": "unnerve",
+    "japanese": "きんちょうかん",
+    "effect": "相手を　緊張させ きのみを　食べさせない。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 128,
+    "english": "defiant",
+    "japanese": "まけんき",
+    "effect": "能力が　さがると 攻撃が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 129,
+    "english": "defeatist",
+    "japanese": "よわき",
+    "effect": "ＨＰが　半分になると 能力が　さがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 130,
+    "english": "cursed-body",
+    "japanese": "のろわれボディ",
+    "effect": "攻撃されると　たまに かなしばりにする。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 131,
+    "english": "healer",
+    "japanese": "いやしのこころ",
+    "effect": "状態異常の 味方を　たまに　治す。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 132,
+    "english": "friend-guard",
+    "japanese": "フレンドガード",
+    "effect": "味方の　ダメージを 減らすことができる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 133,
+    "english": "weak-armor",
+    "japanese": "くだけるよろい",
+    "effect": "物理技で　防御がさがり 素早さが　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 134,
+    "english": "heavy-metal",
+    "japanese": "ヘヴィメタル",
+    "effect": "自分の　重さが ２倍に　なる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 135,
+    "english": "light-metal",
+    "japanese": "ライトメタル",
+    "effect": "自分の　重さが 半分に　なる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 136,
+    "english": "multiscale",
+    "japanese": "マルチスケイル",
+    "effect": "ＨＰが　満タンのときに ダメージが　少なくなる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 137,
+    "english": "toxic-boost",
+    "japanese": "どくぼうそう",
+    "effect": "どくのとき　物理の 威力が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 138,
+    "english": "flare-boost",
+    "japanese": "ねつぼうそう",
+    "effect": "やけどのとき　特殊の 威力が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 139,
+    "english": "harvest",
+    "japanese": "しゅうかく",
+    "effect": "使った　きのみを 何回も　つくりだす。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 140,
+    "english": "telepathy",
+    "japanese": "テレパシー",
+    "effect": "味方の　攻撃を 読み取って　受けない。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 141,
+    "english": "moody",
+    "japanese": "ムラっけ",
+    "effect": "能力が　あがったり さがったりする。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 142,
+    "english": "overcoat",
+    "japanese": "ぼうじん",
+    "effect": "ちりや　粉を 防ぐ。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 143,
+    "english": "poison-touch",
+    "japanese": "どくしゅ",
+    "effect": "触るだけで　相手を どくにすることがある。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 144,
+    "english": "regenerator",
+    "japanese": "さいせいりょく",
+    "effect": "ひっこめると ＨＰが 少し　回復する。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 145,
+    "english": "big-pecks",
+    "japanese": "はとむね",
+    "effect": "防御を　さげる 攻撃を　受けない。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 146,
+    "english": "sand-rush",
+    "japanese": "すなかき",
+    "effect": "砂あらしで 素早さが　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 147,
+    "english": "wonder-skin",
+    "japanese": "ミラクルスキン",
+    "effect": "変化技を　受けにくい 体に　なっている。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 148,
+    "english": "analytic",
+    "japanese": "アナライズ",
+    "effect": "一番　最後に 技をだすと　強くなる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 149,
+    "english": "illusion",
+    "japanese": "イリュージョン",
+    "effect": "後ろの　ポケモンに なりきって　でてくる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 150,
+    "english": "imposter",
+    "japanese": "かわりもの",
+    "effect": "目の前の　ポケモンに 変身　してしまう。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 151,
+    "english": "infiltrator",
+    "japanese": "すりぬけ",
+    "effect": "相手の　かべを すりぬけて　攻撃。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 152,
+    "english": "mummy",
+    "japanese": "ミイラ",
+    "effect": "相手に　触られると 相手を　ミイラにする。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 153,
+    "english": "moxie",
+    "japanese": "じしんかじょう",
+    "effect": "相手を　倒すと 攻撃が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 154,
+    "english": "justified",
+    "japanese": "せいぎのこころ",
+    "effect": "あくを　受けると 攻撃が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 155,
+    "english": "rattled",
+    "japanese": "びびり",
+    "effect": "びびって　素早さが あがる　タイプがある。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 156,
+    "english": "magic-bounce",
+    "japanese": "マジックミラー",
+    "effect": "変化技を　返す ことが　できる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 157,
+    "english": "sap-sipper",
+    "japanese": "そうしょく",
+    "effect": "くさの　技を　受けると 攻撃が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 158,
+    "english": "prankster",
+    "japanese": "いたずらごころ",
+    "effect": "変化技を　先制で だすことが　できる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 159,
+    "english": "sand-force",
+    "japanese": "すなのちから",
+    "effect": "砂あらしで　威力が あがる　技がある。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 160,
+    "english": "iron-barbs",
+    "japanese": "てつのトゲ",
+    "effect": "触れた　相手を キズつける。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 161,
+    "english": "zen-mode",
+    "japanese": "ダルマモード",
+    "effect": "ピンチに　なると 姿が　変化する。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 162,
+    "english": "victory-star",
+    "japanese": "しょうりのほし",
+    "effect": "自分や　味方の 命中が　あがる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 163,
+    "english": "turboblaze",
+    "japanese": "ターボブレイズ",
+    "effect": "特性に　関係なく 相手に　技を　だせる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 164,
+    "english": "teravolt",
+    "japanese": "テラボルテージ",
+    "effect": "特性に　関係なく 相手に　技を　だせる。",
+    "generation": "generation-v",
+    "isMainSeries": true
+  },
+  {
+    "id": 165,
+    "english": "aroma-veil",
+    "japanese": "アロマベール",
+    "effect": "味方への　メンタル 攻撃を　防ぐ。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 166,
+    "english": "flower-veil",
+    "japanese": "フラワーベール",
+    "effect": "味方の　草ポケモンは 能力が　さがらない。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 167,
+    "english": "cheek-pouch",
+    "japanese": "ほおぶくろ",
+    "effect": "きのみを　食べると ＨＰも　回復する。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 168,
+    "english": "protean",
+    "japanese": "へんげんじざい",
+    "effect": "だした　技と　同じ タイプに　変化する。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 169,
+    "english": "fur-coat",
+    "japanese": "ファーコート",
+    "effect": "物理技の　ダメージが 半分になる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 170,
+    "english": "magician",
+    "japanese": "マジシャン",
+    "effect": "技を　当てた　相手の 道具を　奪ってしまう。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 171,
+    "english": "bulletproof",
+    "japanese": "ぼうだん",
+    "effect": "たまや　ばくだんに 当たらない。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 172,
+    "english": "competitive",
+    "japanese": "かちき",
+    "effect": "能力が　さがると 特攻が　あがる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 173,
+    "english": "strong-jaw",
+    "japanese": "がんじょうあご",
+    "effect": "あごが　頑丈で かむ　力が　強い。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 174,
+    "english": "refrigerate",
+    "japanese": "フリーズスキン",
+    "effect": "ノーマルタイプの　技が こおりタイプに　なる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 175,
+    "english": "sweet-veil",
+    "japanese": "スイートベール",
+    "effect": "味方の　ポケモンは 眠らなくなる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 176,
+    "english": "stance-change",
+    "japanese": "バトルスイッチ",
+    "effect": "戦闘モードで 姿が　変わる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 177,
+    "english": "gale-wings",
+    "japanese": "はやてのつばさ",
+    "effect": "ひこうタイプの　技が 先制で　だせる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 178,
+    "english": "mega-launcher",
+    "japanese": "メガランチャー",
+    "effect": "はどうの　技の 威力が　高い。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 179,
+    "english": "grass-pelt",
+    "japanese": "くさのけがわ",
+    "effect": "グラスフィールドの時 防御が　あがる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 180,
+    "english": "symbiosis",
+    "japanese": "きょうせい",
+    "effect": "味方に　道具を 渡せるように　なる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 181,
+    "english": "tough-claws",
+    "japanese": "かたいツメ",
+    "effect": "接触する　技の 威力が　あがる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 182,
+    "english": "pixilate",
+    "japanese": "フェアリースキン",
+    "effect": "ノーマルタイプの　技が フェアリータイプになる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 183,
+    "english": "gooey",
+    "japanese": "ぬめぬめ",
+    "effect": "触れた　相手の 素早さを　さげる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 184,
+    "english": "aerilate",
+    "japanese": "スカイスキン",
+    "effect": "ノーマルタイプの　技が ひこうタイプになる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 185,
+    "english": "parental-bond",
+    "japanese": "おやこあい",
+    "effect": "親子　２匹で 攻撃する。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 186,
+    "english": "dark-aura",
+    "japanese": "ダークオーラ",
+    "effect": "全員の　あくタイプの 技が　強くなる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 187,
+    "english": "fairy-aura",
+    "japanese": "フェアリーオーラ",
+    "effect": "全員の　フェアリー 技が　強くなる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 188,
+    "english": "aura-break",
+    "japanese": "オーラブレイク",
+    "effect": "オーラの　効果が 逆に　なる。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 189,
+    "english": "primordial-sea",
+    "japanese": "はじまりのうみ",
+    "effect": "ほのおタイプの　攻撃を 受けない　天気にする。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 190,
+    "english": "desolate-land",
+    "japanese": "おわりのだいち",
+    "effect": " ずタイプの　攻撃を 受けない　天気にする。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 191,
+    "english": "delta-stream",
+    "japanese": "デルタストリーム",
+    "effect": "ひこうタイプの　弱点が なくなる　天気にする。",
+    "generation": "generation-vi",
+    "isMainSeries": true
+  },
+  {
+    "id": 192,
+    "english": "stamina",
+    "japanese": "じきゅうりょく",
+    "effect": "攻撃を　受けると 防御が　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 193,
+    "english": "wimp-out",
+    "japanese": "にげごし",
+    "effect": "ＨＰが　半分に　なると あわてて　逃げ出して 手持ちに　引っ込んで　しまう。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 194,
+    "english": "emergency-exit",
+    "japanese": "ききかいひ",
+    "effect": "ＨＰが　半分に　なると 危険を　回避するため 手持ちに　引っ込んで　しまう。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 195,
+    "english": "water-compaction",
+    "japanese": "みずがため",
+    "effect": "みずタイプの　技を　受けると 防御が　ぐーんと　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 196,
+    "english": "merciless",
+    "japanese": "ひとでなし",
+    "effect": "どく状態の 相手を　攻撃すると かならず　急所に　当たる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 197,
+    "english": "shields-down",
+    "japanese": "リミットシールド",
+    "effect": "ＨＰが　半分に　なると 殻が　壊れて 攻撃的に　なる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 198,
+    "english": "stakeout",
+    "japanese": "はりこみ",
+    "effect": "交代で　出てきた　相手に ２倍の　ダメージで　攻撃　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 199,
+    "english": "water-bubble",
+    "japanese": "すいほう",
+    "effect": "自分に　対する　ほのおタイプの 技の　威力を　下げる。 やけど　しない。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 200,
+    "english": "steelworker",
+    "japanese": "はがねつかい",
+    "effect": "はがねタイプの　技の 威力が　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 201,
+    "english": "berserk",
+    "japanese": "ぎゃくじょう",
+    "effect": "相手の　攻撃で ＨＰが　半分に　なると 特攻が　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 202,
+    "english": "slush-rush",
+    "japanese": "ゆきかき",
+    "effect": "天気が　あられ　のとき 素早さが　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 203,
+    "english": "long-reach",
+    "japanese": "えんかく",
+    "effect": "すべての　技を 相手に　接触　しないで 出すことが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 204,
+    "english": "liquid-voice",
+    "japanese": "うるおいボイス",
+    "effect": "すべての　音技が みずタイプに　なる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 205,
+    "english": "triage",
+    "japanese": "ヒーリングシフト",
+    "effect": "回復技を　先制で 出すことが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 206,
+    "english": "galvanize",
+    "japanese": "エレキスキン",
+    "effect": "ノーマルタイプの　技が でんきタイプになる。 威力が　少し　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 207,
+    "english": "surge-surfer",
+    "japanese": "サーフテール",
+    "effect": "エレキフィールド　のとき 素早さが　２倍に　なる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 208,
+    "english": "schooling",
+    "japanese": "ぎょぐん",
+    "effect": "ＨＰが　多いときは　群れて　強くなる。 ＨＰの　残りが　少なくなると 群れは　散り散りに　なってしまう。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 209,
+    "english": "disguise",
+    "japanese": "ばけのかわ",
+    "effect": "体を　被う　化けの皮で　 １回　攻撃を　防ぐことが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 210,
+    "english": "battle-bond",
+    "japanese": "きずなへんげ",
+    "effect": "相手を　倒すと　トレーナーとの キズナが　深まり　サトシゲッコウガに 変化する。みずしゅりけんが　強くなる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 211,
+    "english": "power-construct",
+    "japanese": "スワームチェンジ",
+    "effect": "ＨＰが　半分に　なると セルたちが　応援に　駆けつけ パーフェクトフォルムに　姿を　変える。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 212,
+    "english": "corrosion",
+    "japanese": "ふしょく",
+    "effect": "はがねタイプや　どくタイプも どく状態に　することが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 213,
+    "english": "comatose",
+    "japanese": "ぜったいねむり",
+    "effect": "つねに　夢うつつの　状態で 絶対に　目覚めない。 眠ったまま　攻撃が　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 214,
+    "english": "queenly-majesty",
+    "japanese": "じょおうのいげん",
+    "effect": "相手に　威圧感を　あたえ こちらに　むかって　先制技を 出せない　ようにする。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 215,
+    "english": "innards-out",
+    "japanese": "とびだすなかみ",
+    "effect": "相手に　倒されたとき ＨＰの　残りの　ぶんだけ 相手に　ダメージを　あたえる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 216,
+    "english": "dancer",
+    "japanese": "おどりこ",
+    "effect": "だれかが　踊り技を　使うと 自分も　それに　続いて 踊り技を　出すことが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 217,
+    "english": "battery",
+    "japanese": "バッテリー",
+    "effect": "味方の　特殊技の 威力を　上げる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 218,
+    "english": "fluffy",
+    "japanese": "もふもふ",
+    "effect": "相手から　受けた　接触する　技の ダメージを　半減するが　ほのおタイプの 技の　ダメージは　２倍になる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 219,
+    "english": "dazzling",
+    "japanese": "ビビッドボディ",
+    "effect": "相手を　びっくり　させて こちらに　むかって　先制技を 出せない　ようにする。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 220,
+    "english": "soul-heart",
+    "japanese": "ソウルハート",
+    "effect": "ポケモンが　ひんしに　なるたびに 特攻が　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 221,
+    "english": "tangling-hair",
+    "japanese": "カーリーヘアー",
+    "effect": "攻撃で　自分に　触れた　相手の 素早さを　下げる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 222,
+    "english": "receiver",
+    "japanese": "レシーバー",
+    "effect": "倒された　味方の　特性を 受け継いで　同じ　特性に　なる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 223,
+    "english": "power-of-alchemy",
+    "japanese": "かがくのちから",
+    "effect": "倒された　味方の　特性を　受け継ぎ 同じ　特性に　変わる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 224,
+    "english": "beast-boost",
+    "japanese": "ビーストブースト",
+    "effect": "相手を　倒したとき 自分の　いちばん　高い 能力が　上がる。　",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 225,
+    "english": "rks-system",
+    "japanese": "ＡＲシステム",
+    "effect": "持っている　メモリで 自分の　タイプが　変わる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 226,
+    "english": "electric-surge",
+    "japanese": "エレキメイカー",
+    "effect": "登場　したときに エレキフィールドを　はりめぐらせる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 227,
+    "english": "psychic-surge",
+    "japanese": "サイコメイカー",
+    "effect": "登場　したときに サイコフィールドを　はりめぐらせる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 228,
+    "english": "misty-surge",
+    "japanese": "ミストメイカー",
+    "effect": "登場　したときに ミストフィールドを　はりめぐらせる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 229,
+    "english": "grassy-surge",
+    "japanese": "グラスメイカー",
+    "effect": "登場　したときに グラスフィールドを　はりめぐらせる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 230,
+    "english": "full-metal-body",
+    "japanese": "メタルプロテクト",
+    "effect": "相手の　技や　特性で 能力を　下げられない。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 231,
+    "english": "shadow-shield",
+    "japanese": "ファントムガード",
+    "effect": "ＨＰが　満タンの　ときに 受ける　ダメージが　少なくなる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 232,
+    "english": "prism-armor",
+    "japanese": "プリズムアーマー",
+    "effect": "効果バツグンに　なってしまう 攻撃の　威力を 弱める　ことが　できる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 233,
+    "english": "neuroforce",
+    "japanese": "ブレインフォース",
+    "effect": "効果バツグンの　攻撃で 威力が　さらに　上がる。",
+    "generation": "generation-vii",
+    "isMainSeries": true
+  },
+  {
+    "id": 234,
+    "english": "intrepid-sword",
+    "japanese": "ふとうのけん",
+    "effect": "登場　したときに 攻撃が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 235,
+    "english": "dauntless-shield",
+    "japanese": "ふくつのたて",
+    "effect": "登場　したときに 防御が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 236,
+    "english": "libero",
+    "japanese": "リベロ",
+    "effect": "自分が　出す　技と 同じ　タイプに　変化する。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 237,
+    "english": "ball-fetch",
+    "japanese": "たまひろい",
+    "effect": "道具を　持っていない　場合 １回目に　投げて　失敗　した モンスターボールを　拾ってくる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 238,
+    "english": "cotton-down",
+    "japanese": "わたげ",
+    "effect": "攻撃を　受けると　わたげを　ばらまいて 自分以外の　ポケモン　すべての 素早さを　下げる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 239,
+    "english": "propeller-tail",
+    "japanese": "スクリューおびれ",
+    "effect": "相手の　技を　引き受ける 特性や　技の 影響を　無視　できる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 240,
+    "english": "mirror-armor",
+    "japanese": "ミラーアーマー",
+    "effect": "自分が　受けた 能力　ダウンの 効果　だけを　跳ね返す。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 241,
+    "english": "gulp-missile",
+    "japanese": "うのミサイル",
+    "effect": "なみのりか　ダイビングを　すると 獲物を　くわえてくる。　ダメージを 受けると　獲物を　吐きだして　攻撃。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 242,
+    "english": "stalwart",
+    "japanese": "すじがねいり",
+    "effect": "相手の　技を　引き受ける 特性や　技の 影響を　無視　できる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 243,
+    "english": "steam-engine",
+    "japanese": "じょうききかん",
+    "effect": "みずタイプ　ほのおタイプの 技を　受けると 素早さが　ぐぐーんと　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 244,
+    "english": "punk-rock",
+    "japanese": "パンクロック",
+    "effect": "音技の　威力が　上がる。 受けた　音技の ダメージは　半分に　なる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 245,
+    "english": "sand-spit",
+    "japanese": "すなはき",
+    "effect": "攻撃を　受けると 砂あらしを　起こす。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 246,
+    "english": "ice-scales",
+    "japanese": "こおりのりんぷん",
+    "effect": "こおりのりんぷんに　守られて 特殊攻撃で　受ける ダメージが　半減　する。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 247,
+    "english": "ripen",
+    "japanese": "じゅくせい",
+    "effect": "熟成　させることで きのみの　効果が 倍に　なる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 248,
+    "english": "ice-face",
+    "japanese": "アイスフェイス",
+    "effect": "物理攻撃は　頭の　氷が みがわりに　なるが　姿も　変わる。 氷は　あられが　降ると　元に戻る。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 249,
+    "english": "power-spot",
+    "japanese": "パワースポット",
+    "effect": "隣に　いるだけで 技の　威力が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 250,
+    "english": "mimicry",
+    "japanese": "ぎたい",
+    "effect": "フィールドの　状態に　あわせて ポケモンの　タイプが　変わる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 251,
+    "english": "screen-cleaner",
+    "japanese": "バリアフリー",
+    "effect": "登場　したときに　敵と　味方の ひかりのかべ　リフレクター オーロラベールの　効果が　消える。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 252,
+    "english": "steely-spirit",
+    "japanese": "はがねのせいしん",
+    "effect": "味方の　はがねタイプの 攻撃の　威力が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 253,
+    "english": "perish-body",
+    "japanese": "ほろびのボディ",
+    "effect": "接触する　技を　受けると お互い　３ターン　たつと　ひんしになる。 交代すると　効果は　なくなる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 254,
+    "english": "wandering-spirit",
+    "japanese": "さまようたましい",
+    "effect": "接触する　技で 攻撃　してきた　ポケモンと 特性を　入れ替える。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 255,
+    "english": "gorilla-tactics",
+    "japanese": "ごりむちゅう",
+    "effect": "攻撃は　上がるが 最初に　選んだ 技しか　出せなくなる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 256,
+    "english": "neutralizing-gas",
+    "japanese": "かがくへんかガス",
+    "effect": "かがくへんかガスの　ポケモンが　場にいると すべての　ポケモンの　特性の 効果が　消えたり　発動　しなくなる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 257,
+    "english": "pastel-veil",
+    "japanese": "パステルベール",
+    "effect": "自分も　味方も どくの　状態異常を 受けなくなる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 258,
+    "english": "hunger-switch",
+    "japanese": "はらぺこスイッチ",
+    "effect": "ターンの　終わりに　まんぷくもよう はらぺこもよう　まんぷくもよう……と 交互に　姿を　変える。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 259,
+    "english": "quick-draw",
+    "japanese": "クイックドロウ",
+    "effect": "相手より　先に 行動できることが　ある。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 260,
+    "english": "unseen-fist",
+    "japanese": "ふかしのこぶし",
+    "effect": "相手に　接触する　技なら 守りの　効果を 無視して　攻撃することが　できる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 261,
+    "english": "curious-medicine",
+    "japanese": "きみょうなくすり",
+    "effect": "登場　したときに 貝がらから　薬を　振りまいて 味方の　能力変化を　元に戻す。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 262,
+    "english": "transistor",
+    "japanese": "トランジスタ",
+    "effect": "でんきタイプの　技の 威力が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 263,
+    "english": "dragons-maw",
+    "japanese": "りゅうのあぎと",
+    "effect": "ドラゴンタイプの　技の 威力が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 264,
+    "english": "chilling-neigh",
+    "japanese": "しろのいななき",
+    "effect": "相手を　倒すと 冷たい　声で　いなないて 攻撃が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 265,
+    "english": "grim-neigh",
+    "japanese": "くろのいななき",
+    "effect": "相手を　倒すと 恐ろしい　声で　いなないて 特攻が　上がる。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 266,
+    "english": "as-one-glastrier",
+    "japanese": "じんばいったい",
+    "effect": "バドレックスの　きんちょうかんと ブリザポスの　しろのいななきの 二つの　特性を　あわせ持つ。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 267,
+    "english": "as-one-spectrier",
+    "japanese": "じんばいったい",
+    "effect": "バドレックスの　きんちょうかんと レイスポスの　くろのいななきの 二つの　特性を　あわせ持つ。",
+    "generation": "generation-viii",
+    "isMainSeries": true
+  },
+  {
+    "id": 268,
+    "english": "lingering-aroma",
+    "japanese": "とれないにおい",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 269,
+    "english": "seed-sower",
+    "japanese": "こぼれダネ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 270,
+    "english": "thermal-exchange",
+    "japanese": "ねつこうかん",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 271,
+    "english": "anger-shell",
+    "japanese": "いかりのこうら",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 272,
+    "english": "purifying-salt",
+    "japanese": "きよめのしお",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 273,
+    "english": "well-baked-body",
+    "japanese": "こんがりボディ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 274,
+    "english": "wind-rider",
+    "japanese": "かぜのり",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 275,
+    "english": "guard-dog",
+    "japanese": "ばんけん",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 276,
+    "english": "rocky-payload",
+    "japanese": "いわはこび",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 277,
+    "english": "wind-power",
+    "japanese": "ふうりょくでんき",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 278,
+    "english": "zero-to-hero",
+    "japanese": "マイティチェンジ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 279,
+    "english": "commander",
+    "japanese": "しれいとう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 280,
+    "english": "electromorphosis",
+    "japanese": "でんきにかえる",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 281,
+    "english": "protosynthesis",
+    "japanese": "こだいかっせい",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 282,
+    "english": "quark-drive",
+    "japanese": "クォークチャージ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 283,
+    "english": "good-as-gold",
+    "japanese": "おうごんのからだ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 284,
+    "english": "vessel-of-ruin",
+    "japanese": "わざわいのうつわ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 285,
+    "english": "sword-of-ruin",
+    "japanese": "わざわいのつるぎ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 286,
+    "english": "tablets-of-ruin",
+    "japanese": "わざわいのおふだ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 287,
+    "english": "beads-of-ruin",
+    "japanese": "わざわいのたま",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 288,
+    "english": "orichalcum-pulse",
+    "japanese": "ひひいろのこどう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 289,
+    "english": "hadron-engine",
+    "japanese": "ハドロンエンジン",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 290,
+    "english": "opportunist",
+    "japanese": "びんじょう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 291,
+    "english": "cud-chew",
+    "japanese": "はんすう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 292,
+    "english": "sharpness",
+    "japanese": "きれあじ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 293,
+    "english": "supreme-overlord",
+    "japanese": "そうだいしょう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 294,
+    "english": "costar",
+    "japanese": "きょうえん",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 295,
+    "english": "toxic-debris",
+    "japanese": "どくげしょう",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 296,
+    "english": "armor-tail",
+    "japanese": "テイルアーマー",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 297,
+    "english": "earth-eater",
+    "japanese": "どしょく",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 298,
+    "english": "mycelium-might",
+    "japanese": "きんしのちから",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 299,
+    "english": "minds-eye",
+    "japanese": "しんがん",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 302,
+    "english": "toxic-chain",
+    "japanese": "どくのくさり",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 303,
+    "english": "embody-aspect",
+    "japanese": "おもかげやどし",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 304,
+    "english": "tera-shift",
+    "japanese": "テラスチェンジ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 305,
+    "english": "tera-shell",
+    "japanese": "テラスシェル",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 306,
+    "english": "teraform-zero",
+    "japanese": "ゼロフォーミング",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  },
+  {
+    "id": 307,
+    "english": "poison-puppeteer",
+    "japanese": "どくくぐつ",
+    "effect": null,
+    "generation": "generation-ix",
+    "isMainSeries": true
+  }
+];

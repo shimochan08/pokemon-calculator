@@ -36,7 +36,8 @@ export function usePokemonBuildCreate() {
             },
 
             item: "",
-            ability: ""
+            ability: "",
+            nature: "",
         };
 
     };

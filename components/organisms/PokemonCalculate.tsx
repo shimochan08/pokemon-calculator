@@ -34,6 +34,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
     const [moves, setMoves] = useState(build?.moves ?? []);
     const [ability, setAbility] = useState(build?.ability ?? "");
     const [battleTool, setBattleTool] = useState(build?.item ?? "");
+    const [nature, setNature] = useState(build?.nature ?? "");
     const [skipEffect, setSkipEffect] = useState(false);
 
     useEffect(() => {
@@ -66,6 +67,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
             moves: build.moves,
             ivs: build.ivs,
             evs: build.evs,
+            nature: build.nature,
         };
         setIsDirty(JSON.stringify(currentBuild) !== JSON.stringify(build));
         setMoves(build.moves);
@@ -73,6 +75,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
         setEvs(build.evs);
         setAbility(build.ability);
         setBattleTool(build.item);
+        setNature(build.nature);
 
     }, [build, pokemon]);
 
@@ -89,6 +92,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
             moves: moves,
             ivs: ivs,
             evs: evs,
+            nature: nature,
         };
 
         updateBuild(newBuild);
@@ -128,16 +132,15 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                     <AbilitySelector
                         ability={ability}
                         onChange={(newAbility) => {
-                            if (!build) return;
                             setAbility(newAbility);
                             setIsDirty(true);
                         }}
+                        pokemonAbilities={pokemon?.abilities ?? []}
                     />
 
                     <ItemSelector
                         item={battleTool}
                         onChange={(newItem) => {
-                            if (!build) return;
                             setBattleTool(newItem);
                             setIsDirty(true);
                         }}
@@ -199,10 +202,13 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                     <div className="col-right">
                         <StatAdjuster
                             stats={pokemon.stats}
-                            ivs={ivs} evs={evs}
-                            onChange={(newIvs, newEvs) => {
+                            ivs={ivs}
+                            evs={evs}
+                            nature={nature}
+                            onChange={(newIvs, newEvs, newNature) => {
                                 setIvs(newIvs);
                                 setEvs(newEvs);
+                                setNature(newNature);
                                 setIsDirty(true);
                             }}
                         />

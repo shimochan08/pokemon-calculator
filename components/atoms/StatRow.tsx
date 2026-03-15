@@ -12,6 +12,7 @@ type Props = {
     ev: number;
     totalEv: number;
     remainingEv: number;
+    natureMultiplier: number;
     onIvChange: (v: number) => void;
     onEvChange: (name: string, oldEv: number, newEv: number) => void;
 };
@@ -23,10 +24,22 @@ export default function StatRow({
     ev,
     totalEv,
     remainingEv,
+    natureMultiplier,
     onIvChange,
     onEvChange,
 }: Props) {
 
+    const rawStat = calculateStat({
+        base,
+        iv,
+        ev,
+        level: 50,
+        isHp: name === "hp",
+    });
+
+    const adjustedStat = Math.floor(rawStat * natureMultiplier);
+
+    const sign = natureMultiplier > 1.001 ? "+" : natureMultiplier < 0.999 ? "−" : "";
     return (
         <div
             style={{
@@ -64,14 +77,19 @@ export default function StatRow({
             />
 
             {/* 計算結果 */}
-            <div style={{ textAlign: "right" }}>
-                {calculateStat({
-                    base,
-                    iv,
-                    ev,
-                    level: 50,
-                    isHp: name === "hp",
-                })}
+            <div style={{ position: "relative", textAlign: "right" }}>
+                {adjustedStat}
+                {(natureMultiplier > 1.001 || natureMultiplier < 0.999) && (
+                    <span
+                        style={{
+                            position: "absolute",
+                            top: 0,
+                            right: -8,
+                        }}
+                    >
+                        {natureMultiplier > 1.001 ? "+" : "−"}
+                    </span>
+                )}
             </div>
         </div>
     );
