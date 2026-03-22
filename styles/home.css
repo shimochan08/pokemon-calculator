@@ -111,7 +111,7 @@
 
 /* 画像 */
 .member-sprite {
-  width: 200px;   /* 好きなサイズに調整OK */
+  width: 200px;
   height: auto;
   object-fit: contain;
 }
@@ -123,6 +123,10 @@
     }
 
     .member-pokemon-subInfo {
+        display: none;
+    }
+    
+    .member-pokemon-types {
         display: none;
     }
 

@@ -1,6 +1,7 @@
 import SamplePanel from "@/components/organisms/SamplePanel";
 import AddPanel from "@/components/molecules/AddPanel";
 import { PanelSize } from "@/types/domain/Panel";
+import AtkDamageCalculatePanel from "@/components/organisms/AtkDamageCalculatePanel";
 
 export type PanelDefinition = {
     key: string;
@@ -23,6 +24,13 @@ export const panelRegistry: PanelDefinition[] = [
         label: "Sample Panel",
         component: SamplePanel,
         allowedSizes: ["s", "m", "l"],
+        selectable: true,
+    },
+    {
+        key: "atk_damage_calculate",
+        label: "ダメージ計算（攻撃側）",
+        component: AtkDamageCalculatePanel,
+        allowedSizes: ["l"],
         selectable: true,
     },
 ];

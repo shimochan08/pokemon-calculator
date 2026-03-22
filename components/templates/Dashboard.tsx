@@ -12,6 +12,8 @@ import DeletePanelDialog from "../organisms/DeletePanelDialog";
 import AddPanelDialog from "../organisms/AddPanelDialog";
 import { mapPanelInstanceToPanel, mapPanelToInstance } from "@/lib/typeMapper/mapPanelInstanceToPanel";
 import { usePokemonBuildRead } from "@/hooks/usePokemonBuildRead";
+import { panelRegistry } from "@/utils/panelRegistry";
+import { initialBuild, PokemonBuild } from "@/types/domain/PokemonBuild";
 
 
 export type AddPanelTarget = {
@@ -27,9 +29,9 @@ export type DeletePanelTarget = {
 export default function Dashboard() {
     const { id } = useParams();
     const slotId = Number(id) - 1;
-
+    const [pokemonBuild, setPokemonBuild] = useState<PokemonBuild>(initialBuild);
     const { slots, setSlots } = useDashboardSlotRead();
-    const slot = slots[slotId];
+    const slot = slots?.[slotId];
     const buildId = slot?.buildId ?? null;
 
     const { build } = usePokemonBuildRead(buildId);
@@ -57,19 +59,17 @@ export default function Dashboard() {
             setItems(trimmed);
             return;
         }
-        console.log("items changed, rebuilding layout...", { items });
         setRows(rebuildLayout(items));
     }, [items]);
 
     useEffect(() => {
-
-        if (!slots.length) return;
+        if (!slots?.length) return;
         if (initialized) return;
 
         const slot = slots[slotId];
         if (!slot) return;
 
-        const uiPanels = slot.panels.map(mapPanelInstanceToPanel);
+        const uiPanels = slot.panels?.map(mapPanelInstanceToPanel) ?? [];
 
         setItems(uiPanels);
         setInitialized(true);
@@ -78,7 +78,7 @@ export default function Dashboard() {
 
     useEffect(() => {
 
-        if (!slots.length) return;
+        if (!slots?.length) return;
 
         const slot = slots[slotId];
         if (!slot) return;
@@ -100,10 +100,9 @@ export default function Dashboard() {
 
     useEffect(() => {
 
-        if (!slots.length) return;
+        if (!slots?.length) return;
 
         const panels = items
-            .filter((p): p is Panel => p !== null)
             .map(mapPanelToInstance);
 
         updateSlotPanels(slotId, panels);
@@ -122,7 +121,7 @@ export default function Dashboard() {
 
             const newPanel = {
                 id: crypto.randomUUID(),
-                title: componentKey,
+                title: panelRegistry.find(p => p.key === componentKey)?.label ?? "",
                 size,
                 componentKey,
             };
@@ -176,7 +175,7 @@ export default function Dashboard() {
     }
     return (
         <div style={{ padding: 20 }}>
-            <PokemonCalculate build={build} buildId={buildId} />
+            <PokemonCalculate build={build} buildId={buildId} setPokemonBuild={setPokemonBuild} />
             {rows.map((row, rowIndex) => (
 
                 <div
@@ -198,7 +197,7 @@ export default function Dashboard() {
                                     gridColumn: `span ${getColSpan(panel.size)}`,
                                 }}
                             >
-                                <RootPanel panel={panel} panelIndex={panel.originalIndex} onOpenAddPanel={handleOpenAddPanel} onDelete={handleDeleteClick} />
+                                <RootPanel panel={panel} panelIndex={panel.originalIndex} onOpenAddPanel={handleOpenAddPanel} onDelete={handleDeleteClick} panelItems={items} setPanelItems={setItems} pokemonBuild={pokemonBuild} />
                             </div>
                         );
                     })}

@@ -5,5 +5,5 @@ export type DashboardSlot = {
 
     buildId: string | null;
 
-    panels: PanelInstance[];
+    panels: (PanelInstance | null)[];
 };

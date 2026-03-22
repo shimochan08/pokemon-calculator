@@ -15,8 +15,8 @@ export default function Home() {
                 padding: "16px",
             }}
         >
-            {slots.map((slot, idx) => {
-                const build = builds[idx];
+            {slots?.map((slot, idx) => {
+                const build = builds?.[idx];
                 return (
                     <PickedMember
                         key={slot.slotId}

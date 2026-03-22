@@ -15,7 +15,7 @@ export function useAllPokemonBuilds() {
 
         const loadBuilds = async () => {
             const newBuilds: (PokemonBuild | null)[] = await Promise.all(
-                slots.map(slot => (slot.buildId ? pokemonBuildLocalStorage.load(slot.buildId) : null))
+                slots?.map(slot => (slot.buildId ? pokemonBuildLocalStorage.load(slot.buildId) : null)) ?? []
             );
             setBuilds(newBuilds);
             setLoading(false);

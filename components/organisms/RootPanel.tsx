@@ -1,6 +1,7 @@
 import { resolveComponent } from "@/utils/resolver";
-import { PanelSize, Panel as PanelType } from "@/types/domain/Panel";
+import { Panel, PanelSize, Panel as PanelType } from "@/types/domain/Panel";
 import { TiDelete } from "react-icons/ti";
+import { PokemonBuild } from "@/types/domain/PokemonBuild";
 import "@/styles/dashboard.css";
 
 type RootPanelProps = {
@@ -8,9 +9,12 @@ type RootPanelProps = {
     panelIndex: number;
     onOpenAddPanel: (index: number, size: PanelSize) => void;
     onDelete: (panelIndex: number, size: PanelSize) => void;
+    panelItems: (Panel | null)[];
+    setPanelItems: React.Dispatch<React.SetStateAction<(Panel | null)[]>>;
+    pokemonBuild: PokemonBuild;
 };
 
-export default function RootPanel({ panel, panelIndex, onOpenAddPanel, onDelete }: RootPanelProps) {
+export default function RootPanel({ panel, panelIndex, onOpenAddPanel, onDelete, panelItems, setPanelItems, pokemonBuild }: RootPanelProps) {
     const Component = resolveComponent(panel.componentKey);
 
     if (!Component) return null;
@@ -39,6 +43,9 @@ export default function RootPanel({ panel, panelIndex, onOpenAddPanel, onDelete 
                     panel={panel}
                     panelIndex={panelIndex}
                     onOpen={onOpenAddPanel}
+                    panelItems={panelItems}
+                    setPanelItems={setPanelItems}
+                    pokemonBuild={pokemonBuild}
                 />
             </div>
         </div>

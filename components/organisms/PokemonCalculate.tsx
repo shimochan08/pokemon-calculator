@@ -15,9 +15,10 @@ import { ItemSelector } from '../molecules/ItemSelector';
 type PokemonCalculateProps = {
     build: PokemonBuild | null;
     buildId: string | null;
+    setPokemonBuild: React.Dispatch<React.SetStateAction<PokemonBuild>>;
 };
 
-export default function PokemonCalculate({ build, buildId }: PokemonCalculateProps) {
+export default function PokemonCalculate({ build, buildId, setPokemonBuild }: PokemonCalculateProps) {
 
     const [pokemonName, setPokemonName] = useState(
         build?.name ?? "pikachu"
@@ -42,12 +43,13 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
         if (!build) return;
 
         setPokemonName(build.name);
+        setPokemonBuild(build);
 
     }, [build]);
 
     useEffect(() => {
         if (!pokemon) {
-            setIsDirty(false);
+            setIsDirty(true);
             return;
         }
         if (!build) {
@@ -126,6 +128,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                             setBattleTool("");
                             setSkipEffect(true);
                             setIsDirty(true);
+                            setPokemonBuild((prev) => prev ? { ...prev, name: p.english, moves: [], ivs: defaultIvs, evs: defaultEvs, ability: "", item: "" } : prev);
                         }}
                     />
 
@@ -134,6 +137,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                         onChange={(newAbility) => {
                             setAbility(newAbility);
                             setIsDirty(true);
+                            setPokemonBuild((prev) => prev ? { ...prev, ability: newAbility } : prev);
                         }}
                         pokemonAbilities={pokemon?.abilities ?? []}
                     />
@@ -143,6 +147,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                         onChange={(newItem) => {
                             setBattleTool(newItem);
                             setIsDirty(true);
+                            setPokemonBuild((prev) => prev ? { ...prev, item: newItem } : prev);
                         }}
                     />
                     <button
@@ -195,6 +200,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                             onChange={(newMoves) => {
                                 setMoves(newMoves);
                                 setIsDirty(true);
+                                setPokemonBuild((prev) => prev ? { ...prev, moves: newMoves } : prev);
                             }}
                         />
                     </div>
@@ -210,6 +216,7 @@ export default function PokemonCalculate({ build, buildId }: PokemonCalculatePro
                                 setEvs(newEvs);
                                 setNature(newNature);
                                 setIsDirty(true);
+                                setPokemonBuild((prev) => prev ? { ...prev, ivs: newIvs, evs: newEvs, nature: newNature } : prev);
                             }}
                         />
                     </div>

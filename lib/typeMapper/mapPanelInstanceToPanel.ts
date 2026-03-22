@@ -1,26 +1,31 @@
 import { Panel, PanelInstance } from "@/types/domain/Panel";
+import { panelRegistry } from "@/utils/panelRegistry";
 
 export function mapPanelInstanceToPanel(
-    instance: PanelInstance
-): Panel {
+    instance: PanelInstance | null
+): Panel | null {
+    if (!instance) return null;
 
     return {
         id: instance.instanceId,
-        title: instance.panelId,
+        title: panelRegistry.find(p => p.key === instance.panelKey)?.label ?? "",
         size: instance.size,
-        componentKey: instance.panelId
+        componentKey: instance.panelKey,
+        settings: instance.settings
     };
 
 }
 
 export function mapPanelToInstance(
-    panel: Panel
-): PanelInstance {
+    panel: Panel | null
+): PanelInstance | null {
+    if (!panel) return null;
 
     return {
         instanceId: panel.id,
-        panelId: panel.componentKey,
-        size: panel.size
+        panelKey: panel.componentKey,
+        size: panel.size,
+        settings: panel.settings
     };
 
 }

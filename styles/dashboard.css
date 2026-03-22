@@ -1,5 +1,5 @@
 :root {
-  --height: 240px;
+  --height: 280px;
   --panel-background: #1f2937;
 }
 
@@ -128,15 +128,13 @@
 /* RootPanel Specific */
 .rootPanelTitle {
   position: absolute;
-  top: 8px;
   left: 8px;
-  font-size: 14px;
+  font-size: 12px;
   color: #888;
 }
 
 .deleteButton {
   position: absolute;
-  top: 8px;
   right: 8px;
   background: transparent;
   border: none;
@@ -151,4 +149,9 @@
 .deleteButton:hover {
   color: #9ca3af;
   transform: scale(1.1);
+}
+
+.panelContent {
+    flex: 1;
+    overflow: auto;
 }

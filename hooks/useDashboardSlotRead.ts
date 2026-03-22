@@ -6,7 +6,7 @@ import { dashboardSlotLocalStorage } from "@/repositories/localStrage/dashboardS
 
 export function useDashboardSlotRead() {
 
-    const [slots, setSlots] = useState<DashboardSlot[]>([]);
+    const [slots, setSlots] = useState<DashboardSlot[] | null>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {

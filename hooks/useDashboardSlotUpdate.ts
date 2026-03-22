@@ -4,8 +4,8 @@ import { dashboardSlotLocalStorage } from "@/repositories/localStrage/dashboardS
 import { DashboardSlot } from "@/types/domain/DashboardSlot";
 
 export function useDashboardSlotUpdate(
-    slots: DashboardSlot[],
-    setSlots: React.Dispatch<React.SetStateAction<DashboardSlot[]>>
+    slots: DashboardSlot[] | null,
+    setSlots: React.Dispatch<React.SetStateAction<DashboardSlot[] | null>>
 ) {
 
     const saveSlots = async (next: DashboardSlot[]) => {
@@ -20,7 +20,7 @@ export function useDashboardSlotUpdate(
         buildId: string
     ) => {
 
-        const next = slots.map(slot => {
+        const next = slots?.map(slot => {
 
             if (slot.slotId !== slotId) return slot;
 
@@ -31,7 +31,7 @@ export function useDashboardSlotUpdate(
 
         });
 
-        await saveSlots(next);
+        await saveSlots(next ?? []);
     };
 
     const updateSlotPanels = async (
@@ -39,7 +39,7 @@ export function useDashboardSlotUpdate(
         panels: DashboardSlot["panels"]
     ) => {
 
-        const next = slots.map(slot => {
+        const next = slots?.map(slot => {
 
             if (slot.slotId !== slotId) return slot;
 
@@ -50,7 +50,7 @@ export function useDashboardSlotUpdate(
 
         });
 
-        await saveSlots(next);
+        await saveSlots(next ?? []);
     };
 
     return {
