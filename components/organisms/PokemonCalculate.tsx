@@ -78,7 +78,6 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
         setAbility(build.ability);
         setBattleTool(build.item);
         setNature(build.nature);
-
     }, [build, pokemon]);
 
     const handleSave = () => {
@@ -124,6 +123,7 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
                             setMoves([]);
                             setIvs({ hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 });
                             setEvs({ hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 });
+                            setNature("");
                             setAbility("");
                             setBattleTool("");
                             setSkipEffect(true);

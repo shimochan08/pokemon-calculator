@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pokemon Super Board",
+  title: "Pokemon Super Dashboard",
   description: "A calculator for Pokemon stats and battles",
 };
 

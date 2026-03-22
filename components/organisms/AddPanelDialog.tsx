@@ -24,7 +24,6 @@ export default function AddPanelDialog({
     onClose,
     onSubmit,
 }: AddPanelDialogProps) {
-
     const [selectedKey, setSelectedKey] = useState<string | null>(null);
     const [selectedSize, setSelectedSize] = useState<PanelSize | null>(null);
 
@@ -37,123 +36,99 @@ export default function AddPanelDialog({
 
     if (!open) return null;
 
-    console.log("AddPanelDialog rendered", { open, panelIndex, baseSize });
-
-    const maxSpan =
-        baseSize && baseSize !== "none"
-            ? getColSpan(baseSize)
-            : getColSpan("l");
-
-    const selectablePanels = panelRegistry.filter(
-        panel => panel.selectable !== false
-    );
-
-    const selectedPanel = selectablePanels.find(
-        p => p.key === selectedKey
-    );
-
+    const maxSpan = baseSize && baseSize !== "none" ? getColSpan(baseSize) : getColSpan("l");
     const ALL_SIZES: PanelSize[] = ["s", "m", "l"];
 
-    const canSubmit =
-        selectedPanel &&
-        selectedSize &&
-        selectedPanel.allowedSizes.includes(selectedSize) &&
-        getColSpan(selectedSize) <= maxSpan;
+    const selectablePanels = selectedSize
+        ? panelRegistry.filter(
+            (panel) =>
+                panel.selectable !== false &&
+                panel.allowedSizes.includes(selectedSize) &&
+                getColSpan(selectedSize) <= maxSpan
+        )
+        : [];
+
+    const selectedPanel = selectablePanels.find((p) => p.key === selectedKey);
+
+    const canSubmit = !!selectedSize && !!selectedKey && !!selectedPanel;
 
     return (
         <div className="appDialog" onClick={onClose}>
             <div
                 className="appDialogContent"
                 onClick={(e) => e.stopPropagation()}
+                style={{
+                    width: 500,
+                    height: 400,
+                    display: "flex",
+                    flexDirection: "column",
+                }}
             >
-                <h3 className="appDialogTitle">Add Panel</h3>
+                <h3 className="appDialogTitle">追加するパネルを選択してください</h3>
+                <div className="appDialogInfo" style={{ flex: 1, overflowY: "auto", padding: 16 }}>
+                    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 24 }}>
+                        <p style={{ marginBottom: 8, fontWeight: 500, alignSelf: "flex-start" }}>サイズを選択してください</p>
+                        <div style={{ display: "flex", gap: 12 }}>
+                            {ALL_SIZES.map((size) => {
+                                const allowed = getColSpan(size) <= maxSpan;
+                                return (
+                                    <button
+                                        key={size}
+                                        disabled={!allowed}
+                                        className={`appDialogButton ${selectedSize === size ? "appDialogButton--primary" : ""}`}
+                                        style={{
+                                            minWidth: 60,
+                                            padding: "8px 0",
+                                            opacity: allowed ? 1 : 0.3,
+                                            cursor: allowed ? "pointer" : "not-allowed",
+                                        }}
+                                        onClick={() => {
+                                            if (!allowed) return;
+                                            setSelectedSize(size);
+                                            setSelectedKey(null);
+                                        }}
+                                    >
+                                        {size.toUpperCase()}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    </div>
 
-                {/* 種類選択 */}
-                <div style={{ display: "flex", gap: 12, marginBottom: 24, flexWrap: "wrap" }}>
-                    {selectablePanels.map(panel => (
-                        <button
-                            key={panel.key}
-                            className={`appDialogButton ${selectedKey === panel.key
-                                ? "appDialogButton--primary"
-                                : ""
-                                }`}
-                            onClick={() => {
-                                setSelectedKey(panel.key);
-                                setSelectedSize(null); // 種類変わったらサイズリセット
-                            }}
-                        >
-                            {panel.label}
-                        </button>
-                    ))}
+                    {selectedSize && (
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 24 }}>
+                            <p style={{ marginBottom: 8, fontWeight: 500, alignSelf: "flex-start" }}>パネルを選択してください</p>
+                            <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
+                                {selectablePanels.map((panel) => (
+                                    <button
+                                        key={panel.key}
+                                        className={`appDialogButton ${selectedKey === panel.key ? "appDialogButton--primary" : ""}`}
+                                        style={{ minWidth: 80, padding: "8px 0" }}
+                                        onClick={() => setSelectedKey(panel.key)}
+                                    >
+                                        {panel.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
                 </div>
 
-                {/* サイズ選択 */}
-                <div style={{ display: "flex", gap: 12, justifyContent: "center" }}>
-                    {ALL_SIZES.map(size => {
-
-                        const allowed =
-                            selectedPanel &&
-                            selectedPanel.allowedSizes.includes(size) &&
-                            getColSpan(size) <= maxSpan;
-
-                        return (
-                            <button
-                                key={size}
-                                disabled={!allowed}
-                                className={`appDialogButton ${selectedSize === size
-                                    ? "appDialogButton--primary"
-                                    : ""
-                                    }`}
-                                style={{
-                                    opacity: allowed ? 1 : 0.3,
-                                    cursor: allowed ? "pointer" : "not-allowed",
-                                }}
-                                onClick={() => {
-                                    if (!allowed) return;
-                                    setSelectedSize(size);
-                                }}
-                            >
-                                {size.toUpperCase()}
-                            </button>
-                        );
-                    })}
-                </div>
-
-                {/* アクションボタン */}
-                <div
-                    style={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        gap: 12,
-                        marginTop: 32,
-                    }}
-                >
-                    <button
-                        className="appDialogButton"
-                        onClick={onClose}
-                    >
-                        Cancel
-                    </button>
-
+                <div className="appDialogActions">
+                    <button className="appDialogButton appDialogButton--secondary" onClick={onClose}>キャンセル</button>
                     <button
                         className="appDialogButton appDialogButton--primary"
                         disabled={!canSubmit}
                         onClick={() => {
                             if (!canSubmit || !selectedPanel || !selectedSize) return;
-
-                            onSubmit(
-                                panelIndex,
-                                selectedSize,
-                                selectedPanel.key,
-                                baseSize
-                            );
+                            onSubmit(panelIndex, selectedSize, selectedPanel.key, baseSize);
                             onClose();
                         }}
                     >
-                        Add
+                        追加
                     </button>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

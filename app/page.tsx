@@ -46,7 +46,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             href="/"
             className={`app-nav-link`}
           >
-            <h1 className="ml-4">Pokemon Super Board</h1>
+            <h1 className="ml-4">Pokemon Super Dashboard</h1>
           </Link>
         </Tooltip>
       </header>
@@ -70,7 +70,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     className={`app-nav-link ${pathname === href ? "active" : ""
                       }`}
                   >
-                    Board {n}
+                    ポケモン {n}
                   </Link>
                 </li>
               )

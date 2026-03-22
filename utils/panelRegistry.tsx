@@ -2,6 +2,9 @@ import SamplePanel from "@/components/organisms/SamplePanel";
 import AddPanel from "@/components/molecules/AddPanel";
 import { PanelSize } from "@/types/domain/Panel";
 import AtkDamageCalculatePanel from "@/components/organisms/AtkDamageCalculatePanel";
+import StatusRadarPanel from "@/components/organisms/StatusRadarPanel";
+import ClockPanel from "@/components/organisms/ClockPanel";
+import MemoPanel from "@/components/organisms/MemoPanel";
 
 export type PanelDefinition = {
     key: string;
@@ -21,7 +24,7 @@ export const panelRegistry: PanelDefinition[] = [
     },
     {
         key: "sample",
-        label: "Sample Panel",
+        label: "サンプル",
         component: SamplePanel,
         allowedSizes: ["s", "m", "l"],
         selectable: true,
@@ -33,4 +36,25 @@ export const panelRegistry: PanelDefinition[] = [
         allowedSizes: ["l"],
         selectable: true,
     },
+    {
+        key: "status_radar",
+        label: "ステータスレーダー",
+        component: StatusRadarPanel,
+        allowedSizes: ["s"],
+        selectable: true,
+    },
+    {
+        key: "clock",
+        label: "時計",
+        component: ClockPanel,
+        allowedSizes: ["s"],
+        selectable: true,
+    },
+    {
+        key: "memo",
+        label: "メモ帳",
+        component: MemoPanel,
+        allowedSizes: ["s", "m", "l"],
+        selectable: true,
+    }
 ];

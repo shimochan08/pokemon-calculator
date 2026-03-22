@@ -1,5 +1,3 @@
-import { STATS } from "@/types/domain/PokemonBuild";
-
 export const natureMap = [
   {
     "id": 1,

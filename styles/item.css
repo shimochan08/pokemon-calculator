@@ -104,12 +104,17 @@
 }
 
 .appDialogButton--primary {
-  background: #facc15;
+  background: #5587e6;
   color: #111827;
   font-weight: 700;
 }
 
 .appDialogButton--primary:hover {
-  background: #eab308;
+  background: rgb(85, 132, 209);
   transform: translateY(-1px);
+}
+
+.appDialogButton--primary:disabled {
+  background: #334155;
+  color: #e2e8f0;
 }
