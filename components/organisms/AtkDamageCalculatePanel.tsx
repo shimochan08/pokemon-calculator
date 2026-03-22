@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Panel } from "@/types/domain/Panel";
 import { NATURE_MULTIPLIERS, PokemonBuild, StatKey } from "@/types/domain/PokemonBuild";
 import SearchBar from "../atoms/SearchItem";
@@ -17,36 +17,82 @@ type AtkDamageCalculatePanelProps = {
     pokemonBuild: PokemonBuild;
 };
 
+type DefKey = "hp" | "def" | "spd";
+type DefStatKeys = "def" | "spd";
+
+type DefEVs = Record<DefKey, number>;
+type DefIVs = Record<DefKey, number>;
+type DefNatures = Record<DefKey, number>;
+type DefRanks = Record<DefStatKeys, number>;
+type DefMul = Record<DefStatKeys, number>;
+
+type AtkStatKeys = "atk" | "spa";
+type AtkRanks = Record<AtkStatKeys, number>;
+type AtkMul = Record<AtkStatKeys, number>;
+
 export default function AtkDamageCalculatePanel({
+    panel,
+    setPanelItems,
     pokemonBuild,
 }: AtkDamageCalculatePanelProps) {
 
     const atkName = pokemonBuild.name && pokemonBuild.name !== ""
         ? pokemonBuild.name
         : "pikachu";
-    const [pokemonName, setPokemonName] = useState("pikachu");
+    const [pokemonName, setPokemonName] = useState<string>(panel.settings?.pokemonName ?? "pikachu");
 
     const { pokemon: atkPokemon } = usePokemon(atkName);
     const { pokemon: defPokemon } = usePokemon(pokemonName);
 
-    useEffect(() => {
-        console.log("atkPokemon", atkPokemon);
-        console.log("defPokemon", defPokemon);
-    }, [atkPokemon, defPokemon]);
-
     // ===== 防御側 =====
-    const [defEVs, setDefEVs] = useState({ hp: 0, def: 0, spd: 0 });
-    const [defIVs, setDefIVs] = useState({ hp: 31, def: 31, spd: 31 });
-    const [defNatures, setDefNatures] = useState({ hp: 1, def: 1, spd: 1 });
+    const [defEVs, setDefEVs] = useState<DefEVs>(panel.settings?.defEVs ?? { hp: 0, def: 0, spd: 0 });
+    const [defIVs, setDefIVs] = useState<DefIVs>(panel.settings?.defIVs ?? { hp: 31, def: 31, spd: 31 });
+    const [defNatures, setDefNatures] = useState<DefNatures>(panel.settings?.defNatures ?? { hp: 1, def: 1, spd: 1 });
 
-    const [defRanks, setDefRanks] = useState({ def: 0, spd: 0 });
-    const [defMul1, setDefMul1] = useState({ def: 1, spd: 1 });
-    const [defMul2, setDefMul2] = useState({ def: 1, spd: 1 });
+    const [defRanks, setDefRanks] = useState<DefRanks>(panel.settings?.defRanks ?? { def: 0, spd: 0 });
+    const [defMul1, setDefMul1] = useState<DefMul>(panel.settings?.defMul1 ?? { def: 1, spd: 1 });
+    const [defMul2, setDefMul2] = useState<DefMul>(panel.settings?.defMul2 ?? { def: 1, spd: 1 });
 
     // ===== 攻撃側倍率 =====
-    const [atkRanks, setAtkRanks] = useState({ atk: 0, spa: 0 });
-    const [atkMul1, setAtkMul1] = useState({ atk: 1, spa: 1 });
-    const [atkMul2, setAtkMul2] = useState({ atk: 1, spa: 1 });
+    const [atkRanks, setAtkRanks] = useState<AtkRanks>(panel.settings?.atkRanks ?? { atk: 0, spa: 0 });
+    const [atkMul1, setAtkMul1] = useState<AtkMul>(panel.settings?.atkMul1 ?? { atk: 1, spa: 1 });
+    const [atkMul2, setAtkMul2] = useState<AtkMul>(panel.settings?.atkMul2 ?? { atk: 1, spa: 1 });
+
+    useEffect(() => {
+        setPanelItems((prev) =>
+            prev.map((p) => {
+                if (!p || p.id !== panel.id) return p;
+
+                return {
+                    ...p,
+                    settings: {
+                        ...p.settings,
+                        defEVs,
+                        defIVs,
+                        defNatures,
+                        defRanks,
+                        defMul1,
+                        defMul2,
+                        atkRanks,
+                        atkMul1,
+                        atkMul2,
+                        pokemonName,
+                    },
+                };
+            })
+        );
+    }, [
+        defEVs,
+        defIVs,
+        defNatures,
+        defRanks,
+        defMul1,
+        defMul2,
+        atkRanks,
+        atkMul1,
+        atkMul2,
+        pokemonName,
+    ]);
 
     const getAtkStat = (type: "atk" | "spa") => {
         if (!atkPokemon) return 0;
@@ -150,7 +196,6 @@ export default function AtkDamageCalculatePanel({
                 Math.floor(baseDamage * r) * modifier
             )
         );
-        console.log("calculateDamage", { baseDamage, modifier, damages, typeEffectiveness });
         const min = Math.min(...damages);
         const max = Math.max(...damages);
 
@@ -207,7 +252,12 @@ export default function AtkDamageCalculatePanel({
 
                                 <div>
                                     <div style={{ fontWeight: 600 }}>
-                                        {atkPokemon.name}
+                                        {
+                                            pokemonMap.find(
+                                                (t) =>
+                                                    t.english === atkPokemon.name
+                                            )?.japanese ?? "-"
+                                        }
                                     </div>
                                     <div style={{ fontSize: 12 }}>
                                         A:{atk} / C:{spa}
@@ -294,7 +344,18 @@ export default function AtkDamageCalculatePanel({
                 <SearchBar
                     items={pokemonMap}
                     current={pokemonName}
-                    onSelect={(p) => setPokemonName(p.english)}
+                    onSelect={(p) => {
+                        setPokemonName(p.english);
+                        setDefEVs({ hp: 0, def: 0, spd: 0 });
+                        setDefIVs({ hp: 31, def: 31, spd: 31 });
+                        setDefNatures({ hp: 1, def: 1, spd: 1 });
+                        setDefRanks({ def: 0, spd: 0 });
+                        setDefMul1({ def: 1, spd: 1 });
+                        setDefMul2({ def: 1, spd: 1 });
+                        setAtkRanks({ atk: 0, spa: 0 });
+                        setAtkMul1({ atk: 1, spa: 1 });
+                        setAtkMul2({ atk: 1, spa: 1 });
+                    }}
                 />
 
                 {/* ヘッダー */}
@@ -312,7 +373,13 @@ export default function AtkDamageCalculatePanel({
                             <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
                                 <img src={defPokemon.sprites.frontDefault ?? ""} style={{ width: 56, height: 56 }} />
                                 <div>
-                                    <div style={{ fontWeight: 600 }}>{defPokemon.name}</div>
+                                    <div style={{ fontWeight: 600 }}>                    {
+                                        pokemonMap.find(
+                                            (t) =>
+                                                t.english === defPokemon.name
+                                        )?.japanese ?? "-"
+                                    }
+                                    </div>
                                     <div style={{ fontSize: 12 }}>
                                         HP:{hp} / B:{def} / D:{spd}
                                     </div>
