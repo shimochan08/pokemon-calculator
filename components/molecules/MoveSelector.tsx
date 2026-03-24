@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect } from "react";
-import { PokemonMove } from "@/types/dto/PokemonDTO";
+import { PokemonMove } from "@/types/domain/PokeApiData";
 import { typeMap } from "@/lib/data/typeMaps";
 import { damageMap } from "@/lib/data/damageMap";
 

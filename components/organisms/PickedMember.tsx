@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PokemonDTO } from "@/types/dto/PokemonDTO";
+import { PokeApiData } from "@/types/domain/PokeApiData";
 import { StatKey } from "@/types/domain/PokemonBuild";
 import { fetchPokemon } from "@/api/pokemonApi";
 import { useRouter } from "next/navigation"
@@ -13,7 +13,8 @@ import { natureMap } from "@/lib/data/natureMap";
 import { typeMap } from "@/lib/data/typeMaps";
 import { simpleStatMap } from "@/lib/data/statLabel";
 import { moveMap } from "@/lib/data/moveMap";
-
+import { CircularProgress } from "@mui/material";
+import { MdError, MdOutlineAddCircle } from "react-icons/md";
 
 type PickedMemberProps = {
     slotId: number;
@@ -39,10 +40,11 @@ export default function PickedMember({
     evs,
 }: PickedMemberProps) {
     const router = useRouter();
-    const [pokemon, setPokemon] = useState<PokemonDTO | null>(null);
+    const [pokemon, setPokemon] = useState<PokeApiData | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    //TODO: いつかhookに直すべき
     useEffect(() => {
         if (!name) return;
 
@@ -51,7 +53,7 @@ export default function PickedMember({
 
         fetchPokemon(name)
             .then(data => setPokemon(data))
-            .catch(() => setError("取得失敗"))
+            .catch((error) => setError(error.message))
             .finally(() => setLoading(false));
     }, [name]);
 
@@ -59,10 +61,55 @@ export default function PickedMember({
         router.push(`/dashboard/${slotId + 1}`);
     };
 
-    if (!name) return <div className="member-card" style={{ display: "flex", alignItems: "center", justifyContent: "center" }} onClick={handleClick}>ポケモンが選択されていません</div>;
-    if (loading) return <div className="member-card" onClick={handleClick}>Loading...</div>;
-    if (error) return <div className="member-card" onClick={handleClick}>{error}</div>;
-
+    if (!name)
+        return (
+            <div
+                className="member-card"
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                }}
+                onClick={handleClick}
+            >
+                <MdOutlineAddCircle size="100px" style={{ padding: "1rem" }} />
+                <p>ポケモンが選択されていません</p>
+            </div >
+        );
+    if (loading)
+        return (
+            <div
+                className="member-card"
+                style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+                onClick={handleClick}
+            >
+                <CircularProgress enableTrackSlot size="3rem" />
+            </div>
+        );
+    if (error)
+        return (
+            <div
+                className="member-card"
+                onClick={handleClick}
+                style={{
+                    height: "var(--pokemon-panel-height)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "red",
+                    fontSize: "18px",
+                }}
+            >
+                <MdError size={50} />
+                {error}
+            </div>
+        );
+    if (!pokemon) return <div className="member-card" onClick={handleClick}></div>;
 
     const pokemonNameText = pokemonMap.find(
         (t) => t.english === name

@@ -1,10 +1,10 @@
 import { moveMap } from "@/lib/data/moveMap";
 import { translateType } from "@/lib/predict/translateType";
 
-export interface PokemonDTO {
+export interface PokeApiData {
     id: number;
     name: string;
-    sprites: PokemonSpritesDTO;
+    sprites: PokemonSprites;
     types: string[];
     abilities: string[];
     moves: PokemonMove[];
@@ -21,7 +21,7 @@ export interface PokemonMove {
     flavorText: string;
 }
 
-interface PokemonSpritesDTO {
+interface PokemonSprites {
     frontDefault: string | null;
     backDefault?: string | null;
     frontShiny?: string | null;
@@ -38,7 +38,7 @@ export type DamageClassType =
     | "status"
     | "unknown";
 
-export function mapToPokemonDTO(data: any): PokemonDTO {
+export function mapToPokeApiData(data: any): PokeApiData {
     const STAT_SHORT: Record<string, string> = {
         hp: "hp",
         attack: "atk",

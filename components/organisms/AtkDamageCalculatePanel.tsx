@@ -10,6 +10,8 @@ import NumberInput from "../atoms/NumberInput";
 import { moveMap } from "@/lib/data/moveMap";
 import { simpleStatMap } from "@/lib/data/statLabel";
 import { enToJpTypeMap, getTypeEffectiveness } from "@/lib/data/typeMaps";
+import { CircularProgress } from "@mui/material";
+import { MdError } from "react-icons/md";
 
 type AtkDamageCalculatePanelProps = {
     panel: Panel;
@@ -41,8 +43,8 @@ export default function AtkDamageCalculatePanel({
         : "pikachu";
     const [pokemonName, setPokemonName] = useState<string>(panel.settings?.pokemonName ?? "pikachu");
 
-    const { pokemon: atkPokemon } = usePokemon(atkName);
-    const { pokemon: defPokemon } = usePokemon(pokemonName);
+    const { pokemon: atkPokemon, loading: atkLoading, error: atkError } = usePokemon(atkName);
+    const { pokemon: defPokemon, loading: defLoading, error: defError } = usePokemon(pokemonName);
 
     // ===== 防御側 =====
     const [defEVs, setDefEVs] = useState<DefEVs>(panel.settings?.defEVs ?? { hp: 0, def: 0, spd: 0 });
@@ -208,6 +210,49 @@ export default function AtkDamageCalculatePanel({
     const moves = pokemonBuild.moves
         .map((m) => moveMap.find((mv) => mv.english === m))
         .slice(0, 4);
+
+    if (atkError || defError) {
+        return (
+            <div
+                style={{
+                    background: "var(--panel-background)",
+                    color: "red",
+                    height: "var(--height)",
+                    padding: 16,
+                    borderRadius: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                <MdError size={50} />
+                Error loading Pokémon data.
+            </div>
+        );
+    }
+
+    if (atkLoading || defLoading) {
+        return (
+            <div
+                style={{
+                    background: "var(--panel-background)",
+                    color: "white",
+                    height: "var(--height)",
+                    padding: 16,
+                    borderRadius: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                <CircularProgress enableTrackSlot size="3rem" />
+            </div>
+        );
+    }
 
     return (
         <div

@@ -1,6 +1,6 @@
 "use client";
 
-import { PokemonStat } from "@/types/dto/PokemonDTO";
+import { PokemonStat } from "@/types/domain/PokeApiData";
 import StatRow from "../atoms/StatRow";
 import { NatureSelector } from "./NatureSelector";
 import { NATURE_MULTIPLIERS, StatKey } from "@/types/domain/PokemonBuild";

@@ -3,6 +3,8 @@
 import { usePokemon } from "@/hooks/usePokemonData";
 import { simpleStatMap } from "@/lib/data/statLabel";
 import { PokemonBuild, STATS, NATURE_MULTIPLIERS, StatKey } from "@/types/domain/PokemonBuild";
+import { CircularProgress } from "@mui/material";
+import { MdError } from "react-icons/md";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts";
 
 type StatusRadarPanelProps = {
@@ -10,8 +12,49 @@ type StatusRadarPanelProps = {
 };
 
 export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps) {
-    const { pokemon } = usePokemon(pokemonBuild.name ?? "pikachu");
-    if (!pokemon) return null;
+    const { pokemon, loading, error } = usePokemon(pokemonBuild.name ?? "pikachu");
+    if (error) {
+        return (
+            <div
+                style={{
+                    background: "var(--panel-background)",
+                    color: "red",
+                    height: "var(--height)",
+                    padding: 16,
+                    borderRadius: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                <MdError size={50} />
+                Error loading Pokémon data.
+            </div>
+        );
+    }
+    if (!pokemon || loading) {
+        return (
+            <div
+
+                style={{
+                    background: "var(--panel-background)",
+                    color: "white",
+                    height: "var(--height)",
+                    padding: 16,
+                    borderRadius: 8,
+                    display: "flex",
+                    flexDirection: "column",
+                    fontWeight: 600,
+                    fontSize: 18,
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                <CircularProgress enableTrackSlot size="3rem" />
+            </div >
+        );
+    }
 
     const calcStat = (stat: StatKey, base: number, iv: number, ev: number, nature: number, level = 50) => {
         if (stat === "hp") return Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100 + level + 10);
@@ -33,7 +76,6 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
 
     const statusOrder: StatKey[] = ["hp", "atk", "def", "spe", "spd", "spa"];
     const orderedData = statusOrder.map((key) => data.find((d) => d.stat === key)!);
-
     return (
         <div
             style={{

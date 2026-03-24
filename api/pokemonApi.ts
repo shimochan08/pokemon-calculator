@@ -1,16 +1,16 @@
-import { mapToPokemonDTO, PokemonDTO } from "@/types/dto/PokemonDTO";
+import { mapToPokeApiData, PokeApiData } from "@/types/domain/PokeApiData";
 
 
-export async function fetchPokemon(name: string): Promise<PokemonDTO> {
+export async function fetchPokemon(name: string): Promise<PokeApiData> {
     const res = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
     );
 
     if (!res.ok) {
-        throw new Error("取得失敗");
+        throw new Error("Error fetching Pokémon data.");
     }
 
     const data: unknown = await res.json();
 
-    return mapToPokemonDTO(data);
+    return mapToPokeApiData(data);
 }

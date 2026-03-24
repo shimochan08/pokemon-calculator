@@ -1,9 +1,9 @@
 import { fetchPokemon } from "@/api/pokemonApi";
-import { PokemonDTO } from "@/types/dto/PokemonDTO";
+import { PokeApiData } from "@/types/domain/PokeApiData";
 import { useState, useEffect } from "react";
 
 export function usePokemon(name: string) {
-    const [pokemon, setPokemon] = useState<PokemonDTO | null>(null);
+    const [pokemon, setPokemon] = useState<PokeApiData | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -14,6 +14,7 @@ export function usePokemon(name: string) {
             setLoading(true);
             setError(null);
             try {
+                // throw new Error("APIの呼び出しに失敗しました");
                 const data = await fetchPokemon(name);
                 setPokemon(data);
             } catch (err: unknown) {

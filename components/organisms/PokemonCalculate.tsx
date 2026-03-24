@@ -11,6 +11,8 @@ import { usePokemonBuildUpdate } from '@/hooks/usePokemonBuildUpdate';
 import { PokemonBuild, StatKey } from '@/types/domain/PokemonBuild';
 import { AbilitySelector } from '../molecules/AbilitySelector';
 import { ItemSelector } from '../molecules/ItemSelector';
+import { CircularProgress } from '@mui/material';
+import { MdError } from 'react-icons/md';
 
 type PokemonCalculateProps = {
     build: PokemonBuild | null;
@@ -100,18 +102,41 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
         setIsDirty(false);
     }
 
-    if (loading) {
+    if (error) {
         return (
-            <div className="panel">
-                <div >
-                    <p>読み込み中...</p>
-                </div>
+            <div
+                className="panel"
+                style={{
+                    height: "var(--pokemon-panel-height)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    color: "red",
+                    fontSize: "18px",
+                }}>
+                <MdError size={50} />
+                {error}
             </div>
         );
     }
 
+    if (loading) {
+        return (
+            <div
+                className="panel"
+                style={{
+                    height: "var(--pokemon-panel-height)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}>
+                <CircularProgress enableTrackSlot size="3rem" />
+            </div >
+        );
+    }
+
     return (
-        <div className="panel">
+        <div className="panel" style={{ height: "var(--pokemon-panel-height)" }}>
 
             <div className="panel-header">
                 <div className="panel-header-left">
