@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pokemon Super Dashboard",
-  description: "A calculator for Pokemon stats and battles",
+  title: "Pokémon Dashboard",
+  description: "A calculator for Pokémon stats and battles",
 };
 
 export default function RootLayout({

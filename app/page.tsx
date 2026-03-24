@@ -46,7 +46,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             href="/"
             className={`app-nav-link`}
           >
-            <h1 className="ml-4">Pokemon Super Dashboard</h1>
+            <h1 className="ml-4">Pokémon Super Dashboard</h1>
           </Link>
         </Tooltip>
       </header>
