@@ -27,7 +27,7 @@ export const panelRegistry: PanelDefinition[] = [
         label: "サンプル",
         component: SamplePanel,
         allowedSizes: ["s", "m", "l"],
-        selectable: true,
+        selectable: false,
     },
     {
         key: "atk_damage_calculate",

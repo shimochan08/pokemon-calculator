@@ -6,9 +6,6 @@ const KEY = "pokemon-builds";
 export const pokemonBuildLocalStorage: PokemonBuildRepository = {
 
     async load(buildId: string) {
-
-        if (typeof window === "undefined") return null;
-
         const data = localStorage.getItem(KEY);
         if (!data) return null;
 
@@ -18,9 +15,6 @@ export const pokemonBuildLocalStorage: PokemonBuildRepository = {
     },
 
     async save(build: PokemonBuild) {
-
-        if (typeof window === "undefined") return;
-
         const data = localStorage.getItem(KEY);
         const builds = data ? JSON.parse(data) : {};
 

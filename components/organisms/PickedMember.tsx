@@ -73,7 +73,7 @@ export default function PickedMember({
                 }}
                 onClick={handleClick}
             >
-                <MdOutlineAddCircle size="100px" style={{ padding: "1rem" }} />
+                <MdOutlineAddCircle color="#e4e7eb" size="100px" style={{ padding: "1rem" }} />
                 <p>ポケモンが選択されていません</p>
             </div >
         );

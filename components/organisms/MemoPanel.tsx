@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Panel } from "@/types/domain/Panel";
+import { useDebounce } from "@/hooks/useDebounce";
 
 type MemoPanelProps = {
     panel: Panel;
@@ -10,6 +11,7 @@ type MemoPanelProps = {
 
 export default function MemoPanel({ panel, setPanelItems }: MemoPanelProps) {
     const [text, setText] = useState(panel.settings?.text || "");
+    const debouncedText = useDebounce(text, 200);
 
     useEffect(() => {
         setPanelItems(prev => prev.map(p => {
@@ -18,13 +20,13 @@ export default function MemoPanel({ panel, setPanelItems }: MemoPanelProps) {
                     ...p,
                     settings: {
                         ...p.settings,
-                        text,
+                        text: debouncedText,
                     },
                 };
             }
             return p;
         }));
-    }, [text]);
+    }, [debouncedText]);
 
     return (
         <div

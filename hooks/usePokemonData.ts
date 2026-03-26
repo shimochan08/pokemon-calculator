@@ -14,7 +14,6 @@ export function usePokemon(name: string) {
             setLoading(true);
             setError(null);
             try {
-                // throw new Error("APIの呼び出しに失敗しました");
                 const data = await fetchPokemon(name);
                 setPokemon(data);
             } catch (err: unknown) {

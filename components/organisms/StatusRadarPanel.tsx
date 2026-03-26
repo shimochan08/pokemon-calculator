@@ -12,7 +12,7 @@ type StatusRadarPanelProps = {
 };
 
 export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps) {
-    const { pokemon, loading, error } = usePokemon(pokemonBuild.name ?? "pikachu");
+    const { pokemon, loading, error } = usePokemon(pokemonBuild.name !== '' && pokemonBuild.name !== null ? pokemonBuild.name : "pikachu");
     if (error) {
         return (
             <div

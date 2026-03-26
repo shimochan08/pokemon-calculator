@@ -13,15 +13,9 @@ const createInitialSlots = (): DashboardSlot[] =>
 export const dashboardSlotLocalStorage: DashboardSlotRepository = {
 
     async load() {
-
-        if (typeof window === "undefined") {
-            return createInitialSlots();
-        }
-
         const data = localStorage.getItem(KEY);
 
         if (!data) {
-
             const initial = createInitialSlots();
 
             localStorage.setItem(KEY, JSON.stringify(initial));
@@ -33,9 +27,6 @@ export const dashboardSlotLocalStorage: DashboardSlotRepository = {
     },
 
     async save(slots: DashboardSlot[]) {
-
-        if (typeof window === "undefined") return;
-
         localStorage.setItem(KEY, JSON.stringify(slots));
     }
 };
