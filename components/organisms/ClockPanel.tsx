@@ -60,6 +60,7 @@ export default function SamplePanel({ panel, setPanelItems }: SamplePanelProps) 
                 background: "var(--panel-background)",
                 color: "white",
                 height: "var(--height)",
+                minWidth: 300,
                 padding: 16,
                 borderRadius: 8,
                 display: "flex",

@@ -19,6 +19,7 @@ export default function AddPanel({
         <div
             style={{
                 height: "var(--height)",
+                minWidth: 300,
                 background: "#182230",
                 color: "#fff",
                 display: "flex",
