@@ -1,25 +1,24 @@
-import { PokemonBuild } from "@/types/domain/PokemonBuild";
-import { PokemonBuildRepository } from "../PokemonBuildRepository";
+import { PokemonBuild } from '@/types/domain/PokemonBuild';
+import { PokemonBuildRepository } from '../PokemonBuildRepository';
 
-const KEY = "pokemon-builds";
+const KEY = 'pokemon-builds';
 
 export const pokemonBuildLocalStorage: PokemonBuildRepository = {
+  async load(buildId: string) {
+    const data = localStorage.getItem(KEY);
+    if (!data) return null;
 
-    async load(buildId: string) {
-        const data = localStorage.getItem(KEY);
-        if (!data) return null;
+    const builds = JSON.parse(data);
 
-        const builds = JSON.parse(data);
+    return builds[buildId] ?? null;
+  },
 
-        return builds[buildId] ?? null;
-    },
+  async save(build: PokemonBuild) {
+    const data = localStorage.getItem(KEY);
+    const builds = data ? JSON.parse(data) : {};
 
-    async save(build: PokemonBuild) {
-        const data = localStorage.getItem(KEY);
-        const builds = data ? JSON.parse(data) : {};
+    builds[build.id] = build;
 
-        builds[build.id] = build;
-
-        localStorage.setItem(KEY, JSON.stringify(builds));
-    }
+    localStorage.setItem(KEY, JSON.stringify(builds));
+  },
 };

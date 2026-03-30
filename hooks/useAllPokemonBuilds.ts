@@ -1,28 +1,28 @@
-import { useState, useEffect } from "react";
-import { PokemonBuild } from "@/types/domain/PokemonBuild";
-import { useDashboardSlotRead } from "@/hooks/useDashboardSlotRead";
-import { pokemonBuildLocalStorage } from "@/repositories/localStrage/pokemonBuildLocalStorage";
+import { useState, useEffect } from 'react';
+import { PokemonBuild } from '@/types/domain/PokemonBuild';
+import { useDashboardSlotRead } from '@/hooks/useDashboardSlotRead';
+import { pokemonBuildLocalStorage } from '@/repositories/localStrage/pokemonBuildLocalStorage';
 
 export function useAllPokemonBuilds() {
-    const { slots, loading: slotsLoading } = useDashboardSlotRead();
-    const [builds, setBuilds] = useState<(PokemonBuild | null)[]>([null, null, null, null, null, null]);
-    const [loading, setLoading] = useState(true);
+  const { slots, loading: slotsLoading } = useDashboardSlotRead();
+  const [builds, setBuilds] = useState<(PokemonBuild | null)[]>([null, null, null, null, null, null]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        if (slotsLoading) return;
+  useEffect(() => {
+    if (slotsLoading) return;
 
-        setLoading(true);
+    setLoading(true);
 
-        const loadBuilds = async () => {
-            const newBuilds: (PokemonBuild | null)[] = await Promise.all(
-                slots?.map(slot => (slot.buildId ? pokemonBuildLocalStorage.load(slot.buildId) : null)) ?? []
-            );
-            setBuilds(newBuilds);
-            setLoading(false);
-        };
+    const loadBuilds = async () => {
+      const newBuilds: (PokemonBuild | null)[] = await Promise.all(
+        slots?.map((slot) => (slot.buildId ? pokemonBuildLocalStorage.load(slot.buildId) : null)) ?? [],
+      );
+      setBuilds(newBuilds);
+      setLoading(false);
+    };
 
-        loadBuilds();
-    }, [slots, slotsLoading]);
+    loadBuilds();
+  }, [slots, slotsLoading]);
 
-    return { slots, builds, loading };
+  return { slots, builds, loading };
 }

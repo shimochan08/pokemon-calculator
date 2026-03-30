@@ -42,29 +42,29 @@
 .panel-header {
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;    
+  flex-wrap: nowrap;
   padding: 16px;
-   
-  position: relative;      
+
+  position: relative;
 }
 
 .panel-header-left {
   display: flex;
   gap: 12px;
-  flex: 1 1 auto;       
-  min-width: 0;           
+  flex: 1 1 auto;
+  min-width: 0;
   align-items: center;
 }
 
 .panel-header-left select {
   flex: 1 1 0;
-  min-width: 180px; 
+  min-width: 180px;
   box-sizing: border-box;
 }
 
 .save-button {
-  flex: 0 0 auto; 
-  margin-left: 12px; 
+  flex: 0 0 auto;
+  margin-left: 12px;
   padding: 6px 16px;
   font-weight: 700;
   font-size: 14px;
@@ -73,7 +73,9 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
 }
 
 .save-button:hover {
@@ -85,7 +87,7 @@
 }
 
 .save-button:disabled {
-  background: #16a34a; 
+  background: #16a34a;
   color: white;
   cursor: not-allowed;
   transform: none;
@@ -109,7 +111,7 @@
   text-align: center;
 }
 
-.col-middle{
+.col-middle {
   background: var(--panel-background);
   padding: 16px;
 }
@@ -144,7 +146,9 @@
   align-items: center;
   justify-content: center;
   color: #4b5563;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .deleteButton:hover {
@@ -153,6 +157,6 @@
 }
 
 .panelContent {
-    flex: 1;
-    overflow: auto;
+  flex: 1;
+  overflow: auto;
 }

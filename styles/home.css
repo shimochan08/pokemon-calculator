@@ -1,25 +1,27 @@
 .member-card {
-    background-color: #1f2937;
-    color: #ffffff;
-    font-size: 14px;
+  background-color: #1f2937;
+  color: #ffffff;
+  font-size: 14px;
 
-    border-radius: 12px;
-    padding: 14px;
+  border-radius: 12px;
+  padding: 14px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    min-height: 140px;
+  min-height: 140px;
 
-    cursor: pointer;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
 }
 
 .member-card:hover {
-    background-color: #263344;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  background-color: #263344;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
 }
 
 .member-pokemon {
@@ -32,82 +34,81 @@
 
 /* 左情報エリア */
 .member-info {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
 
-    gap: 6px;
+  gap: 6px;
 }
 
 .member-pokemon-name {
-    font-size: 18px;
-    font-weight: 700;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .member-pokemon-types {
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    color: #9ca3af;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #9ca3af;
 }
 
 .member-pokemon-subInfo {
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    color: #9ca3af;
-    padding-left:10px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #9ca3af;
+  padding-left: 10px;
 }
 
 .member-moves {
-    color: #000000;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    margin-top: 10px;
-    min-width: 0; 
+  color: #000000;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+  min-width: 0;
 }
 
 .member-moves {
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    margin-top: 10px;
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 10px;
 }
 
 /* 通常（技あり） */
 .move-box {
-    height: 36px; 
-    width: 100%;
-    display: flex;
-    align-items: center; 
-    justify-content: center;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    padding: 0 6px;
-    font-size: 10px;
-    text-align: center;
+  padding: 0 6px;
+  font-size: 10px;
+  text-align: center;
 
-    border-radius: 10px;
-    background: #e4e7eb;
-    border: 1px solid #e4e7eb;
+  border-radius: 10px;
+  background: #e4e7eb;
+  border: 1px solid #e4e7eb;
 
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 
-    overflow: hidden;    
+  overflow: hidden;
 }
 
 .member-info > * {
-    width: 100%;
+  width: 100%;
 }
 
 /* 空スロット */
 .move-box.empty {
-    background: #1f2937;
-    border: 1px solid #637388;
-    box-shadow: none;
+  background: #1f2937;
+  border: 1px solid #637388;
+  box-shadow: none;
 }
-
 
 /* 画像 */
 .member-sprite {
@@ -117,49 +118,43 @@
 }
 
 @media (max-width: 1250px), (max-height: 500px) {
+  .member-info {
+    display: none;
+  }
 
-    .member-info {
-        display: none;
-    }
+  .member-pokemon-subInfo {
+    display: none;
+  }
 
-    .member-pokemon-subInfo {
-        display: none;
-    }
-    
-    .member-pokemon-types {
-        display: none;
-    }
+  .member-pokemon-types {
+    display: none;
+  }
 
-    .member-card {
-        justify-content: center;
-    }
+  .member-card {
+    justify-content: center;
+  }
 
-    .member-sprite {
-        width: 80%;
-        max-width: 180px;
-    }
-
+  .member-sprite {
+    width: 80%;
+    max-width: 180px;
+  }
 }
 
 @media (max-height: 700px) {
-
-    .member-sprite {
-        max-width: 100px;
-        max-height: 100px;
-    }
-
+  .member-sprite {
+    max-width: 100px;
+    max-height: 100px;
+  }
 }
 
 @media (min-width: 1250px) and (min-height: 500px) {
-
-    .member-sprite {
-        max-width: 200px;
-    }
-
+  .member-sprite {
+    max-width: 200px;
+  }
 }
 
 @media (min-width: 1500px) {
-    .move-box {
-        font-size: 14px;
-    }
+  .move-box {
+    font-size: 14px;
+  }
 }

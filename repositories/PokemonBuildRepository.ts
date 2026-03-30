@@ -1,6 +1,6 @@
-import { PokemonBuild } from "@/types/domain/PokemonBuild";
+import { PokemonBuild } from '@/types/domain/PokemonBuild';
 
 export interface PokemonBuildRepository {
-    load(buildId: string): Promise<PokemonBuild | null>;
-    save(build: PokemonBuild): Promise<void>;
+  load(buildId: string): Promise<PokemonBuild | null>;
+  save(build: PokemonBuild): Promise<void>;
 }

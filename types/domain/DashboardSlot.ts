@@ -1,9 +1,9 @@
-import { PanelInstance } from "./Panel";
+import { PanelInstance } from './Panel';
 
 export type DashboardSlot = {
-    slotId: number;
+  slotId: number;
 
-    buildId: string | null;
+  buildId: string | null;
 
-    panels: (PanelInstance | null)[];
+  panels: (PanelInstance | null)[];
 };

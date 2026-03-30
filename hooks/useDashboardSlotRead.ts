@@ -1,32 +1,27 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { DashboardSlot } from "@/types/domain/DashboardSlot";
-import { dashboardSlotLocalStorage } from "@/repositories/localStrage/dashboardSlotLocalStorage";
+import { useEffect, useState } from 'react';
+import { DashboardSlot } from '@/types/domain/DashboardSlot';
+import { dashboardSlotLocalStorage } from '@/repositories/localStrage/dashboardSlotLocalStorage';
 
 export function useDashboardSlotRead() {
+  const [slots, setSlots] = useState<DashboardSlot[] | null>([]);
+  const [loading, setLoading] = useState(true);
 
-    const [slots, setSlots] = useState<DashboardSlot[] | null>([]);
-    const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const load = async () => {
+      const data = await dashboardSlotLocalStorage.load();
 
-    useEffect(() => {
-
-        const load = async () => {
-
-            const data = await dashboardSlotLocalStorage.load();
-
-            setSlots(data);
-            setLoading(false);
-
-        };
-
-        load();
-
-    }, []);
-
-    return {
-        slots,
-        setSlots,
-        loading
+      setSlots(data);
+      setLoading(false);
     };
+
+    load();
+  }, []);
+
+  return {
+    slots,
+    setSlots,
+    loading,
+  };
 }

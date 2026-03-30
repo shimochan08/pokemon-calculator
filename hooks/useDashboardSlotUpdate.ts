@@ -1,60 +1,45 @@
-"use client";
+'use client';
 
-import { dashboardSlotLocalStorage } from "@/repositories/localStrage/dashboardSlotLocalStorage";
-import { DashboardSlot } from "@/types/domain/DashboardSlot";
+import { dashboardSlotLocalStorage } from '@/repositories/localStrage/dashboardSlotLocalStorage';
+import { DashboardSlot } from '@/types/domain/DashboardSlot';
 
 export function useDashboardSlotUpdate(
-    slots: DashboardSlot[] | null,
-    setSlots: React.Dispatch<React.SetStateAction<DashboardSlot[] | null>>
+  slots: DashboardSlot[] | null,
+  setSlots: React.Dispatch<React.SetStateAction<DashboardSlot[] | null>>,
 ) {
+  const saveSlots = async (next: DashboardSlot[]) => {
+    await dashboardSlotLocalStorage.save(next);
+    setSlots(next);
+  };
 
-    const saveSlots = async (next: DashboardSlot[]) => {
+  const updateSlotBuild = async (slotId: number, buildId: string) => {
+    const next = slots?.map((slot) => {
+      if (slot.slotId !== slotId) return slot;
 
-        await dashboardSlotLocalStorage.save(next);
-        setSlots(next);
+      return {
+        ...slot,
+        buildId,
+      };
+    });
 
-    };
+    await saveSlots(next ?? []);
+  };
 
-    const updateSlotBuild = async (
-        slotId: number,
-        buildId: string
-    ) => {
+  const updateSlotPanels = async (slotId: number, panels: DashboardSlot['panels']) => {
+    const next = slots?.map((slot) => {
+      if (slot.slotId !== slotId) return slot;
 
-        const next = slots?.map(slot => {
+      return {
+        ...slot,
+        panels,
+      };
+    });
 
-            if (slot.slotId !== slotId) return slot;
+    await saveSlots(next ?? []);
+  };
 
-            return {
-                ...slot,
-                buildId
-            };
-
-        });
-
-        await saveSlots(next ?? []);
-    };
-
-    const updateSlotPanels = async (
-        slotId: number,
-        panels: DashboardSlot["panels"]
-    ) => {
-
-        const next = slots?.map(slot => {
-
-            if (slot.slotId !== slotId) return slot;
-
-            return {
-                ...slot,
-                panels
-            };
-
-        });
-
-        await saveSlots(next ?? []);
-    };
-
-    return {
-        updateSlotBuild,
-        updateSlotPanels
-    };
+  return {
+    updateSlotBuild,
+    updateSlotPanels,
+  };
 }
