@@ -12,12 +12,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const isAuth = pathname === '/auth';
+  const isStandalonePage = isHome || isAuth;
 
   return (
     <div className="app-container">
       {/* ===== Header ===== */}
       <header className="app-header">
-        {pathname !== '/' && (
+        {!isStandalonePage && (
           <button onClick={() => setOpen(!open)}>
             {open ? <TbLayoutSidebarLeftCollapseFilled size={20} /> : <TbMenu2 size={20} />}
           </button>
@@ -50,7 +52,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <aside
         className="app-sidebar"
         style={{
-          display: pathname === '/' ? 'none' : 'block',
+          display: isStandalonePage ? 'none' : 'block',
           transform: open ? 'translateX(0)' : 'translateX(-100%)',
         }}
       >
@@ -71,7 +73,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* ===== Main ===== */}
-      <main className="app-main" style={{ marginLeft: !isHome && open ? '200px' : '0px' }}>
+      <main className="app-main" style={{ marginLeft: !isStandalonePage && open ? '200px' : '0px' }}>
         <div>{isHome ? <Home /> : children}</div>
       </main>
     </div>
