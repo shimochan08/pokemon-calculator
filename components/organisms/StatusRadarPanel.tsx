@@ -1,6 +1,7 @@
 'use client';
 
 import { usePokemon } from '@/hooks/usePokemonData';
+import { calculateActualStat } from '@/lib/data/calculateStat';
 import { simpleStatMap } from '@/lib/data/statLabel';
 import { PokemonBuild, STATS, NATURE_MULTIPLIERS, StatKey } from '@/types/domain/PokemonBuild';
 import { CircularProgress } from '@mui/material';
@@ -31,11 +32,6 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
     );
   }
 
-  const calcStat = (stat: StatKey, base: number, iv: number, ev: number, nature: number, level = 50) => {
-    if (stat === 'hp') return Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100 + level + 10);
-    return Math.floor(Math.floor(((2 * base + iv + Math.floor(ev / 4)) * level) / 100 + 5) * nature);
-  };
-
   const data = STATS.map((stat) => {
     const baseStat = pokemon.stats.find((s) => s.name === stat)?.baseStat ?? 0;
     const iv = pokemonBuild.ivs[stat];
@@ -45,7 +41,14 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
     return {
       stat,
       base: baseStat,
-      value: calcStat(stat, baseStat, iv, ev, natureMultiplier),
+      value: calculateActualStat({
+        base: baseStat,
+        iv,
+        ev,
+        level: 50,
+        isHp: stat === 'hp',
+        natureMultiplier,
+      }),
     };
   });
 
@@ -60,7 +63,7 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={orderedData}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="stat" tickFormatter={(tick, index) => `${simpleStatMap[tick as StatKey]}`} />
+                <PolarAngleAxis dataKey="stat" tickFormatter={(tick) => `${simpleStatMap[tick as StatKey]}`} />
                 <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 300]} />
                 <Radar name="種族値" dataKey="base" stroke="#8884d8" fill="#8884d8" fillOpacity={0.3} />
               </RadarChart>
@@ -74,7 +77,7 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={orderedData}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="stat" tickFormatter={(tick, index) => `${simpleStatMap[tick as StatKey]}`} />
+                <PolarAngleAxis dataKey="stat" tickFormatter={(tick) => `${simpleStatMap[tick as StatKey]}`} />
                 <PolarRadiusAxis axisLine={false} tick={false} domain={[0, 300]} />
                 <Radar name="実数値" dataKey="value" stroke="#FFCE00" fill="#FFCE00" fillOpacity={0.6} />
               </RadarChart>

@@ -26,7 +26,6 @@ export default function StatAdjuster({ stats, ivs, evs, nature, onChange }: Stat
           base={s.baseStat}
           iv={ivs[s.name] ?? 31}
           ev={evs[s.name] ?? 0}
-          totalEv={totalEv}
           remainingEv={remainingEv}
           natureMultiplier={NATURE_MULTIPLIERS[nature]?.[s.name as StatKey] ?? 1}
           onIvChange={(v) => {

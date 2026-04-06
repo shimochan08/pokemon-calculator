@@ -3,14 +3,13 @@
 import { STAT_LABEL } from '@/lib/data/statLabel';
 import NumberInput from './NumberInput';
 import RangeSlider from './RangeSlider';
-import { calculateStat } from '@/lib/data/calculateStat';
+import { calculateActualStat } from '@/lib/data/calculateStat';
 
 type Props = {
   name: string;
   base: number;
   iv: number;
   ev: number;
-  totalEv: number;
   remainingEv: number;
   natureMultiplier: number;
   onIvChange: (v: number) => void;
@@ -22,23 +21,20 @@ export default function StatRow({
   base,
   iv,
   ev,
-  totalEv,
   remainingEv,
   natureMultiplier,
   onIvChange,
   onEvChange,
 }: Props) {
-  const rawStat = calculateStat({
+  const adjustedStat = calculateActualStat({
     base,
     iv,
     ev,
     level: 50,
     isHp: name === 'hp',
+    natureMultiplier,
   });
 
-  const adjustedStat = Math.floor(rawStat * natureMultiplier);
-
-  const sign = natureMultiplier > 1.001 ? '+' : natureMultiplier < 0.999 ? '−' : '';
   return (
     <div className="statRow">
       {/* ステータス名 */}
