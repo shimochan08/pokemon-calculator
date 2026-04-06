@@ -16,16 +16,7 @@ type Props = {
   onEvChange: (name: string, oldEv: number, newEv: number) => void;
 };
 
-export default function StatRow({
-  name,
-  base,
-  iv,
-  ev,
-  remainingEv,
-  natureMultiplier,
-  onIvChange,
-  onEvChange,
-}: Props) {
+export default function StatRow({ name, base, iv, ev, remainingEv, natureMultiplier, onIvChange, onEvChange }: Props) {
   const adjustedStat = calculateActualStat({
     base,
     iv,
@@ -53,9 +44,7 @@ export default function StatRow({
       <div className="statRowValue">
         {adjustedStat}
         {(natureMultiplier > 1.001 || natureMultiplier < 0.999) && (
-          <span className="statRowNatureSign">
-            {natureMultiplier > 1.001 ? '+' : '−'}
-          </span>
+          <span className="statRowNatureSign">{natureMultiplier > 1.001 ? '+' : '−'}</span>
         )}
       </div>
     </div>

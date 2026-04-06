@@ -80,9 +80,7 @@ export default function SearchBar({ items, current, onSelect }: SearchBarProps) 
                 setActiveIndex(-1);
               }}
             >
-              <div
-                className={`searchItemResultLabel ${index === activeIndex ? 'searchItemResultLabel--active' : ''}`}
-              >
+              <div className={`searchItemResultLabel ${index === activeIndex ? 'searchItemResultLabel--active' : ''}`}>
                 {item.japanese}
               </div>
             </li>

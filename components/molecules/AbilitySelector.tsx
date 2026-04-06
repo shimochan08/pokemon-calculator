@@ -13,18 +13,10 @@ export function AbilitySelector({ ability, onChange, pokemonAbilities }: Ability
   const availableAbilities = abilityMap.filter((a) => pokemonAbilities.includes(a.english));
 
   return (
-    <Tooltip
-      title={selectedAbility?.effect || ''}
-      arrow
-      slotProps={selectorTooltipSlotProps}
-    >
+    <Tooltip title={selectedAbility?.effect || ''} arrow slotProps={selectorTooltipSlotProps}>
       <div className="selectorField">
         <div className="selectorLabel">特性: </div>
-        <select
-          className="selectorSelect"
-          value={ability}
-          onChange={(e) => onChange(e.target.value)}
-        >
+        <select className="selectorSelect" value={ability} onChange={(e) => onChange(e.target.value)}>
           <option value="">特性を選択</option>
           {availableAbilities.map((a) => (
             <option

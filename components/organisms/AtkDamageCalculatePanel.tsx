@@ -409,7 +409,12 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
 
                 {/* ===== HPバー ===== */}
                 <div className="atkDamagePanelBar">
-                  <svg className="atkDamagePanelBarSvg" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true">
+                  <svg
+                    className="atkDamagePanelBarSvg"
+                    viewBox="0 0 100 20"
+                    preserveAspectRatio="none"
+                    aria-hidden="true"
+                  >
                     {minRemain > 0 && <rect x="0" y="0" width={minRemain} height="20" fill={solidColor} />}
                     {maxRemain > minRemain && (
                       <rect

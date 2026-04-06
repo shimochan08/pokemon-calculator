@@ -27,11 +27,7 @@ export function NatureSelector({ nature, onChange }: NatureSelectorProps) {
         onChange={(e) => onChange(e.target.value)}
       >
         {natureMap.map((n) => (
-          <option
-            key={n.english}
-            value={n.english}
-            className={n.english === nature ? 'selectorOption--selected' : ''}
-          >
+          <option key={n.english} value={n.english} className={n.english === nature ? 'selectorOption--selected' : ''}>
             {n.japanese}
           </option>
         ))}

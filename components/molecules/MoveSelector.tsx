@@ -93,9 +93,7 @@ export default function MoveSelector({ availableMoves, selectedMoves, onChange }
             </div>
 
             {move?.flavorText && containerWidth > 300 && (
-              <div className="moveSelectorFlavor">
-                {move.flavorText.replace(/\s+/g, ' ').trim()}
-              </div>
+              <div className="moveSelectorFlavor">{move.flavorText.replace(/\s+/g, ' ').trim()}</div>
             )}
           </div>
         );
