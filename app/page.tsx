@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import '@/styles/AppLayout.css';
 import { TbLayoutSidebarLeftCollapseFilled, TbMenu2 } from 'react-icons/tb';
 import { usePathname } from 'next/navigation';
 import Home from '@/components/templates/Home';
@@ -12,13 +11,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  const isAuth = pathname === '/auth';
+  const isStandalonePage = isHome || isAuth;
 
   return (
     <div className="app-container">
       {/* ===== Header ===== */}
       <header className="app-header">
-        {pathname !== '/' && (
-          <button onClick={() => setOpen(!open)}>
+        {!isStandalonePage && (
+          <button className="app-headerToggle" onClick={() => setOpen(!open)}>
             {open ? <TbLayoutSidebarLeftCollapseFilled size={20} /> : <TbMenu2 size={20} />}
           </button>
         )}
@@ -41,18 +42,14 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           }}
         >
           <Link href="/" className={`app-nav-link`}>
-            <h1 className="ml-4">Pokémon Super Dashboard</h1>
+            <h1 className="app-headerTitle">Pokémon Super Dashboard</h1>
           </Link>
         </Tooltip>
       </header>
 
       {/* ===== Sidebar ===== */}
       <aside
-        className="app-sidebar"
-        style={{
-          display: pathname === '/' ? 'none' : 'block',
-          transform: open ? 'translateX(0)' : 'translateX(-100%)',
-        }}
+        className={`app-sidebar ${isStandalonePage ? 'app-sidebar--hidden' : ''} ${!open ? 'app-sidebar--collapsed' : ''}`}
       >
         <nav className="mt-6">
           <ul>
@@ -71,7 +68,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* ===== Main ===== */}
-      <main className="app-main" style={{ marginLeft: !isHome && open ? '200px' : '0px' }}>
+      <main className={`app-main ${!isStandalonePage && open ? 'app-main--withSidebar' : ''}`}>
         <div>{isHome ? <Home /> : children}</div>
       </main>
     </div>

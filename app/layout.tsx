@@ -1,6 +1,14 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import '@/styles/globals.css';
+import '@/styles/foundations/globals.css';
+import '@/styles/layouts/app-layout.css';
+import '@/styles/pages/home.css';
+import '@/styles/pages/auth.css';
+import '@/styles/components/dashboard.css';
+import '@/styles/components/dialog.css';
+import '@/styles/components/add-panel.css';
+import '@/styles/components/organisms.css';
+import '@/styles/components/forms.css';
 import AppLayout from './page';
 
 const geistSans = Geist({

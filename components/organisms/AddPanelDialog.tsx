@@ -43,34 +43,19 @@ export default function AddPanelDialog({ open, panelIndex, baseSize, onClose, on
 
   return (
     <div className="appDialog" onClick={onClose}>
-      <div
-        className="appDialogContent"
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          width: 500,
-          height: 400,
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <div className="appDialogContent appDialogContent--panelSelect" onClick={(e) => e.stopPropagation()}>
         <h3 className="appDialogTitle">追加するパネルを選択してください</h3>
-        <div className="appDialogInfo" style={{ flex: 1, overflowY: 'auto', padding: 16 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 24 }}>
-            <p style={{ marginBottom: 8, fontWeight: 500, alignSelf: 'flex-start' }}>サイズを選択してください</p>
-            <div style={{ display: 'flex', gap: 12 }}>
+        <div className="appDialogInfo appDialogInfo--scroll">
+          <div className="appDialogSection">
+            <p className="appDialogSectionTitle">サイズを選択してください</p>
+            <div className="appDialogButtonGroup">
               {ALL_SIZES.map((size) => {
                 const allowed = getColSpan(size) <= maxSpan;
                 return (
                   <button
                     key={size}
                     disabled={!allowed}
-                    className={`appDialogButton ${selectedSize === size ? 'appDialogButton--primary' : ''}`}
-                    style={{
-                      minWidth: 60,
-                      padding: '8px 0',
-                      opacity: allowed ? 1 : 0.3,
-                      cursor: allowed ? 'pointer' : 'not-allowed',
-                    }}
+                    className={`appDialogButton appDialogButton--size ${selectedSize === size ? 'appDialogButton--primary' : ''} ${!allowed ? 'appDialogButton--disabled' : ''}`}
                     onClick={() => {
                       if (!allowed) return;
                       setSelectedSize(size);
@@ -85,14 +70,13 @@ export default function AddPanelDialog({ open, panelIndex, baseSize, onClose, on
           </div>
 
           {selectedSize && (
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 24 }}>
-              <p style={{ marginBottom: 8, fontWeight: 500, alignSelf: 'flex-start' }}>パネルを選択してください</p>
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div className="appDialogSection">
+              <p className="appDialogSectionTitle">パネルを選択してください</p>
+              <div className="appDialogButtonGroup appDialogButtonGroup--wrap">
                 {selectablePanels.map((panel) => (
                   <button
                     key={panel.key}
-                    className={`appDialogButton ${selectedKey === panel.key ? 'appDialogButton--primary' : ''}`}
-                    style={{ minWidth: 80, padding: '8px 0' }}
+                    className={`appDialogButton appDialogButton--panel ${selectedKey === panel.key ? 'appDialogButton--primary' : ''}`}
                     onClick={() => setSelectedKey(panel.key)}
                   >
                     {panel.label}

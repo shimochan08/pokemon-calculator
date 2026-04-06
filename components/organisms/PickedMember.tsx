@@ -5,7 +5,6 @@ import { PokeApiData } from '@/types/domain/PokeApiData';
 import { StatKey } from '@/types/domain/PokemonBuild';
 import { fetchPokemon } from '@/api/pokemonApi';
 import { useRouter } from 'next/navigation';
-import '@/styles/home.css';
 import { pokemonMap } from '@/lib/data/pokemonMap';
 import { abilityMap } from '@/lib/data/abilityMap';
 import { itemMap } from '@/lib/data/itemMap';
@@ -53,48 +52,20 @@ export default function PickedMember({ slotId, name, dex, ability, item, moves, 
 
   if (!name)
     return (
-      <div
-        className="member-card"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-        }}
-        onClick={handleClick}
-      >
-        <MdOutlineAddCircle color="#e4e7eb" size="100px" style={{ padding: '1rem' }} />
+      <div className="member-card member-card--empty" onClick={handleClick}>
+        <MdOutlineAddCircle color="#e4e7eb" size="100px" className="member-emptyIcon" />
         <p>ポケモンが選択されていません</p>
       </div>
     );
   if (loading)
     return (
-      <div
-        className="member-card"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        onClick={handleClick}
-      >
+      <div className="member-card member-card--loading" onClick={handleClick}>
         <CircularProgress enableTrackSlot size="3rem" />
       </div>
     );
   if (error)
     return (
-      <div
-        className="member-card"
-        onClick={handleClick}
-        style={{
-          height: 'var(--pokemon-panel-height)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'red',
-          fontSize: '18px',
-        }}
-      >
+      <div className="member-card member-card--error" onClick={handleClick}>
         <MdError size={50} />
         {error}
       </div>
@@ -153,15 +124,6 @@ function MemberInfo({
   evs?: Record<StatKey, number>;
   pokemonMovesText?: string[];
 }) {
-  console.log('MemberInfo', {
-    pokemonNameText,
-    pokemonTypesText,
-    pokemonAbilityText,
-    pokemonItemText,
-    pokemonNatureText,
-    evs,
-  });
-
   const formatEvs = (evs?: Record<StatKey, number>) => {
     if (!evs) return null;
 

@@ -42,47 +42,18 @@ export default function MoveSelector({ availableMoves, selectedMoves, onChange }
 
   const moveMap = useMemo(() => new Map(availableMoves.map((m) => [m.english, m])), [availableMoves]);
 
-  const infoHeight = 20;
-
   return (
-    <div
-      ref={containerRef}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        flexShrink: 0,
-      }}
-    >
+    <div ref={containerRef} className="moveSelector">
       {selected.map((value, index) => {
         const move = value ? moveMap.get(value) : null;
 
         return (
-          <div
-            key={index}
-            style={{
-              border: '1px solid #374151',
-              padding: 4,
-              display: 'flex',
-              gap: 4,
-              alignItems: 'center',
-            }}
-          >
-            <div
-              style={{
-                width: '200px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 4,
-              }}
-            >
+          <div key={index} className="moveSelectorRow">
+            <div className="moveSelectorControl">
               <select
+                className="moveSelectorSelect"
                 value={value}
                 onChange={(e) => handleChange(index, e.target.value)}
-                style={{
-                  fontSize: 14,
-                  padding: '4px 8px',
-                  border: '1px solid #374151',
-                }}
               >
                 <option value="">技を選択</option>
                 {availableMoves.map((m) => (
@@ -90,24 +61,22 @@ export default function MoveSelector({ availableMoves, selectedMoves, onChange }
                     key={m.english}
                     value={m.english}
                     disabled={selected.includes(m.english) && m.english !== value}
-                    style={{
-                      color: selected.includes(m.english) && m.english !== value ? '#aaa' : '#000',
-                    }}
+                    className={
+                      selected.includes(m.english)
+                        ? m.english === value
+                          ? 'selectorOption--selected'
+                          : 'moveSelectorOption--disabled'
+                        : ''
+                    }
                   >
                     {m.japanese}
                   </option>
                 ))}
               </select>
 
-              <div
-                style={{
-                  fontSize: 14,
-                  minHeight: infoHeight,
-                  textAlign: 'center',
-                }}
-              >
+              <div className="moveSelectorInfo">
                 {move ? (
-                  <div style={{ fontSize: 12, textAlign: 'center' }}>
+                  <div className="moveSelectorInfoText">
                     {(() => {
                       const typeName = typeMap.find((t) => t.english === move.type)?.japanese ?? '-';
                       const damageLabel = damageMap[move.damageClass] ?? '-';
@@ -124,20 +93,7 @@ export default function MoveSelector({ availableMoves, selectedMoves, onChange }
             </div>
 
             {move?.flavorText && containerWidth > 300 && (
-              <div
-                style={{
-                  flex: 1,
-                  fontSize: 12,
-                  color: '#9ca3af',
-                  minWidth: 0,
-                  display: '-webkit-box',
-                  WebkitBoxOrient: 'vertical',
-                  WebkitLineClamp: 2,
-                  overflow: 'hidden',
-                  textOverflow: 'ellipsis',
-                  whiteSpace: 'normal',
-                }}
-              >
+              <div className="moveSelectorFlavor">
                 {move.flavorText.replace(/\s+/g, ' ').trim()}
               </div>
             )}

@@ -1,6 +1,7 @@
 import { Tooltip } from '@mui/material';
 import { natureMap } from '@/lib/data/natureMap';
 import { STAT_LABEL } from '@/lib/data/statLabel';
+import { selectorTooltipSlotProps } from '@/lib/ui/tooltipStyles';
 
 type NatureSelectorProps = {
   nature: string;
@@ -18,39 +19,18 @@ export function NatureSelector({ nature, onChange }: NatureSelectorProps) {
           : ''
       }
       arrow
-      slotProps={{
-        tooltip: {
-          sx: {
-            backgroundColor: '#111827',
-            color: '#fff',
-            padding: '8px 12px',
-          },
-        },
-        arrow: {
-          sx: {
-            color: '#111827',
-          },
-        },
-      }}
+      slotProps={selectorTooltipSlotProps}
     >
       <select
+        className="selectorSelect selectorSelect--nature"
         value={nature}
         onChange={(e) => onChange(e.target.value)}
-        style={{
-          fontSize: 14,
-          padding: '4px 8px',
-          border: '1px solid #374151',
-          width: '40%',
-          marginRight: 'auto',
-        }}
       >
         {natureMap.map((n) => (
           <option
             key={n.english}
             value={n.english}
-            style={{
-              color: n.english === nature ? '#aaa' : '#000',
-            }}
+            className={n.english === nature ? 'selectorOption--selected' : ''}
           >
             {n.japanese}
           </option>

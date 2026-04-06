@@ -14,10 +14,7 @@ export default function RangeSlider({ value, onChange }: Props) {
       max={252}
       step={4}
       onChange={(e) => onChange(Number(e.target.value))}
-      className="w-full appearance-none h-2 rounded-full bg-gray-700"
-      style={{
-        accentColor: '#3b82f6',
-      }}
+      className="rangeSlider"
     />
   );
 }

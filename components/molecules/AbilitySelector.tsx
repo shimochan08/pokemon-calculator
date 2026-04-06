@@ -1,4 +1,5 @@
 import { abilityMap } from '@/lib/data/abilityMap';
+import { selectorTooltipSlotProps } from '@/lib/ui/tooltipStyles';
 import { Tooltip } from '@mui/material';
 
 type AbilitySelectorProps = {
@@ -15,40 +16,21 @@ export function AbilitySelector({ ability, onChange, pokemonAbilities }: Ability
     <Tooltip
       title={selectedAbility?.effect || ''}
       arrow
-      slotProps={{
-        tooltip: {
-          sx: {
-            backgroundColor: '#111827',
-            color: '#fff',
-            padding: '8px 12px',
-          },
-        },
-        arrow: {
-          sx: {
-            color: '#111827',
-          },
-        },
-      }}
+      slotProps={selectorTooltipSlotProps}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
-        <div style={{ minWidth: '40px' }}>特性: </div>
+      <div className="selectorField">
+        <div className="selectorLabel">特性: </div>
         <select
+          className="selectorSelect"
           value={ability}
           onChange={(e) => onChange(e.target.value)}
-          style={{
-            fontSize: 14,
-            padding: '4px 8px',
-            border: '1px solid #374151',
-          }}
         >
           <option value="">特性を選択</option>
           {availableAbilities.map((a) => (
             <option
               key={a.english}
               value={a.english}
-              style={{
-                color: a.english === ability ? '#aaa' : '#000',
-              }}
+              className={a.english === ability ? 'selectorOption--selected' : ''}
             >
               {a.japanese}
             </option>
