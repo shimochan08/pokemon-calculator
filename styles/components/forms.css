@@ -1,0 +1,217 @@
+.numberInput {
+  width: 48px;
+  padding: 0;
+  background: #374151;
+  color: #fff;
+  border: 1px solid #374151;
+  border-radius: 2px;
+  text-align: center;
+  font-weight: 600;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.numberInput::-webkit-outer-spin-button,
+.numberInput::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.rangeSlider {
+  width: 100%;
+  appearance: none;
+  height: 8px;
+  border-radius: 999px;
+  background: #374151;
+  accent-color: #3b82f6;
+}
+
+.searchItem {
+  position: relative;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.searchItemField {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 260px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+}
+
+.searchItemIcon {
+  color: #6b7280;
+}
+
+.searchItemInput {
+  width: 100%;
+  min-width: 200px;
+  padding: 8px 10px;
+  background: #182230;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchItemResults {
+  position: absolute;
+  z-index: 10;
+  margin-top: 0.25rem;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #374151;
+  border-radius: 0.75rem;
+  box-shadow: none;
+}
+
+.searchItemResult {
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+}
+
+.searchItemResult--active {
+  background: #e5e7eb;
+}
+
+.searchItemResultLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.searchItemResultLabel--active {
+  color: #1e40af;
+}
+
+.moveSelector {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.moveSelectorRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #374151;
+}
+
+.moveSelectorControl {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.moveSelectorSelect,
+.selectorSelect {
+  font-size: 14px;
+  padding: 4px 8px;
+  border: 1px solid #374151;
+}
+
+.moveSelectorSelect option,
+.selectorSelect option {
+  color: #000;
+  background: #fff;
+}
+
+.selectorSelect--nature {
+  width: 40%;
+  margin-right: auto;
+}
+
+.selectorSelect option.selectorOption--selected,
+.moveSelectorSelect option.selectorOption--selected,
+.moveSelectorSelect option.moveSelectorOption--disabled {
+  color: #aaa;
+}
+
+.moveSelectorInfo {
+  min-height: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.moveSelectorInfoText {
+  font-size: 12px;
+  text-align: center;
+}
+
+.moveSelectorFlavor {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #9ca3af;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.statAdjuster {
+  width: 500px;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.statAdjusterSpacer {
+  margin: 16px;
+}
+
+.statAdjusterFooter,
+.selectorField {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.selectorLabel {
+  min-width: 40px;
+}
+
+.selectorLabel--item {
+  min-width: 60px;
+}
+
+.statRow {
+  display: grid;
+  grid-template-columns: 80px 60px 1fr 60px 60px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.statRowValue {
+  position: relative;
+  text-align: right;
+}
+
+.statRowNatureSign {
+  position: absolute;
+  top: 0;
+  right: -8px;
+}
+
+.addPanelContainer {
+  height: var(--height);
+  min-width: 300px;
+  background: var(--background);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 32px;
+}
+
+.addPanelIcon {
+  color: #374151;
+}

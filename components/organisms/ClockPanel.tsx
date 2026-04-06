@@ -57,39 +57,14 @@ export default function SamplePanel({ panel, setPanelItems }: SamplePanelProps) 
   const displayRecords = Array.from({ length: maxRecords }, (_, i) => records[i] || null);
 
   return (
-    <div
-      style={{
-        background: 'var(--panel-background)',
-        color: 'white',
-        height: 'var(--height)',
-        minWidth: 300,
-        padding: 16,
-        borderRadius: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontWeight: 600,
-        fontFamily: "'Orbitron', sans-serif",
-      }}
-    >
-      <div style={{ fontSize: 24, letterSpacing: 2, marginBottom: 16 }}>{formatTime(time)}</div>
+    <div className="organism-panel clockPanel">
+      <div className="clockPanelTime">{formatTime(time)}</div>
 
-      <div style={{ display: 'flex', width: '100%', maxWidth: 400, gap: 12 }}>
+      <div className="clockPanelBody">
         <button
+          className={`clockPanelRecordButton ${records.length >= maxRecords ? 'clockPanelRecordButton--disabled' : ''}`}
           onClick={addRecord}
           disabled={records.length >= maxRecords}
-          style={{
-            width: 120,
-            height: 40,
-            backgroundColor: records.length >= maxRecords ? '#888' : '#ff4081',
-            border: 'none',
-            borderRadius: 6,
-            color: 'white',
-            fontWeight: 600,
-            cursor: records.length >= maxRecords ? 'not-allowed' : 'pointer',
-            transition: 'transform 0.1s',
-          }}
           onMouseDown={(e) => {
             if (records.length < maxRecords) e.currentTarget.style.transform = 'scale(0.95)';
           }}
@@ -98,45 +73,13 @@ export default function SamplePanel({ panel, setPanelItems }: SamplePanelProps) 
           記録
         </button>
 
-        <div
-          style={{
-            flex: 1,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 4,
-            maxHeight: 200,
-          }}
-        >
+        <div className="clockPanelRecords">
           {displayRecords.map((t, i) => (
-            <div
-              key={i}
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                fontSize: 14,
-                opacity: t ? 0.9 : 0.5,
-                padding: '6px 8px',
-                borderRadius: 6,
-                backgroundColor: t ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.03)',
-                width: '100%',
-                minHeight: 32,
-              }}
-            >
+            <div key={i} className={`clockPanelRecordItem ${!t ? 'clockPanelRecordItem--empty' : ''}`}>
               <span>{t || ''}</span>
               {t && (
-                <button
-                  onClick={() => removeRecord(i)}
-                  style={{
-                    backgroundColor: 'transparent',
-                    border: 'none',
-                    color: '#ff4081',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                    padding: '0 4px',
-                  }}
-                >
-                  <TiDelete size={20} style={{ color: '#888' }} />
+                <button className="clockPanelDeleteButton" onClick={() => removeRecord(i)}>
+                  <TiDelete size={20} className="clockPanelDeleteIcon" />
                 </button>
               )}
             </div>

@@ -1,5 +1,3 @@
-import '@/styles/auth.css';
-
 export default function AuthPage() {
   return (
     <section className="auth-page">

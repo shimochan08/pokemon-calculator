@@ -40,15 +40,7 @@ export default function StatRow({
 
   const sign = natureMultiplier > 1.001 ? '+' : natureMultiplier < 0.999 ? '−' : '';
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '80px 60px 1fr 60px 60px',
-        gap: 8,
-        alignItems: 'center',
-        marginBottom: 10,
-      }}
-    >
+    <div className="statRow">
       {/* ステータス名 */}
       <strong>{STAT_LABEL[name] ?? name}</strong>
 
@@ -62,16 +54,10 @@ export default function StatRow({
       <NumberInput value={iv} min={0} max={31} onChange={onIvChange} />
 
       {/* 計算結果 */}
-      <div style={{ position: 'relative', textAlign: 'right' }}>
+      <div className="statRowValue">
         {adjustedStat}
         {(natureMultiplier > 1.001 || natureMultiplier < 0.999) && (
-          <span
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: -8,
-            }}
-          >
+          <span className="statRowNatureSign">
             {natureMultiplier > 1.001 ? '+' : '−'}
           </span>
         )}

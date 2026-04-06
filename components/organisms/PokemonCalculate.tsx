@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import '@/styles/dashboard.css';
 import { usePokemon } from '@/hooks/usePokemonData';
 import SearchBar from '../atoms/SearchItem';
 import StatAdjuster from '../molecules/StatAdjuster';
@@ -99,17 +98,7 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
 
   if (error) {
     return (
-      <div
-        className="panel"
-        style={{
-          height: 'var(--pokemon-panel-height)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'red',
-          fontSize: '18px',
-        }}
-      >
+      <div className="panel pokemonCalculatePanelState pokemonCalculatePanelState--error">
         <MdError size={50} />
         {error}
       </div>
@@ -118,22 +107,14 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
 
   if (loading) {
     return (
-      <div
-        className="panel"
-        style={{
-          height: 'var(--pokemon-panel-height)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="panel pokemonCalculatePanelState">
         <CircularProgress enableTrackSlot size="3rem" />
       </div>
     );
   }
 
   return (
-    <div className="panel" style={{ height: 'var(--pokemon-panel-height)' }}>
+    <div className="panel pokemonCalculatePanel">
       <div className="panel-header">
         <div className="panel-header-left">
           <SearchBar

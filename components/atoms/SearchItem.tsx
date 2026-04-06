@@ -28,10 +28,11 @@ export default function SearchBar({ items, current, onSelect }: SearchBarProps) 
   }, [query, current]);
 
   return (
-    <div className="relative w-full max-w-md">
-      <div className="flex items-center gap-2 rounded-xl  px-3 py-2 " style={{ minWidth: '260px' }}>
-        {isOpen && <HiMenu className={`text-gray-500 ${isOpen ? 'hidden' : 'block'}`} />}
+    <div className="searchItem">
+      <div className="searchItemField">
+        {isOpen && <HiMenu className={`searchItemIcon ${isOpen ? 'hidden' : 'block'}`} />}
         <input
+          className="searchItemInput"
           type="text"
           value={query}
           onChange={(e) => {
@@ -62,27 +63,15 @@ export default function SearchBar({ items, current, onSelect }: SearchBarProps) 
             }
           }}
           placeholder="ポケモンを検索"
-          className="w-full outline-none"
-          style={{
-            width: '100%',
-            minWidth: '200px',
-            padding: '8px 10px',
-            background: '#182230',
-            color: '#ffffffff',
-            fontSize: 14,
-          }}
         />
       </div>
 
       {isOpen && results.length > 0 && (
-        <ul className="absolute z-10 mt-1 w-full rounded-xl border shadow-none overflow-hidden">
+        <ul className="searchItemResults">
           {results.map((item, index) => (
             <li
               key={item.id}
-              className="cursor-pointer px-3 py-2"
-              style={{
-                background: index === activeIndex ? '#e5e7eb' : '#fff',
-              }}
+              className={`searchItemResult ${index === activeIndex ? 'searchItemResult--active' : ''}`}
               onMouseEnter={() => setActiveIndex(index)}
               onClick={() => {
                 onSelect?.(item);
@@ -91,7 +80,9 @@ export default function SearchBar({ items, current, onSelect }: SearchBarProps) 
                 setActiveIndex(-1);
               }}
             >
-              <div className={`text-sm font-medium ${index === activeIndex ? 'text-blue-800' : 'text-gray-800'}`}>
+              <div
+                className={`searchItemResultLabel ${index === activeIndex ? 'searchItemResultLabel--active' : ''}`}
+              >
                 {item.japanese}
               </div>
             </li>

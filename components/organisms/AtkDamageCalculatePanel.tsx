@@ -1,6 +1,6 @@
 'use client';
 
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Panel } from '@/types/domain/Panel';
 import { NATURE_MULTIPLIERS, PokemonBuild, StatKey } from '@/types/domain/PokemonBuild';
 import SearchBar from '../atoms/SearchItem';
@@ -167,21 +167,7 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
 
   if (atkError || defError) {
     return (
-      <div
-        style={{
-          background: 'var(--panel-background)',
-          color: 'red',
-          height: 'var(--height)',
-          padding: 16,
-          borderRadius: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          fontWeight: 600,
-          fontSize: 18,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="organism-panel organism-panel--centered organism-panel--error atkDamagePanelState">
         <MdError size={50} />
         Error loading Pokémon data.
       </div>
@@ -190,52 +176,17 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
 
   if (atkLoading || defLoading) {
     return (
-      <div
-        style={{
-          background: 'var(--panel-background)',
-          color: 'white',
-          height: 'var(--height)',
-          padding: 16,
-          borderRadius: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          fontWeight: 600,
-          fontSize: 18,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="organism-panel organism-panel--centered atkDamagePanelState">
         <CircularProgress enableTrackSlot size="3rem" />
       </div>
     );
   }
 
   return (
-    <div
-      style={{
-        background: 'var(--panel-background)',
-        color: 'white',
-        height: 'var(--height)',
-        minWidth: '1000px',
-        padding: 16,
-        borderRadius: 8,
-        display: 'grid',
-        gridTemplateColumns: '1fr 2fr 2fr',
-        gap: 12,
-      }}
-    >
+    <div className="atkDamagePanel">
       {/* ===== 攻撃側 ===== */}
-      <div
-        style={{
-          border: '1px solid #ce6464',
-          borderRadius: 6,
-          padding: 12,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 6,
-        }}
-      >
-        <div style={{ height: 43 }} />
+      <div className="atkDamagePanelSection atkDamagePanelSection--attacker">
+        <div className="atkDamagePanelSpacer" />
         {/* ヘッダー */}
         {atkPokemon &&
           (() => {
@@ -243,17 +194,17 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
             const spa = getAtkStat('spa');
 
             return (
-              <div style={{ borderBottom: '1px solid #333', paddingBottom: 8 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <div className="atkDamagePanelHeader">
+                <div className="atkDamagePanelHeaderRow">
                   {atkPokemon.sprites.frontDefault && (
-                    <img src={atkPokemon.sprites.frontDefault} style={{ width: 56, height: 56 }} />
+                    <img src={atkPokemon.sprites.frontDefault} className="atkDamagePanelSprite" />
                   )}
 
                   <div>
-                    <div style={{ fontWeight: 600 }}>
+                    <div className="atkDamagePanelTitle">
                       {pokemonMap.find((t) => t.english === atkPokemon.name)?.japanese ?? '-'}
                     </div>
-                    <div style={{ fontSize: 12 }}>
+                    <div className="atkDamagePanelMeta">
                       A:{atk} / C:{spa}
                     </div>
                   </div>
@@ -263,14 +214,7 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
           })()}
 
         {/* ヘッダー行 */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '40px 1fr 1fr 1fr',
-            fontSize: 12,
-            opacity: 0.7,
-          }}
-        >
+        <div className="atkDamagePanelGridHead atkDamagePanelGridHead--attacker">
           <div></div>
           <div>ランク</div>
           <div>倍率1</div>
@@ -279,16 +223,8 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
 
         {/* 行 */}
         {(['atk', 'spa'] as const).map((key) => (
-          <div
-            key={key}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '40px 1fr 1fr 1fr',
-              gap: 4,
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ fontWeight: 600 }}>{simpleStatMap[key as StatKey]}</div>
+          <div key={key} className="atkDamagePanelGridRow atkDamagePanelGridRow--attacker">
+            <div className="atkDamagePanelStatLabel">{simpleStatMap[key as StatKey]}</div>
 
             <NumberInput
               value={atkRanks[key]}
@@ -317,16 +253,7 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
       </div>
 
       {/* ===== 防御側 ===== */}
-      <div
-        style={{
-          border: '1px solid #6457dd',
-          borderRadius: 6,
-          padding: 6,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 6,
-        }}
-      >
+      <div className="atkDamagePanelSection atkDamagePanelSection--defender">
         <SearchBar
           items={pokemonMap}
           current={pokemonName}
@@ -356,15 +283,15 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
             const spd = calcStat(spdBase, defIVs.spd, defEVs.spd, defNatures.spd);
 
             return (
-              <div style={{ borderBottom: '1px solid #333', paddingBottom: 8 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                  <img src={defPokemon.sprites.frontDefault ?? ''} style={{ width: 56, height: 56 }} />
+              <div className="atkDamagePanelHeader">
+                <div className="atkDamagePanelHeaderRow">
+                  <img src={defPokemon.sprites.frontDefault ?? ''} className="atkDamagePanelSprite" />
                   <div>
-                    <div style={{ fontWeight: 600 }}>
+                    <div className="atkDamagePanelTitle">
                       {' '}
                       {pokemonMap.find((t) => t.english === defPokemon.name)?.japanese ?? '-'}
                     </div>
-                    <div style={{ fontSize: 12 }}>
+                    <div className="atkDamagePanelMeta">
                       HP:{hp} / B:{def} / D:{spd}
                     </div>
                   </div>
@@ -374,14 +301,7 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
           })()}
 
         {/* カラムヘッダー */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '40px repeat(6, 1fr)',
-            fontSize: 12,
-            opacity: 0.7,
-          }}
-        >
+        <div className="atkDamagePanelGridHead atkDamagePanelGridHead--defender">
           <div></div>
           <div>努力値</div>
           <div>個体値</div>
@@ -392,16 +312,8 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
         </div>
 
         {(['hp', 'def', 'spd'] as const).map((key) => (
-          <div
-            key={key}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '40px repeat(6, 1fr)',
-              gap: 4,
-              alignItems: 'center',
-            }}
-          >
-            <div style={{ fontWeight: 600 }}>{simpleStatMap[key as StatKey]}</div>
+          <div key={key} className="atkDamagePanelGridRow atkDamagePanelGridRow--defender">
+            <div className="atkDamagePanelStatLabel">{simpleStatMap[key as StatKey]}</div>
 
             <NumberInput
               value={defEVs[key]}
@@ -463,8 +375,8 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
       </div>
 
       {/* ===== ダメージ ===== */}
-      <div style={{ padding: 6 }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div className="atkDamagePanelDamage">
+        <div className="atkDamagePanelDamageList">
           {moves.map((move, i) => {
             if (!move) return null;
 
@@ -493,50 +405,27 @@ export default function AtkDamageCalculatePanel({ panel, setPanelItems, pokemonB
             return (
               <div key={i}>
                 {/* 技名 */}
-                <div style={{ fontWeight: 600 }}>{move.japanese}</div>
+                <div className="atkDamagePanelMoveTitle">{move.japanese}</div>
 
                 {/* ===== HPバー ===== */}
-                <div
-                  style={{
-                    height: 20,
-                    background: '#333',
-                    borderRadius: 4,
-                    overflow: 'hidden',
-                    position: 'relative',
-                  }}
-                >
-                  {/* 乱数幅（薄い） */}
-                  {maxRemain > minRemain && (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: `${minRemain}%`,
-                        width: `${maxRemain - minRemain}%`,
-                        height: '100%',
-                        background: lightColor,
-                        opacity: 0.4,
-                        transition: 'all 0.2s ease',
-                      }}
-                    />
-                  )}
-
-                  {/* 最低残りHP（濃い） */}
-                  {minRemain > 0 && (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        width: `${minRemain}%`,
-                        height: '100%',
-                        background: solidColor,
-                        transition: 'all 0.2s ease',
-                      }}
-                    />
-                  )}
+                <div className="atkDamagePanelBar">
+                  <svg className="atkDamagePanelBarSvg" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true">
+                    {minRemain > 0 && <rect x="0" y="0" width={minRemain} height="20" fill={solidColor} />}
+                    {maxRemain > minRemain && (
+                      <rect
+                        className="atkDamagePanelBarRange"
+                        x={minRemain}
+                        y="0"
+                        width={maxRemain - minRemain}
+                        height="20"
+                        fill={lightColor}
+                      />
+                    )}
+                  </svg>
                 </div>
 
                 {/* ===== ダメージ表示 ===== */}
-                <div style={{ fontSize: 12 }}>
+                <div className="atkDamagePanelMoveMeta">
                   {min} ~ {max} ({safeMinPct} ~ {safeMaxPct}%)
                 </div>
               </div>

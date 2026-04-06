@@ -18,7 +18,7 @@ export default function StatAdjuster({ stats, ivs, evs, nature, onChange }: Stat
   const remainingEv = 510 - totalEv;
 
   return (
-    <div style={{ width: '500px', flexShrink: 0, gap: 4 }}>
+    <div className="statAdjuster">
       {stats.map((s) => (
         <StatRow
           key={s.name}
@@ -43,8 +43,8 @@ export default function StatAdjuster({ stats, ivs, evs, nature, onChange }: Stat
           }}
         />
       ))}
-      <div style={{ margin: 16 }} />
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 4 }}>
+      <div className="statAdjusterSpacer" />
+      <div className="statAdjusterFooter">
         <div>性格: </div>
         <NatureSelector nature={nature} onChange={(newNature) => onChange(ivs, evs, newNature)} />
         <div>残り努力値: {remainingEv}</div>

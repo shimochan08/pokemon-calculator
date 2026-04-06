@@ -17,21 +17,7 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
   );
   if (error) {
     return (
-      <div
-        style={{
-          background: 'var(--panel-background)',
-          color: 'red',
-          height: 'var(--height)',
-          padding: 16,
-          borderRadius: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          fontWeight: 600,
-          fontSize: 18,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="organism-panel organism-panel--centered organism-panel--error statusRadarPanel">
         <MdError size={50} />
         Error loading Pokémon data.
       </div>
@@ -39,21 +25,7 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
   }
   if (!pokemon || loading) {
     return (
-      <div
-        style={{
-          background: 'var(--panel-background)',
-          color: 'white',
-          height: 'var(--height)',
-          padding: 16,
-          borderRadius: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          fontWeight: 600,
-          fontSize: 18,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+      <div className="organism-panel organism-panel--centered statusRadarPanel">
         <CircularProgress enableTrackSlot size="3rem" />
       </div>
     );
@@ -80,24 +52,11 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
   const statusOrder: StatKey[] = ['hp', 'atk', 'def', 'spe', 'spd', 'spa'];
   const orderedData = statusOrder.map((key) => data.find((d) => d.stat === key)!);
   return (
-    <div
-      style={{
-        background: 'var(--panel-background)',
-        color: 'white',
-        height: 'var(--height)',
-        minWidth: 300,
-        padding: 16,
-        borderRadius: 8,
-        display: 'flex',
-        flexDirection: 'column',
-        fontWeight: 600,
-        fontSize: 18,
-      }}
-    >
-      <div style={{ display: 'flex', height: '100%', gap: 16 }}>
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <div style={{ textAlign: 'center', marginBottom: 8, fontSize: 14, opacity: 0.7 }}>種族値</div>
-          <div style={{ flex: 1 }}>
+    <div className="organism-panel statusRadarPanel">
+      <div className="statusRadarPanelBody">
+        <div className="statusRadarPanelColumn">
+          <div className="statusRadarPanelLabel">種族値</div>
+          <div className="statusRadarPanelChart">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={orderedData}>
                 <PolarGrid />
@@ -109,9 +68,9 @@ export default function StatusRadarPanel({ pokemonBuild }: StatusRadarPanelProps
           </div>
         </div>
 
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-          <div style={{ textAlign: 'center', marginBottom: 8, fontSize: 14, opacity: 0.7 }}>実数値</div>
-          <div style={{ flex: 1 }}>
+        <div className="statusRadarPanelColumn">
+          <div className="statusRadarPanelLabel">実数値</div>
+          <div className="statusRadarPanelChart">
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={orderedData}>
                 <PolarGrid />

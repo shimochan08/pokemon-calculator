@@ -1,0 +1,298 @@
+.organism-panel {
+  background: var(--panel-background);
+  color: #fff;
+  height: var(--height);
+  min-width: 300px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.organism-panel--centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.organism-panel--error {
+  color: var(--danger);
+}
+
+.organism-panel--fill {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.samplePanel {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.statusRadarPanel {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.statusRadarPanelBody {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+}
+
+.statusRadarPanelColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.statusRadarPanelLabel {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.statusRadarPanelChart {
+  flex: 1;
+}
+
+.clockPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.clockPanelTime {
+  font-size: 24px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.clockPanelBody {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: 12px;
+}
+
+.clockPanelRecordButton {
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ff4081;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    background-color 0.2s ease;
+}
+
+.clockPanelRecordButton:disabled,
+.clockPanelRecordButton--disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.clockPanelRecords {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 200px;
+}
+
+.clockPanelRecordItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  width: 100%;
+  min-height: 32px;
+  opacity: 0.9;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.clockPanelRecordItem--empty {
+  opacity: 0.5;
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.clockPanelDeleteButton {
+  background-color: transparent;
+  border: none;
+  color: #ff4081;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.clockPanelDeleteIcon {
+  color: #888;
+}
+
+.memoPanelTextarea {
+  flex: 1;
+  border-radius: 4px;
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  resize: none;
+  outline: none;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+}
+
+.pokemonCalculatePanel {
+  height: var(--pokemon-panel-height);
+}
+
+.pokemonCalculatePanelState {
+  height: var(--pokemon-panel-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokemonCalculatePanelState--error {
+  color: var(--danger);
+  font-size: 18px;
+}
+
+.atkDamagePanel {
+  background: var(--panel-background);
+  color: #fff;
+  height: var(--height);
+  min-width: 1000px;
+  padding: 16px;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 12px;
+}
+
+.atkDamagePanelState {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.atkDamagePanelSection {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 6px;
+}
+
+.atkDamagePanelSection--attacker {
+  border: 1px solid #ce6464;
+  padding: 12px;
+}
+
+.atkDamagePanelSection--defender {
+  border: 1px solid #6457dd;
+  padding: 6px;
+}
+
+.atkDamagePanelSpacer {
+  height: 43px;
+}
+
+.atkDamagePanelHeader {
+  border-bottom: 1px solid #333;
+  padding-bottom: 8px;
+}
+
+.atkDamagePanelHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.atkDamagePanelSprite {
+  width: 56px;
+  height: 56px;
+}
+
+.atkDamagePanelTitle {
+  font-weight: 600;
+}
+
+.atkDamagePanelMeta {
+  font-size: 12px;
+}
+
+.atkDamagePanelGridHead {
+  display: grid;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.atkDamagePanelGridHead--attacker,
+.atkDamagePanelGridRow--attacker {
+  grid-template-columns: 40px 1fr 1fr 1fr;
+}
+
+.atkDamagePanelGridHead--defender,
+.atkDamagePanelGridRow--defender {
+  grid-template-columns: 40px repeat(6, 1fr);
+}
+
+.atkDamagePanelGridRow {
+  display: grid;
+  gap: 4px;
+  align-items: center;
+}
+
+.atkDamagePanelStatLabel {
+  font-weight: 600;
+}
+
+.atkDamagePanelDamage {
+  padding: 6px;
+}
+
+.atkDamagePanelDamageList {
+  display: flex;
+  flex-direction: column;
+}
+
+.atkDamagePanelMoveTitle {
+  font-weight: 600;
+}
+
+.atkDamagePanelBar {
+  height: 20px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.atkDamagePanelBarSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.atkDamagePanelBarRange {
+  opacity: 0.4;
+}
+
+.atkDamagePanelMoveMeta {
+  font-size: 12px;
+}

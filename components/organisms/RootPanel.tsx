@@ -2,7 +2,6 @@ import { resolveComponent } from '@/utils/resolver';
 import { Panel, PanelSize, Panel as PanelType } from '@/types/domain/Panel';
 import { TiDelete } from 'react-icons/ti';
 import { PokemonBuild } from '@/types/domain/PokemonBuild';
-import '@/styles/dashboard.css';
 
 type RootPanelProps = {
   panel: PanelType;

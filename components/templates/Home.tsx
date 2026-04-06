@@ -2,19 +2,9 @@ import PickedMember from '../organisms/PickedMember';
 import { useAllPokemonBuilds } from '@/hooks/useAllPokemonBuilds';
 
 export default function Home() {
-  const { slots, builds, loading } = useAllPokemonBuilds();
+  const { slots, builds } = useAllPokemonBuilds();
   return (
-    <div
-      style={{
-        width: '100%',
-        height: 'calc(100vh - 60px)',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gridTemplateRows: 'repeat(2, 1fr)',
-        gap: '16px',
-        padding: '16px',
-      }}
-    >
+    <div className="home-grid">
       {slots?.map((slot, idx) => {
         const build = builds?.[idx];
         return (
