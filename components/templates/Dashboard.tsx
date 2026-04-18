@@ -25,6 +25,26 @@ export type DeletePanelTarget = {
   deletePanelSize: PanelSize;
 };
 
+function materializeItemsFromRows(currentRows: LayoutPanel[][]): (Panel | null)[] {
+  return currentRows.flatMap((row) =>
+    row.flatMap((panel) => {
+      if (panel.componentKey === 'add_panel') {
+        return panel.size === 'none' ? [] : Array(getColSpan(panel.size)).fill(null);
+      }
+
+      return [
+        {
+          id: panel.id,
+          title: panel.title,
+          size: panel.size,
+          componentKey: panel.componentKey,
+          settings: panel.settings,
+        },
+      ];
+    }),
+  );
+}
+
 export default function Dashboard() {
   const { id } = useParams();
   const slotId = Number(id) - 1;
@@ -146,12 +166,15 @@ export default function Dashboard() {
   function confirmDelete() {
     if (deletePanelTarget === null) return;
     setItems((prev) => {
-      const next = [...prev];
-      const { index, deletePanelSize } = deletePanelTarget;
-      next.splice(index, 1);
-      const span = getColSpan(deletePanelSize);
-      const nulls = Array(span).fill(null);
-      next.splice(index, 0, ...nulls);
+      const targetPanel = prev[deletePanelTarget.index];
+      if (!targetPanel) return prev;
+
+      const next = materializeItemsFromRows(rows);
+      const explicitIndex = next.findIndex((item) => item?.id === targetPanel.id);
+
+      if (explicitIndex === -1) return prev;
+
+      next.splice(explicitIndex, 1, ...Array(getColSpan(targetPanel.size)).fill(null));
       return next;
     });
     setDeletePanelTarget(null);
