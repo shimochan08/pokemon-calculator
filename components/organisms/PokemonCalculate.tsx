@@ -12,6 +12,7 @@ import { AbilitySelector } from '../molecules/AbilitySelector';
 import { ItemSelector } from '../molecules/ItemSelector';
 import { CircularProgress } from '@mui/material';
 import { MdError } from 'react-icons/md';
+import { usePokemonBuildsContext } from '@/contexts/PokemonBuildsContext';
 
 type PokemonCalculateProps = {
   build: PokemonBuild | null;
@@ -23,6 +24,7 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
   const [pokemonName, setPokemonName] = useState(build?.name ?? 'pikachu');
   const { pokemon, loading, error } = usePokemon(pokemonName);
   const { updateBuild } = usePokemonBuildUpdate();
+  const { refetchBuilds } = usePokemonBuildsContext();
   const [isDirty, setIsDirty] = useState(false);
 
   const defaultIvs: Record<StatKey, number> = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
@@ -76,7 +78,7 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
     setNature(build.nature);
   }, [build, pokemon]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!pokemon) return;
 
     const newBuild: PokemonBuild = {
@@ -92,7 +94,8 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
       nature: nature,
     };
 
-    updateBuild(newBuild);
+    await updateBuild(newBuild);
+    await refetchBuilds();
     setIsDirty(false);
   };
 

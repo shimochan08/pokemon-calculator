@@ -46,6 +46,7 @@
   border-right: 1px solid var(--surface);
   transition: var(--layout-transition);
   flex-shrink: 0;
+  overflow-y: auto;
 }
 
 .app-sidebar--hidden {
@@ -87,6 +88,10 @@
 .app-nav-link {
   display: block;
   padding: 12px;
+}
+
+.app-sidebarNav {
+  padding: 24px 0;
 }
 
 html,
