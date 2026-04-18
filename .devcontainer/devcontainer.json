@@ -8,11 +8,25 @@
     }
   },
 
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "bash .devcontainer/setup-codex-mcp.sh && npm install",
 
   "customizations": {
     "vscode": {
-      "extensions": ["esbenp.prettier-vscode"],
+      "mcp": {
+        "servers": {
+          "playwright": {
+            "command": "npx",
+            "args": [
+              "-y",
+              "@playwright/mcp@latest",
+              "--headless",
+              "--browser=chromium",
+              "--no-sandbox"
+            ]
+          }
+        }
+      },
+      "extensions": ["esbenp.prettier-vscode", "openai.chatgpt"],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
