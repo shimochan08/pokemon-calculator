@@ -45,8 +45,36 @@ export function useDashboardSlotUpdate(
     await saveSlots(next ?? []);
   }, [saveSlots]);
 
+  const addSlot = useCallback(async () => {
+    const current = slotsRef.current ?? [];
+    const nextSlotId = current.length;
+
+    await saveSlots([
+      ...current,
+      {
+        slotId: nextSlotId,
+        buildId: null,
+        panels: [],
+      },
+    ]);
+  }, [saveSlots]);
+
+  const deleteSlot = useCallback(async (slotId: number) => {
+    const current = slotsRef.current ?? [];
+    const next = current
+      .filter((slot) => slot.slotId !== slotId)
+      .map((slot, index) => ({
+        ...slot,
+        slotId: index,
+      }));
+
+    await saveSlots(next);
+  }, [saveSlots]);
+
   return {
     updateSlotBuild,
     updateSlotPanels,
+    addSlot,
+    deleteSlot,
   };
 }

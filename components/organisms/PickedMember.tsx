@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { PokeApiData } from '@/types/domain/PokeApiData';
 import { StatKey } from '@/types/domain/PokemonBuild';
 import { fetchPokemon } from '@/api/pokemonApi';
@@ -12,7 +12,7 @@ import { natureMap } from '@/lib/data/natureMap';
 import { typeMap } from '@/lib/data/typeMaps';
 import { simpleStatMap } from '@/lib/data/statLabel';
 import { moveMap } from '@/lib/data/moveMap';
-import { MdError, MdOutlineAddCircle } from 'react-icons/md';
+import { MdDeleteOutline, MdError, MdOutlineAddCircle } from 'react-icons/md';
 import PanelLoading from '../atoms/PanelLoading';
 
 type PickedMemberProps = {
@@ -25,9 +25,21 @@ type PickedMemberProps = {
   nature?: string;
   ivs?: Record<StatKey, number>;
   evs?: Record<StatKey, number>;
+  onDelete?: (slotId: number) => void;
 };
 
-export default function PickedMember({ slotId, name, dex, ability, item, moves, nature, ivs, evs }: PickedMemberProps) {
+export default function PickedMember({
+  slotId,
+  name,
+  dex,
+  ability,
+  item,
+  moves,
+  nature,
+  ivs,
+  evs,
+  onDelete,
+}: PickedMemberProps) {
   const router = useRouter();
   const [pokemon, setPokemon] = useState<PokeApiData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -50,23 +62,51 @@ export default function PickedMember({ slotId, name, dex, ability, item, moves, 
     router.push(`/pokemon-builder?slot=${slotId + 1}`);
   };
 
+  const handleDeleteClick = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    onDelete?.(slotId);
+  };
+
+  const deleteButton = onDelete ? (
+    <button
+      type="button"
+      className="member-deleteButton"
+      aria-label={`Slot ${slotId + 1} を削除`}
+      onClick={handleDeleteClick}
+    >
+      <MdDeleteOutline size={20} />
+    </button>
+  ) : null;
+
   if (!name)
     return (
       <div className="member-card member-card--empty" onClick={handleClick}>
+        {deleteButton}
         <MdOutlineAddCircle color="#e4e7eb" size="100px" className="member-emptyIcon" />
         <p>ポケモンが選択されていません</p>
       </div>
     );
   if (loading)
-    return <PanelLoading className="member-card member-card--loading" onClick={handleClick} />;
+    return (
+      <div className="member-card member-card--loading" onClick={handleClick}>
+        {deleteButton}
+        <PanelLoading />
+      </div>
+    );
   if (error)
     return (
       <div className="member-card member-card--error" onClick={handleClick}>
+        {deleteButton}
         <MdError size={50} />
         {error}
       </div>
     );
-  if (!pokemon) return <div className="member-card" onClick={handleClick}></div>;
+  if (!pokemon)
+    return (
+      <div className="member-card" onClick={handleClick}>
+        {deleteButton}
+      </div>
+    );
 
   const pokemonNameText = pokemonMap.find((t) => t.english === name)?.japanese;
   const pokemonTypesText = pokemon?.types?.map((type) => {
@@ -83,6 +123,7 @@ export default function PickedMember({ slotId, name, dex, ability, item, moves, 
 
   return (
     <div className="member-card" onClick={handleClick}>
+      {deleteButton}
       <MemberInfo
         pokemonNameText={pokemonNameText}
         pokemonTypesText={pokemonTypesText}

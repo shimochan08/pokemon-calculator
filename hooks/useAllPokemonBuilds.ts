@@ -4,8 +4,8 @@ import { useDashboardSlotRead } from '@/hooks/useDashboardSlotRead';
 import { pokemonBuildLocalStorage } from '@/repositories/localStrage/pokemonBuildLocalStorage';
 
 export function useAllPokemonBuilds() {
-  const { slots, loading: slotsLoading } = useDashboardSlotRead();
-  const [builds, setBuilds] = useState<(PokemonBuild | null)[]>([null, null, null, null, null, null]);
+  const { slots, setSlots, loading: slotsLoading } = useDashboardSlotRead();
+  const [builds, setBuilds] = useState<(PokemonBuild | null)[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -24,5 +24,5 @@ export function useAllPokemonBuilds() {
     loadBuilds();
   }, [slots, slotsLoading]);
 
-  return { slots, builds, loading };
+  return { slots, setSlots, builds, loading };
 }
