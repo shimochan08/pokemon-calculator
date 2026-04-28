@@ -1,3 +1,5 @@
+'use client';
+
 import PickedMember from '../organisms/PickedMember';
 import { useAllPokemonBuilds } from '@/hooks/useAllPokemonBuilds';
 
