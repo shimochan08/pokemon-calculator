@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Tooltip } from '@mui/material';
@@ -35,20 +35,51 @@ const SIDEBAR_ITEMS: SidebarItem[] = [
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(true);
+  const [isSidebarTransitioning, setIsSidebarTransitioning] = useState(false);
+  const sidebarTransitionTimeoutRef = useRef<number | null>(null);
   const pathname = usePathname();
   const isStandalonePage = STANDALONE_PATHS.includes(pathname);
+  const isBarePage = pathname === '/';
+
+  const handleToggleSidebar = () => {
+    setIsSidebarTransitioning(true);
+    setOpen((prev) => !prev);
+    if (sidebarTransitionTimeoutRef.current !== null) {
+      window.clearTimeout(sidebarTransitionTimeoutRef.current);
+    }
+    sidebarTransitionTimeoutRef.current = window.setTimeout(() => {
+      setIsSidebarTransitioning(false);
+      sidebarTransitionTimeoutRef.current = null;
+    }, 300);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (sidebarTransitionTimeoutRef.current !== null) {
+        window.clearTimeout(sidebarTransitionTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className="app-container">
-      <AppHeader
-        isSidebarVisible={!isStandalonePage}
-        isSidebarOpen={open}
-        onToggleSidebar={() => setOpen((prev) => !prev)}
-      />
+    <div className={`app-container ${isBarePage ? 'app-container--bare' : ''}`}>
+      {!isBarePage && (
+        <AppHeader
+          isSidebarVisible={!isStandalonePage}
+          isSidebarOpen={open}
+          onToggleSidebar={handleToggleSidebar}
+        />
+      )}
 
       <AppSidebar isHidden={isStandalonePage} isOpen={open} pathname={pathname} items={SIDEBAR_ITEMS} />
 
-      <main className={`app-main ${!isStandalonePage && open ? 'app-main--withSidebar' : ''}`}>
+      <main
+        className={`app-main ${isBarePage ? 'app-main--bare' : ''} ${
+          isSidebarTransitioning ? 'app-main--sidebarTransition' : ''
+        } ${
+          !isStandalonePage && open ? 'app-main--withSidebar' : ''
+        }`}
+      >
         <div>{children}</div>
       </main>
     </div>

@@ -1,5 +1,9 @@
-import Home from '@/components/templates/Home';
+import GoogleLoginButton from '@/components/atoms/GoogleLoginButton';
 
-export default function HomePage() {
-  return <Home />;
+export default function LoginPage() {
+  return (
+    <section className="login-page">
+      <GoogleLoginButton href="/home" />
+    </section>
+  );
 }
