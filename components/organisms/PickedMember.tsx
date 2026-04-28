@@ -47,7 +47,7 @@ export default function PickedMember({ slotId, name, dex, ability, item, moves, 
   }, [name]);
 
   const handleClick = () => {
-    router.push(`/dashboard/${slotId + 1}`);
+    router.push(`/pokemon-builder?slot=${slotId + 1}`);
   };
 
   if (!name)

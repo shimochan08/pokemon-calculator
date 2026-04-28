@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useDashboardSlotRead } from '@/hooks/useDashboardSlotRead';
 import { useDashboardSlotUpdate } from '@/hooks/useDashboardSlotUpdate';
 import { columns, LayoutPanel, rebuildLayout } from '@/utils/layout';
@@ -25,6 +25,14 @@ export type DeletePanelTarget = {
   deletePanelSize: PanelSize;
 };
 
+function getPokemonBuilderSlotId(slot: string | null) {
+  const parsed = Number(slot);
+
+  if (!Number.isInteger(parsed) || parsed < 1) return null;
+
+  return parsed - 1;
+}
+
 function materializeItemsFromRows(currentRows: LayoutPanel[][]): (Panel | null)[] {
   return currentRows.flatMap((row) =>
     row.flatMap((panel) => {
@@ -45,17 +53,17 @@ function materializeItemsFromRows(currentRows: LayoutPanel[][]): (Panel | null)[
   );
 }
 
-export default function Dashboard() {
-  const { id } = useParams();
-  const slotId = Number(id) - 1;
+export default function PokemonBuilder() {
+  const searchParams = useSearchParams();
+  const slotId = getPokemonBuilderSlotId(searchParams.get('slot'));
   const [pokemonBuild, setPokemonBuild] = useState<PokemonBuild>(initialBuild);
-  const { slots, setSlots } = useDashboardSlotRead();
-  const slot = slots?.[slotId];
+  const { slots, setSlots, loading: slotsLoading } = useDashboardSlotRead();
+  const slot = slotId === null ? undefined : slots?.[slotId];
   const buildId = slot?.buildId ?? null;
 
   const { build } = usePokemonBuildRead(buildId);
 
-  const { updateSlotPanels } = useDashboardSlotUpdate(slots, setSlots);
+  const { updateSlotBuild, updateSlotPanels } = useDashboardSlotUpdate(slots, setSlots);
   const [initialized, setInitialized] = useState(false);
   // アイテムをただ管理するstate
   const [items, setItems] = useState<(Panel | null)[]>([]);
@@ -63,6 +71,11 @@ export default function Dashboard() {
   const [rows, setRows] = useState<LayoutPanel[][]>([]);
   const [deletePanelTarget, setDeletePanelTarget] = useState<DeletePanelTarget | null>(null);
   const [addPanelTarget, setAddPanelTarget] = useState<AddPanelTarget | null>(null);
+
+  useEffect(() => {
+    setInitialized(false);
+    setItems([]);
+  }, [slotId]);
 
   useEffect(() => {
     let lastValidIndex = items.length - 1;
@@ -78,6 +91,7 @@ export default function Dashboard() {
   }, [items]);
 
   useEffect(() => {
+    if (slotId === null) return;
     if (!slots?.length) return;
     if (initialized) return;
 
@@ -91,31 +105,34 @@ export default function Dashboard() {
   }, [slots, slotId, initialized]);
 
   useEffect(() => {
+    if (slotId === null) return;
     if (!slots?.length) return;
 
     const slot = slots[slotId];
     if (!slot) return;
 
     if (!slot.buildId) {
-      const buildId = crypto.randomUUID();
-
-      const next = [...slots];
-      next[slotId] = {
-        ...slot,
-        buildId,
-      };
-
-      setSlots(next);
+      updateSlotBuild(slotId, crypto.randomUUID());
     }
-  }, [slots, slotId]);
+  }, [slots, slotId, updateSlotBuild]);
 
   useEffect(() => {
+    if (slotId === null) return;
     if (!slots?.length) return;
+    if (!initialized) return;
 
     const panels = items.map(mapPanelToInstance);
 
     updateSlotPanels(slotId, panels);
-  }, [items, slotId]);
+  }, [items, slotId, initialized, updateSlotPanels]);
+
+  if (slotsLoading) {
+    return <div style={{ padding: 20 }}>読み込み中...</div>;
+  }
+
+  if (slotId === null || !slot) {
+    return <div style={{ padding: 20 }}>Pokemon Builder が見つかりません</div>;
+  }
 
   function handleSubmit(panelIndex: number, size: PanelSize, componentKey: string, panelSize: PanelSize) {
     setItems((prev) => {

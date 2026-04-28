@@ -3,10 +3,10 @@
 import PickedMember from '../organisms/PickedMember';
 import { useAllPokemonBuilds } from '@/hooks/useAllPokemonBuilds';
 
-export default function Home() {
+export default function PokemonList() {
   const { slots, builds } = useAllPokemonBuilds();
   return (
-    <div className="home-grid">
+    <div className="pokemon-list-grid">
       {slots?.map((slot, idx) => {
         const build = builds?.[idx];
         return (

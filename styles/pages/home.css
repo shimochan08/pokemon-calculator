@@ -1,4 +1,4 @@
-.home-grid {
+.pokemon-list-grid {
   width: 100%;
   height: calc(100vh - var(--header-height));
   display: grid;
@@ -133,7 +133,7 @@
 }
 
 @media (max-width: 1250px), (max-height: 500px) {
-  .home-grid {
+  .pokemon-list-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: auto;
   }
@@ -161,8 +161,108 @@
 }
 
 @media (max-width: 767px) {
-  .home-grid {
+  .pokemon-list-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+.home-guide {
+  min-height: calc(100vh - var(--header-height));
+  padding: 48px;
+  color: var(--foreground);
+  background:
+    linear-gradient(135deg, rgba(48, 122, 214, 0.18), transparent 42%),
+    linear-gradient(315deg, rgba(247, 201, 72, 0.14), transparent 36%),
+    var(--background);
+}
+
+.home-guideHero {
+  max-width: 880px;
+}
+
+.home-guideKicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.home-guideTitle {
+  max-width: 760px;
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.home-guideLead {
+  max-width: 720px;
+  margin: 20px 0 0;
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.home-guideGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.home-guideCard {
+  min-height: 176px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+
+.home-guideCard h2,
+.home-guideNote h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.home-guideCard p,
+.home-guideNote p {
+  margin: 14px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.home-guideNote {
+  margin-top: 16px;
+  padding: 24px;
+  border-radius: var(--radius-md);
+  background: var(--surface-elevated);
+  border-left: 4px solid var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .home-guide {
+    padding: 32px;
+  }
+
+  .home-guideTitle {
+    font-size: 36px;
+  }
+
+  .home-guideGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-guide {
+    padding: 24px 16px;
+  }
+
+  .home-guideTitle {
+    font-size: 30px;
   }
 }
 

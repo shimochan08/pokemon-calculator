@@ -7,12 +7,11 @@ import { Tooltip } from '@mui/material';
 import type { IconType } from 'react-icons';
 import {
   TbCalculator,
-  TbChartRadar,
   TbLayoutSidebarLeftCollapseFilled,
   TbList,
   TbMenu2,
-  TbNotes,
   TbSettings,
+  TbSwords,
   TbUsersGroup,
 } from 'react-icons/tb';
 
@@ -25,12 +24,11 @@ type SidebarItem = {
 const STANDALONE_PATHS = ['/', '/auth'];
 
 const SIDEBAR_ITEMS: SidebarItem[] = [
-  { label: 'ポケモン一覧', href: '/dashboard/1', Icon: TbList },
-  { label: 'パーティ編成', href: '/dashboard/2', Icon: TbUsersGroup },
-  { label: 'ダメージ計算', href: '/dashboard/3', Icon: TbCalculator },
-  { label: 'ステータス確認', href: '/dashboard/4', Icon: TbChartRadar },
-  { label: '育成メモ', href: '/dashboard/5', Icon: TbNotes },
-  { label: '設定', href: '/dashboard/6', Icon: TbSettings },
+  { label: 'ポケモン一覧', href: '/pokemon-list', Icon: TbList },
+  { label: 'パーティ編成', href: '/party-builder', Icon: TbUsersGroup },
+  { label: 'バトル', href: '/battle', Icon: TbSwords },
+  { label: 'ダメージ計算', href: '/damage-calculator', Icon: TbCalculator },
+  { label: '設定', href: '/settings', Icon: TbSettings },
 ];
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -64,11 +62,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`app-container ${isBarePage ? 'app-container--bare' : ''}`}>
       {!isBarePage && (
-        <AppHeader
-          isSidebarVisible={!isStandalonePage}
-          isSidebarOpen={open}
-          onToggleSidebar={handleToggleSidebar}
-        />
+        <AppHeader isSidebarVisible={!isStandalonePage} isSidebarOpen={open} onToggleSidebar={handleToggleSidebar} />
       )}
 
       <AppSidebar isHidden={isStandalonePage} isOpen={open} pathname={pathname} items={SIDEBAR_ITEMS} />
@@ -76,9 +70,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <main
         className={`app-main ${isBarePage ? 'app-main--bare' : ''} ${
           isSidebarTransitioning ? 'app-main--sidebarTransition' : ''
-        } ${
-          !isStandalonePage && open ? 'app-main--withSidebar' : ''
-        }`}
+        } ${!isStandalonePage && open ? 'app-main--withSidebar' : ''}`}
       >
         <div>{children}</div>
       </main>
@@ -125,7 +117,7 @@ function AppHeader({
           },
         }}
       >
-        <Link href="/" className="app-nav-link">
+        <Link href="/home" className="app-nav-link">
           <h1 className="app-headerTitle">Pokémon Super Dashboard</h1>
         </Link>
       </Tooltip>
