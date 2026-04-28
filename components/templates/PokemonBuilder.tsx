@@ -14,6 +14,7 @@ import { mapPanelInstanceToPanel, mapPanelToInstance } from '@/lib/typeMapper/ma
 import { usePokemonBuildRead } from '@/hooks/usePokemonBuildRead';
 import { panelRegistry } from '@/utils/panelRegistry';
 import { initialBuild, PokemonBuild } from '@/types/domain/PokemonBuild';
+import PanelLoading from '../atoms/PanelLoading';
 
 export type AddPanelTarget = {
   index: number;
@@ -127,7 +128,11 @@ export default function PokemonBuilder() {
   }, [items, slotId, initialized, updateSlotPanels]);
 
   if (slotsLoading) {
-    return <div style={{ padding: 20 }}>読み込み中...</div>;
+    return (
+      <div style={{ padding: 20 }}>
+        <PanelLoading />
+      </div>
+    );
   }
 
   if (slotId === null || !slot) {

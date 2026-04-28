@@ -9,7 +9,7 @@ import '@/styles/components/dialog.css';
 import '@/styles/components/add-panel.css';
 import '@/styles/components/organisms.css';
 import '@/styles/components/forms.css';
-import AppLayout from '@/components/layouts/AppLayout';
+import AppLayout from '@/app/_components/AppLayout';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',

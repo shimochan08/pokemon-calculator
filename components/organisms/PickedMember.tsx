@@ -12,8 +12,8 @@ import { natureMap } from '@/lib/data/natureMap';
 import { typeMap } from '@/lib/data/typeMaps';
 import { simpleStatMap } from '@/lib/data/statLabel';
 import { moveMap } from '@/lib/data/moveMap';
-import { CircularProgress } from '@mui/material';
 import { MdError, MdOutlineAddCircle } from 'react-icons/md';
+import PanelLoading from '../atoms/PanelLoading';
 
 type PickedMemberProps = {
   slotId: number;
@@ -58,11 +58,7 @@ export default function PickedMember({ slotId, name, dex, ability, item, moves, 
       </div>
     );
   if (loading)
-    return (
-      <div className="member-card member-card--loading" onClick={handleClick}>
-        <CircularProgress enableTrackSlot size="3rem" />
-      </div>
-    );
+    return <PanelLoading className="member-card member-card--loading" onClick={handleClick} />;
   if (error)
     return (
       <div className="member-card member-card--error" onClick={handleClick}>

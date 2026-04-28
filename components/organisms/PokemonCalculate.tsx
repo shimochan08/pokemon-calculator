@@ -10,8 +10,8 @@ import { usePokemonBuildUpdate } from '@/hooks/usePokemonBuildUpdate';
 import { PokemonBuild, StatKey } from '@/types/domain/PokemonBuild';
 import { AbilitySelector } from '../molecules/AbilitySelector';
 import { ItemSelector } from '../molecules/ItemSelector';
-import { CircularProgress } from '@mui/material';
 import { MdError } from 'react-icons/md';
+import PanelLoading from '../atoms/PanelLoading';
 
 type PokemonCalculateProps = {
   build: PokemonBuild | null;
@@ -106,11 +106,7 @@ export default function PokemonCalculate({ build, buildId, setPokemonBuild }: Po
   }
 
   if (loading) {
-    return (
-      <div className="panel pokemonCalculatePanelState">
-        <CircularProgress enableTrackSlot size="3rem" />
-      </div>
-    );
+    return <PanelLoading />;
   }
 
   return (
