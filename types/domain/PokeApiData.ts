@@ -1,6 +1,3 @@
-import { moveMap } from '@/lib/data/moveMap';
-import { translateType } from '@/lib/predict/translateType';
-
 export interface PokeApiData {
   id: number;
   name: string;
@@ -34,47 +31,43 @@ export interface PokemonStat {
 
 export type DamageClassType = 'physical' | 'special' | 'status' | 'unknown';
 
-export function mapToPokeApiData(data: any): PokeApiData {
-  const STAT_SHORT: Record<string, string> = {
-    hp: 'hp',
-    attack: 'atk',
-    defense: 'def',
-    'special-attack': 'spa',
-    'special-defense': 'spd',
-    speed: 'spe',
-  };
-  return {
-    id: data.id,
-    name: data.name,
-    sprites: {
-      frontDefault: data.sprites?.front_default ?? null,
-      backDefault: data.sprites?.back_default ?? null,
-      frontShiny: data.sprites?.front_shiny ?? null,
-    },
-    types: data.types.map((t: any) => translateType(t.type.name)),
-    abilities: data.abilities.map((a: any) => a.ability.name),
-    moves: data.moves.map((m: any) => {
-      const found = moveMap.find((mv) => mv.english === m.move.name);
+function normalizeDamageClass(value: unknown): DamageClassType {
+  if (value === 'physical' || value === 'special' || value === 'status') {
+    return value;
+  }
 
-      return (
-        found ?? {
-          english: m.move.name,
-          japanese: m.move.name,
-          type: m.move.type.name,
-          power: null,
-          accuracy: null,
-          damageClass: 'unknown',
-          flags: [],
-          flavorText: m.move.flavorText ?? '',
-        }
-      );
-    }),
-    stats:
-      data.stats?.map(
-        (s: any): PokemonStat => ({
-          name: STAT_SHORT[s.stat?.name ?? ''] ?? s.stat?.name ?? '',
-          baseStat: s.base_stat ?? 0,
-        }),
-      ) ?? [],
+  return 'unknown';
+}
+
+export function mapToPokeApiData(data: any): PokeApiData {
+  return {
+    id: Number(data?.id ?? 0),
+    name: String(data?.name ?? ''),
+    sprites: {
+      frontDefault: data?.sprites?.frontDefault ?? null,
+      backDefault: data?.sprites?.backDefault ?? null,
+      frontShiny: data?.sprites?.frontShiny ?? null,
+    },
+    types: Array.isArray(data?.types) ? data.types.map((type: unknown) => String(type)) : [],
+    abilities: Array.isArray(data?.abilities) ? data.abilities.map((ability: unknown) => String(ability)) : [],
+    moves: Array.isArray(data?.moves)
+      ? data.moves.map((move: any): PokemonMove => ({
+          english: String(move?.english ?? ''),
+          japanese: String(move?.japanese ?? ''),
+          type: String(move?.type ?? ''),
+          power: move?.power ?? null,
+          accuracy: move?.accuracy ?? null,
+          damageClass: normalizeDamageClass(move?.damageClass),
+          flavorText: String(move?.flavorText ?? ''),
+        }))
+      : [],
+    stats: Array.isArray(data?.stats)
+      ? data.stats.map(
+          (stat: any): PokemonStat => ({
+            name: String(stat?.name ?? ''),
+            baseStat: Number(stat?.baseStat ?? 0),
+          }),
+        )
+      : [],
   };
 }
